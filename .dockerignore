@@ -1,0 +1,6 @@
+Jenkins*
+*.xlsx
+drivers
+.settings
+.build/ansible-gnome-vm
+.build/docker
