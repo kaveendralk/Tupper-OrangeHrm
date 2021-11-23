@@ -11,6 +11,7 @@ Feature: Tupperwarae Sanity Test Suite
     Examples: 
       | userName          | password          |
       |consultant-userName|consultant-password|
+
      #| PATTYK            | test              |
       
   @SANITYTESTSUIT
