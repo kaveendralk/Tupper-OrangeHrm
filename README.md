@@ -9,6 +9,7 @@
 2. Install Homebrew: https://brew.sh/
 3. Install Git: `brew install git`
 4. Install Maven: `brew install maven`
+5. Install Cucumber-Eclipse plugin feature via Eclipse market place
 
 ## Running the tests
 
