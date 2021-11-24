@@ -35,7 +35,8 @@ public class TupperLoginPage extends PageObject {
 	 */
 	public BusinessPage tupper_user_login(String userName, String passWord) {
 		
-		String envProp = System.getProperty("testDataEnv");
+//		String envProp = System.getProperty("testDataEnv");
+		String envProp = "staging";
 		ProjectUtils projectUtils = new ProjectUtils();
 
 		if (envProp.equalsIgnoreCase("staging")) {
