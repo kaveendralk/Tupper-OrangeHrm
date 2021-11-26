@@ -1,0 +1,284 @@
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-24 13:48:35 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-24 13:48:48 INFO  SerenityLoginSteps:28 - Driver URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-24 13:48:52 INFO  SerenityLoginSteps:38 - New URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-24 13:48:53 INFO  RetryExec:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:2937: The target server failed to respond
+2021-11-24 13:48:53 INFO  RetryExec:112 - Retrying request to {}->http://localhost:2937
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-25 23:27:32 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-25 23:27:33 INFO  Serenity:209 - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+-------------------------------------------------------------------------------------
+
+2021-11-25 23:27:33 INFO  Serenity:238 - Test Suite Started: Tupperwarae Sanity Test Suite
+2021-11-25 23:27:33 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify dashboard reports
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-dashboard-reports;;2)
+2021-11-25 23:27:54 ERROR WebDriverFacade:147 - FAILED TO CREATE NEW WEBDRIVER_DRIVER INSTANCE class org.openqa.selenium.chrome.ChromeDriver: Could not instantiate new WebDriver instance of type class org.openqa.selenium.chrome.ChromeDriver (Timed out waiting for driver server to start.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+net.thucydides.core.webdriver.UnsupportedDriverException: Could not instantiate new WebDriver instance of type class org.openqa.selenium.chrome.ChromeDriver (Timed out waiting for driver server to start.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+	at net.thucydides.core.webdriver.WebDriverFactory.newWebdriverInstance(WebDriverFactory.java:136)
+	at net.thucydides.core.webdriver.WebDriverFacade.newDriverInstance(WebDriverFacade.java:144)
+	at net.thucydides.core.webdriver.WebDriverFacade.newProxyDriver(WebDriverFacade.java:135)
+	at net.thucydides.core.webdriver.WebDriverFacade.getProxiedDriver(WebDriverFacade.java:105)
+	at net.thucydides.core.webdriver.WebDriverFacade.manage(WebDriverFacade.java:375)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps.tupper_consultant_user_login(SerenityLoginSteps.java:24)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps$$EnhancerByCGLIB$$68144388.CGLIB$tupper_consultant_user_login$0(<generated>)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps$$EnhancerByCGLIB$$68144388$$FastClassByCGLIB$$e7cc27de.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:372)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:357)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:332)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:134)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:61)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps$$EnhancerByCGLIB$$68144388.tupper_consultant_user_login(<generated>)
+	at net.tupperware.showcase.cucumber.steps.LoginPageSteps.deldot_inspector_login(LoginPageSteps.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.ExamplesRunner.run(ExamplesRunner.java:59)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.ScenarioOutlineRunner.run(ScenarioOutlineRunner.java:53)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: org.openqa.selenium.WebDriverException: Timed out waiting for driver server to start.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:178)
+	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:166)
+	at net.serenitybdd.core.webdriver.servicepools.DriverServicePool.start(DriverServicePool.java:61)
+	at net.serenitybdd.core.webdriver.servicepools.DriverServicePool.ensureServiceIsRunning(DriverServicePool.java:86)
+	at net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider.getDriverServicePool(ChromeDriverProvider.java:29)
+	at net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider.newInstance(ChromeDriverProvider.java:48)
+	at net.thucydides.core.webdriver.WebDriverFactory.newWebdriverInstance(WebDriverFactory.java:126)
+	... 72 more
+Caused by: org.openqa.selenium.net.UrlChecker$TimeoutException: Timed out waiting for [http://localhost:36630/status] to be available after 20006 ms
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:107)
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:175)
+	... 78 more
+Caused by: com.google.common.util.concurrent.UncheckedTimeoutException: java.util.concurrent.TimeoutException
+	at com.google.common.util.concurrent.SimpleTimeLimiter.callWithTimeout(SimpleTimeLimiter.java:140)
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:80)
+	... 79 more
+Caused by: java.util.concurrent.TimeoutException
+	at java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at com.google.common.util.concurrent.SimpleTimeLimiter.callWithTimeout(SimpleTimeLimiter.java:128)
+	... 80 more
+2021-11-25 23:27:54 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify dashboard reports
+---------------------------------------------------------------------
+2021-11-25 23:27:54 ERROR Serenity:348 - TEST FAILED AT STEP Login to the Tupperware Application
+2021-11-25 23:27:54 ERROR Serenity:350 - Could not instantiate new WebDriver instance of type class org.openqa.selenium.chrome.ChromeDriver (Timed out waiting for driver server to start.
+2021-11-25 23:27:56 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json8201b8d5-2ac5-45e3-96fd-d2f1dbbbefc3)
+2021-11-25 23:27:56 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-25 23:28:11 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify create personal order
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-create-personal-order;;2)
+2021-11-25 23:28:16 WARN  ChromeServicePool:76 - Remote driver creation failed (Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.), falling back on default driver creation
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-26 12:11:58 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-26 12:12:19 ERROR WebDriverFacade:147 - FAILED TO CREATE NEW WEBDRIVER_DRIVER INSTANCE class org.openqa.selenium.chrome.ChromeDriver: Could not instantiate new WebDriver instance of type class org.openqa.selenium.chrome.ChromeDriver (Timed out waiting for driver server to start.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+net.thucydides.core.webdriver.UnsupportedDriverException: Could not instantiate new WebDriver instance of type class org.openqa.selenium.chrome.ChromeDriver (Timed out waiting for driver server to start.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+	at net.thucydides.core.webdriver.WebDriverFactory.newWebdriverInstance(WebDriverFactory.java:136)
+	at net.thucydides.core.webdriver.WebDriverFacade.newDriverInstance(WebDriverFacade.java:144)
+	at net.thucydides.core.webdriver.WebDriverFacade.newProxyDriver(WebDriverFacade.java:135)
+	at net.thucydides.core.webdriver.WebDriverFacade.getProxiedDriver(WebDriverFacade.java:105)
+	at net.thucydides.core.webdriver.WebDriverFacade.manage(WebDriverFacade.java:375)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps.tupper_consultant_user_login(SerenityLoginSteps.java:21)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps$$EnhancerByCGLIB$$f1e9c757.CGLIB$tupper_consultant_user_login$0(<generated>)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps$$EnhancerByCGLIB$$f1e9c757$$FastClassByCGLIB$$48d0d4cf.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:372)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:357)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:332)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:134)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:61)
+	at net.tupperware.showcase.cucumber.steps.serenity.SerenityLoginSteps$$EnhancerByCGLIB$$f1e9c757.tupper_consultant_user_login(<generated>)
+	at net.tupperware.showcase.cucumber.steps.LoginPageSteps.deldot_inspector_login(LoginPageSteps.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.runtime.Runtime.run(Runtime.java:122)
+	at cucumber.api.cli.Main.run(Main.java:36)
+	at cucumber.api.cli.Main.main(Main.java:18)
+Caused by: org.openqa.selenium.WebDriverException: Timed out waiting for driver server to start.
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:178)
+	at org.openqa.selenium.remote.service.DriverService.start(DriverService.java:166)
+	at net.serenitybdd.core.webdriver.servicepools.DriverServicePool.start(DriverServicePool.java:61)
+	at net.serenitybdd.core.webdriver.servicepools.DriverServicePool.ensureServiceIsRunning(DriverServicePool.java:86)
+	at net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider.getDriverServicePool(ChromeDriverProvider.java:29)
+	at net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider.newInstance(ChromeDriverProvider.java:48)
+	at net.thucydides.core.webdriver.WebDriverFactory.newWebdriverInstance(WebDriverFactory.java:126)
+	... 33 more
+Caused by: org.openqa.selenium.net.UrlChecker$TimeoutException: Timed out waiting for [http://localhost:39639/status] to be available after 20016 ms
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:107)
+	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:175)
+	... 39 more
+Caused by: com.google.common.util.concurrent.UncheckedTimeoutException: java.util.concurrent.TimeoutException
+	at com.google.common.util.concurrent.SimpleTimeLimiter.callWithTimeout(SimpleTimeLimiter.java:140)
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:80)
+	... 40 more
+Caused by: java.util.concurrent.TimeoutException
+	at java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at com.google.common.util.concurrent.SimpleTimeLimiter.callWithTimeout(SimpleTimeLimiter.java:128)
+	... 41 more
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-26 12:14:41 INFO  RetryExec:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:30277: The target server failed to respond
+2021-11-26 12:14:41 INFO  RetryExec:112 - Retrying request to {}->http://localhost:30277
