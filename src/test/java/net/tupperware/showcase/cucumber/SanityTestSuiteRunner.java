@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = {"src/test/resources/features/StagingSmokeSuite/SanityTestSuite.feature"}, monochrome = true)
+@CucumberOptions(features = {"src/test/resources/features/StagingSmokeSuite/SanityTestSuite.feature"}, tags = {"@SANITYTESTSUIT"}, monochrome = true)
 
 public class SanityTestSuiteRunner {
 

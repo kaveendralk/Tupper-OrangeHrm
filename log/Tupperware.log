@@ -282,3 +282,343 @@ Caused by: java.util.concurrent.TimeoutException
 2021-11-26 12:14:07 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
 2021-11-26 12:14:41 INFO  RetryExec:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:30277: The target server failed to respond
 2021-11-26 12:14:41 INFO  RetryExec:112 - Retrying request to {}->http://localhost:30277
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-29 16:47:48 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-29 16:47:49 INFO  Serenity:209 - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+-------------------------------------------------------------------------------------
+
+2021-11-29 16:47:49 INFO  Serenity:238 - Test Suite Started: Tupperwarae Sanity Test Suite
+2021-11-29 16:47:49 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify dashboard reports
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-dashboard-reports;;2)
+2021-11-29 16:48:05 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify dashboard reports
+---------------------------------------------------------------------
+2021-11-29 16:48:06 ERROR Serenity:348 - TEST FAILED AT STEP Login to the Tupperware Application
+2021-11-29 16:48:06 ERROR Serenity:350 - no such window: target window already closedfrom unknown error: web view not found  (Session info: chrome=95.0.4638.69)  (Driver info: chromedriver=94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}),platform=Windows NT 10.0.19042 x86_64) (WARNING: The server did not provide any stacktrace information)Command duration or timeout: 11 millisecondsBuild info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'Driver info: org.openqa.selenium.remote.RemoteWebDriverCapabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:63307}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}), userDataDir=C:\Users\RACHAN~1.DEV\AppData\Local\Temp\scoped_dir32728_496739571}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=95.0.4638.69, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]Session ID: 2ee178167c73babae58c38fe3dc59472Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'System info: host: 'IRIS-CSG-4183', ip: '172.20.208.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'Driver info: driver.version: unknown
+2021-11-29 16:48:06 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json94e9beee-3e1b-4080-9cd9-3eb0ed260943)
+2021-11-29 16:48:07 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-29 17:55:10 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-29 17:55:11 INFO  Serenity:209 - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+-------------------------------------------------------------------------------------
+
+2021-11-29 17:55:11 INFO  Serenity:238 - Test Suite Started: Tupperwarae Sanity Test Suite
+2021-11-29 17:55:11 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify dashboard reports
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-dashboard-reports;;2)
+2021-11-29 17:55:33 INFO  SerenityLoginSteps:28 - Driver URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 17:55:37 INFO  SerenityLoginSteps:38 - New URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 17:55:39 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify dashboard reports
+---------------------------------------------------------------------
+2021-11-29 17:55:40 ERROR Serenity:348 - TEST FAILED AT STEP Login to the Tupperware Application
+2021-11-29 17:55:40 ERROR Serenity:350 - 
+2021-11-29 17:55:40 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.jsonedc4f810-99e5-4d45-884d-f5f30310013a)
+2021-11-29 17:55:44 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-29 17:55:53 INFO  RetryExec:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:2389: The target server failed to respond
+2021-11-29 17:55:53 INFO  RetryExec:112 - Retrying request to {}->http://localhost:2389
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-29 18:08:09 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-29 18:08:09 INFO  Serenity:209 - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+-------------------------------------------------------------------------------------
+
+2021-11-29 18:08:09 INFO  Serenity:238 - Test Suite Started: Tupperwarae Sanity Test Suite
+2021-11-29 18:08:09 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify dashboard reports
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-dashboard-reports;;2)
+2021-11-29 18:08:24 INFO  SerenityLoginSteps:28 - Driver URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:08:28 INFO  SerenityLoginSteps:38 - New URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:08:29 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify dashboard reports
+---------------------------------------------------------------------
+2021-11-29 18:08:29 ERROR Serenity:348 - TEST FAILED AT STEP Login to the Tupperware Application
+2021-11-29 18:08:29 ERROR Serenity:350 - 
+2021-11-29 18:08:29 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json428adbe3-e4f3-4d8c-bc0d-dd77b35d06cf)
+2021-11-29 18:08:32 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-29 18:08:42 INFO  RetryExec:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:27890: The target server failed to respond
+2021-11-29 18:08:42 INFO  RetryExec:112 - Retrying request to {}->http://localhost:27890
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-29 18:10:16 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-29 18:10:17 INFO  Serenity:209 - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+-------------------------------------------------------------------------------------
+
+2021-11-29 18:10:17 INFO  Serenity:238 - Test Suite Started: Tupperwarae Sanity Test Suite
+2021-11-29 18:10:17 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify dashboard reports
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-dashboard-reports;;2)
+2021-11-29 18:10:28 INFO  SerenityLoginSteps:28 - Driver URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:10:32 INFO  SerenityLoginSteps:38 - New URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:10:33 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify dashboard reports
+---------------------------------------------------------------------
+2021-11-29 18:10:33 ERROR Serenity:348 - TEST FAILED AT STEP Login to the Tupperware Application
+2021-11-29 18:10:33 ERROR Serenity:350 - 
+2021-11-29 18:10:33 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json06f3629d-5f46-48f6-9241-8e4d4c31f325)
+2021-11-29 18:10:35 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-29 18:10:42 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify create personal order
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-create-personal-order;;2)
+2021-11-29 18:11:12 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify create personal order
+---------------------------------------------------------------------
+2021-11-29 18:11:12 ERROR Serenity:348 - TEST FAILED AT STEP Navigate to create personal order page
+2021-11-29 18:11:12 ERROR Serenity:350 - 
+2021-11-29 18:11:13 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify create personal order to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\c04fd0ce667b0134eac808203344f610584625643bc014f592304101d549881c.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\c04fd0ce667b0134eac808203344f610584625643bc014f592304101d549881c.jsond9e43b7b-1617-471a-b188-917d24dfd09b)
+2021-11-29 18:11:13 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json9efb47e8-09f2-4f78-98b1-b071fbc4a8f3)
+2021-11-29 18:11:13 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify create personal order in c04fd0ce667b0134eac808203344f610584625643bc014f592304101d549881c.html in directory target\site\serenity  
+2021-11-29 18:11:13 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-29 18:11:13 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify party order
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-party-order;;2)
+2021-11-29 18:11:44 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify party order
+---------------------------------------------------------------------
+2021-11-29 18:11:44 ERROR Serenity:348 - TEST FAILED AT STEP Navigate to create party
+2021-11-29 18:11:44 ERROR Serenity:350 - 
+2021-11-29 18:11:44 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json26b87344-0273-457a-96da-e42916d4d756)
+2021-11-29 18:11:44 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify party order to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\2b5aa3307abb38374562c1e069fd31e21aa6a03394d77c59d2e56d2db2c67233.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\2b5aa3307abb38374562c1e069fd31e21aa6a03394d77c59d2e56d2db2c67233.jsonc0acd3fd-887c-4992-9c46-636adc802ee5)
+2021-11-29 18:11:44 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify create personal order to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\c04fd0ce667b0134eac808203344f610584625643bc014f592304101d549881c.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\c04fd0ce667b0134eac808203344f610584625643bc014f592304101d549881c.json809a84e6-f65c-4d8a-b1dc-9b00ae8100f2)
+2021-11-29 18:11:44 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-29 18:11:44 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify create personal order in c04fd0ce667b0134eac808203344f610584625643bc014f592304101d549881c.html in directory target\site\serenity  
+2021-11-29 18:11:44 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify party order in 2b5aa3307abb38374562c1e069fd31e21aa6a03394d77c59d2e56d2db2c67233.html in directory target\site\serenity  
+2021-11-29 18:11:44 INFO  RetryExec:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:13179: The target server failed to respond
+2021-11-29 18:11:44 INFO  RetryExec:112 - Retrying request to {}->http://localhost:13179
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-29 18:21:49 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - webdriver.driver=chrome
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.timeout=2000
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - webdriver.chrome.driver=drivers/chromedriver.exe
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.restart.browser.for.each=NEVER
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,height=2600
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.dry.run=false
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.test.root=net.palomar.showcase.cucumber.junit
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.verbose.steps=true
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - webdriver.base.url=https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.project.name=tupperware_automation
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.browser,width=1600
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - webdriver.wait.for.timeout=2000
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.use.unique.browser=false
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - webdriver.timeouts.implicitlywait=2000
+2021-11-29 18:22:54 INFO  PropertiesFileLocalPreferences:130 - serenity.take.screenshots=AFTER_EACH_STEP
+2021-11-29 18:22:54 INFO  Serenity:209 - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+-------------------------------------------------------------------------------------
+
+2021-11-29 18:22:54 INFO  Serenity:238 - Test Suite Started: Tupperwarae Sanity Test Suite
+2021-11-29 18:22:55 INFO  Serenity:255 - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Verify dashboard reports
+-------------------------------------------------------------------(tupperwarae-sanity-test-suite;verify-dashboard-reports;;2)
+2021-11-29 18:23:06 INFO  SerenityLoginSteps:28 - Driver URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:23:12 INFO  SerenityLoginSteps:38 - New URL is: https://uscaoci-qa.tupperware.com/Business/login
+2021-11-29 18:23:12 ERROR Serenity:313 - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Verify dashboard reports
+---------------------------------------------------------------------
+2021-11-29 18:23:12 ERROR Serenity:348 - TEST FAILED AT STEP Login to the Tupperware Application
+2021-11-29 18:23:12 ERROR Serenity:350 - 
+2021-11-29 18:23:13 INFO  JSONTestOutcomeReporter:61 - Generating JSON report for Verify dashboard reports to file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.json (using temp file C:\Users\rachana.devi\Desktop\Tupperware_Automation\test-automation\target\site\serenity\0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.jsondd4829eb-2d24-4e79-a1a8-e032c4b5df97)
+2021-11-29 18:23:14 INFO  HtmlAcceptanceTestReporter:122 - GENERATING HTML REPORT FOR Tupperwarae Sanity Test Suite:Verify dashboard reports in 0007f038f26c1ddecabb6f8905fc8f500c341312e46549be3f72259aeb28a545.html in directory target\site\serenity  
+2021-11-29 18:23:21 INFO  RetryExec:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:35592: The target server failed to respond
+2021-11-29 18:23:21 INFO  RetryExec:112 - Retrying request to {}->http://localhost:35592
