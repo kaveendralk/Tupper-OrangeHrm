@@ -43,7 +43,7 @@
 		</dependency>
 		<dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
+            <artifactId>slf4j-log4j12</artifactId>
             <version>1.6.1</version>
         </dependency>
         <dependency>
@@ -136,8 +136,9 @@
 				<version>2.18</version>
 				<configuration>
 				   <includes>
-						<include>**/cucumber/junit/**/*.java</include>
-						<include>**/cucumber/*.java</include>
+<!--						<include>**/cucumber/junit/**/*.java</include>-->
+<!--						<include>**/cucumber/*.java</include>-->
+					   <include>**/*SanityTestSuiteRunner.java</include>
 					</includes>
 			     </configuration>
 				<executions>
