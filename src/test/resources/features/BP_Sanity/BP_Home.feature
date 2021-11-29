@@ -1,7 +1,7 @@
 @Tupperware @Regression
 Feature: Validate the Login page and home page of business portal
 
-  @Login @TC_1 @Smoke
+  @Login @TC_01 @Smoke
   Scenario: Validate that Consultant is able to login in BP portal with valid credentials
   Given User is on "Business" Portal
   And User logins to the application with "validLogin" on "Business" Portal
