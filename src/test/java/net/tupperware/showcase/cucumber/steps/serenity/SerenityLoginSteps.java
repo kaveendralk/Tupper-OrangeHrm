@@ -12,11 +12,11 @@ import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("serial")
 public class SerenityLoginSteps extends ScenarioSteps {
- 
+
 public TupperLoginPage tupperloginpage;
 
 	Logger logger = LoggerFactory.getLogger(SerenityLoginSteps.class);
-		  
+
 		  /*This method is use to log in Tupperware consultant*/
 		  @Step("Login to the Tupperware Application")
 			public BusinessPage tupper_consultant_user_login(String userName, String password) {

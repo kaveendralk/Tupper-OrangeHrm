@@ -9,6 +9,7 @@
 2. Install Homebrew: https://brew.sh/
 3. Install Git: `brew install git`
 4. Install Maven: `brew install maven`
+5. Install Cucumber-Eclipse plugin feature via Eclipse market place
 
 ## Running the tests
 
@@ -43,7 +44,9 @@ The reports will be generated in `target/site/serenity`
 Run the tests like this for running the smoke test suite only 
 
 ```
-mvn clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE"
+mvn clean verify -Dcucumber.options="--tags @Sanitytestsuite"
+```
+mvn clean verify -Dcucumber.options="--tags @Ordercreation"
 ```
 
 ### Run tests manually (or using Eclipse) with browser launced
@@ -52,7 +55,9 @@ The code is run using:
 Go to Pom.xml right click and select Maven build and type the following
 
 ```
-mvn clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE"
+mvn clean verify -Dcucumber.options="--tags @Sanitytestsuite"
+```
+mvn clean verify -Dcucumber.options="--tags @Ordercreation"
 ```
 
 ### Run tests manually (or using Eclipse) with headless chrome browser
@@ -60,7 +65,7 @@ webdriver.driver = chrome
 webdriver.chrome.driver = ./drivers/chromedriver
 chrome.switches=--window-size=1920,1080;--headless;
 
-Ask vignesh nehru(nvignesh1234 - git member) if you have questions regarding how to set this setup in Eclipse.
+Ask vignesh nehru) if you have questions regarding how to set this setup in Eclipse.
 
 ## Contributing
 
@@ -78,11 +83,7 @@ ToDo
 
 ### Scheduling planned target for jenkins 
 
-1. `--tags @FOBSMOKETESTSUITE`
-2.`--tags @BROKERWORKFLOW1`
-3.`--tags @DOTSLIP`
-4.`--tags @TRANSPORTSMOKETABNAVIGATIONS`
-5.`--tags @TRANSPORTTRIPCOSTCOMPLIANCE'`
+'`
 
 Note:
 If on Jenkins FOBSMOKETESTSUITE and BROKERWORKFLOW1 should not be executed at same time as both of them use set of values related to 'VigneshCompany'. 
@@ -94,8 +95,3 @@ Daily
 
 
 ## Current Tags and what they do
-**@SINGLE**
-Cick [here](qa-ui-automation/src/test/resources/features/StagingSmokeSuite/singletest.feature) to see the code
-
-**@FOBSMOKETESTSUITE**
-Cick [here](qa-ui-automation/src/test/resources/features/StagingSmokeSuite/FOBOrderDashBoard.feature) to see the code

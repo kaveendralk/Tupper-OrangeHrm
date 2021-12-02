@@ -8,7 +8,7 @@ Feature: Tupperwarae Sanity Test Suite
     Then I click each report tab and validate reports are loading correctly
     Then I navigate to each personal report and verify pages are loading correctly
 
-    Examples: 
+    Examples:
       | userName          | password          |
       |consultant-userName|consultant-password|
 

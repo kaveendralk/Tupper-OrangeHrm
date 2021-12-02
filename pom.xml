@@ -136,8 +136,9 @@
 				<version>2.18</version>
 				<configuration>
 				   <includes>
-						<include>**/cucumber/junit/**/*.java</include>
-						<include>**/cucumber/*.java</include>
+<!--						<include>**/cucumber/junit/**/*.java</include>-->
+<!--						<include>**/cucumber/*.java</include>-->
+					   <include>**/*SanityTestSuiteRunner.java</include>
 					</includes>
 			     </configuration>
 				<executions>
