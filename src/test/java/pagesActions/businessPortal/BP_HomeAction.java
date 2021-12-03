@@ -10,6 +10,8 @@ public class BP_HomeAction extends PageObject {
     Logger logger= LoggerFactory.getLogger(BP_HomeAction.class);
 
     public void PageOpened(){
+
+
         System.out.println("Title is: "+getDriver().getTitle());
 
         logger.info("Title captured:---------------------");

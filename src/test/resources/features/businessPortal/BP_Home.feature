@@ -7,6 +7,8 @@ Feature: Validate the Login page and home page of business portal
   And User logins to the application with "validLogin" on "Business" Portal
   And User navigates to "Home" page
 
+    And User navigates to "ViewOrders" page
+
   @ForgotPassword @TC_2 @Smoke
     Scenario: Validate that Consultant is able to reset password using Forgot Password link
     Given User is on "Business" Portal
