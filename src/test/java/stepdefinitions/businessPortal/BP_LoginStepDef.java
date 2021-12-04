@@ -21,7 +21,6 @@ public class BP_LoginStepDef {
     public void user_is_on_Portal(String string) throws PendingException {
 //If-else implement
 //        String baseurl= EnvironmentSpecificConfiguration.from(env).getProperty("webdriver.base.url");
-
         bp_loginPage.openApplication();
         logger.info("User is on "+string+" portal");
     }

@@ -44,8 +44,53 @@ public class UiBase extends PageObject {
 
     public void enterText(String locatorPath, String textToEnter) {
         WebElement element = getElementFromJson(locatorPath);
+        element.sendKeys(textToEnter);
+    }
+
+    public void clearAndFillText(String locatorPath, String textToEnter) {
+        WebElement element = getElementFromJson(locatorPath);
         element.clear();
         element.sendKeys(textToEnter);
+    }
+
+    public String getText(String locatorPath) {
+        String text = "";
+        WebElement element = getElementFromJson(locatorPath);
+        try {
+            return element.getText();
+        } catch (Throwable t) {
+            t.printStackTrace();
+            return text;
+        }
+    }
+
+    public void clear(String locatorPath) {
+        WebElement element = getElementFromJson(locatorPath);
+        element.clear();
+    }
+
+    public boolean isElementEnabled(String locatorPath) {
+        WebElement element = getElementFromJson(locatorPath);
+        try {
+            return element.isEnabled();
+        } catch (Throwable t) {
+            return false;
+        }
+    }
+
+    public boolean isElementDisplayed(String locatorPath) {
+        WebElement element = getElementFromJson(locatorPath);
+        try {
+            return element.isDisplayed();
+        } catch (Throwable t) {
+            return false;
+        }
+    }
+
+    public String getAttributeValue(String locatorPath, String attributeName) {
+        WebElement element = getElementFromJson(locatorPath);
+        return element.getAttribute(attributeName);
+
     }
 
     public Object jsonReader(String jsonFilePath, String key) {
@@ -108,27 +153,26 @@ public class UiBase extends PageObject {
         return elementXpath;
     }
 
-    public boolean selectCheckBox(String locatorPath){
+    public boolean selectCheckBox(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
-        if(element.isSelected()){
+        if (element.isSelected()) {
             return true;
-        }else
-        {
+        } else {
             element.click();
             return true;
         }
     }
 
-    public boolean unSelectCheckBox(String locatorPath){
+    public boolean unSelectCheckBox(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
-        if(element.isSelected()){
+        if (element.isSelected()) {
             element.click();
             return true;
-        }else
-        {
+        } else {
             return true;
         }
     }
+
     public String TodaysDate() throws Exception {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -140,7 +184,7 @@ public class UiBase extends PageObject {
         WebElement element = getElementFromJson(locatorPath);
         String original_style = element.getAttribute("style");
         JavascriptExecutor js;
-        js = (JavascriptExecutor)getDriver();
+        js = (JavascriptExecutor) getDriver();
         js.executeScript(
                 "arguments[0].setAttribute(arguments[1], arguments[2])",
                 element,
@@ -166,21 +210,21 @@ public class UiBase extends PageObject {
                 System.out.println("Unable to click on element");
             }
         } catch (StaleElementReferenceException e) {
-            System.out.println("Element is not attached to the page document "+ e.getStackTrace());
+            System.out.println("Element is not attached to the page document " + e.getStackTrace());
         } catch (NoSuchElementException e) {
-            System.out.println("Element was not found in DOM "+ e.getStackTrace());
+            System.out.println("Element was not found in DOM " + e.getStackTrace());
         } catch (Exception e) {
-            System.out.println("Unable to click on element "+ e.getStackTrace());
+            System.out.println("Unable to click on element " + e.getStackTrace());
         }
     }
 
-    public boolean selectDropdownValue(String locatorPath,String value) {
+    public boolean selectDropdownValue(String locatorPath, String value) {
         WebElement element = getElementFromJson(locatorPath);
-        try{
+        try {
             Select dropdown = new Select(element);
             dropdown.selectByVisibleText(value);
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -199,7 +243,7 @@ public class UiBase extends PageObject {
         try {
             Select dropdown = new Select(element);
             return dropdown.getFirstSelectedOption().getText();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -209,7 +253,7 @@ public class UiBase extends PageObject {
         try {
             Select dropdown = new Select(element);
             return dropdown.getOptions();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -219,7 +263,7 @@ public class UiBase extends PageObject {
         try {
             ((JavascriptExecutor) driver).executeScript(
                     "arguments[0].scrollIntoView();", element);
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -227,8 +271,8 @@ public class UiBase extends PageObject {
     public void scrollToBottom(WebDriver driver) {
         try {
             ((JavascriptExecutor) driver)
-                    .executeScript("window.scrollBy(0, 250)","");
-        } catch(Exception e) {
+                    .executeScript("window.scrollBy(0, 250)", "");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -236,19 +280,19 @@ public class UiBase extends PageObject {
     public void scrollToTop(WebDriver driver) {
         try {
             ((JavascriptExecutor) driver)
-                    .executeScript("window.scrollBy(0, -250)","");
-        } catch(Exception e) {
+                    .executeScript("window.scrollBy(0, -250)", "");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public boolean isAlertPresent(Alert alert,String button) {
+    public boolean isAlertPresent(Alert alert, String button) {
         try {
-            if(button.equals("OK")) {
+            if (button.equals("OK")) {
                 System.out.println(alert.getText());
                 alert.accept();
                 getDriver().switchTo().defaultContent();
-            } else if(button.equals("Cancel")) {
+            } else if (button.equals("Cancel")) {
                 System.out.println(alert.getText());
                 alert.dismiss();
             }
@@ -262,9 +306,9 @@ public class UiBase extends PageObject {
     public String getBrowserName(WebDriver driver) {
         try {
             RemoteWebDriver remoteDriver = (RemoteWebDriver) ((WebDriverFacade) driver).getProxiedDriver();
-            String browserName=remoteDriver.getCapabilities().getBrowserName();
+            String browserName = remoteDriver.getCapabilities().getBrowserName();
             return browserName;
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -272,9 +316,9 @@ public class UiBase extends PageObject {
 
     public String getOSName() {
         try {
-            String OSName =System.getProperty("os.name").toLowerCase();
+            String OSName = System.getProperty("os.name").toLowerCase();
             return OSName;
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -300,7 +344,7 @@ public class UiBase extends PageObject {
         try {
 
             return getDriver().findElements(by);
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -308,11 +352,12 @@ public class UiBase extends PageObject {
 
     /**
      * Wait for element is visible
+     *
      * @param driver
      * @param element
      * @return
      */
-    public boolean explicitWaitForElement(WebDriver driver, WebElement element){
+    public boolean explicitWaitForElement(WebDriver driver, WebElement element) {
         try {
             WebDriverWait explicitWait = new WebDriverWait(driver, 60);
             explicitWait.until(visibilityOfElementLocated(element));
@@ -327,18 +372,19 @@ public class UiBase extends PageObject {
 
     /**
      * Wait for element is visible
+     *
      * @param driver
      * @param element
      * @param time
      * @return
      */
-    public WebElementFacade explicitWaitForElement(WebDriver driver, WebElementFacade element, int time){
+    public WebElementFacade explicitWaitForElement(WebDriver driver, WebElementFacade element, int time) {
         WebDriverWait explicitWait = new WebDriverWait(driver, time);
         explicitWait.until(visibilityOfElementLocated(element));
         return element;
     }
 
-    public WebElementFacade explicitWaitForElementInvisibility(WebDriver driver, By element, int time){
+    public WebElementFacade explicitWaitForElementInvisibility(WebDriver driver, By element, int time) {
         WebDriverWait explicitWait = new WebDriverWait(driver, time);
         explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(element));
         return (WebElementFacade) driver.findElement(element);
@@ -352,7 +398,7 @@ public class UiBase extends PageObject {
     /*
 	    This method will Returns Tomorrow's date in MM/DD/YYYY Format
 	 */
-    public String TomorrowDate(){
+    public String TomorrowDate() {
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(dt);
@@ -360,20 +406,20 @@ public class UiBase extends PageObject {
         dt = c.getTime();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         String tomorrowDate = formatter.format(dt);
-        return  tomorrowDate;
+        return tomorrowDate;
     }
 
     /*
         select value from dropdown
      */
-    public boolean selectValueFromDropDown(WebElementFacade element, String text){
+    public boolean selectValueFromDropDown(WebElementFacade element, String text) {
 
         try {
             Select select = new Select(element);
             select.selectByVisibleText(text);
             Thread.sleep(500);
             return true;
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -382,95 +428,16 @@ public class UiBase extends PageObject {
 
     public boolean isElementPresent(List<WebElementFacade> elements) {
         // TODO Auto-generated method stub
-        return (elements.size()>0);
+        return (elements.size() > 0);
     }
-
-
-    public void enterText(WebDriver driver, String jsonPath, String locatorPath, String text) {
-        WebElement actualElement = getElementFromJson(driver,jsonPath,locatorPath);
-        actualElement.clear();
-        actualElement.sendKeys(text);
-    }
-
-    public void clickElement(WebDriver driver, String jsonPath, String locatorPath) {
-        WebElement actualElement = getElementFromJson(driver,jsonPath, locatorPath);
-        actualElement.click();
-    }
-
-    public String getLocatorFromJson(WebDriver driver, String jsonPath, String locatorPath) {
-
-        String file = "src/test/resources/locators/"+jsonPath;
-        String json = null;
-        try {
-            json = new String(Files.readAllBytes(Paths.get(file)));
-        } catch (IOException e1) {
-        }
-        //		System.out.println(json);
-
-        JSONObject obj = new JSONObject(json);
-        String[] elements=locatorPath.split(":");
-        for(int i=0;i<elements.length-1;i++) {
-            obj = obj.getJSONObject(elements[i]);
-        }
-        String elementXpath = obj.getString(elements[elements.length-1]);
-        return elementXpath;
-    }
-
-
-    public WebElement getElementFromJson(WebDriver driver, String jsonPath, String locatorPath) {
-        String elementXpath = getLocatorFromJson(driver,jsonPath, locatorPath);
-        WebElement foundElement = null;
-        try {
-            if(elementXpath.startsWith("//")) {
-                Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
-                        .withTimeout(10, TimeUnit.SECONDS)
-                        .pollingEvery(1 , TimeUnit.SECONDS)
-                        .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
-                foundElement = fluentWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementXpath)));
-            }
-            else {
-                Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
-                        .withTimeout(10, TimeUnit.SECONDS)
-                        .pollingEvery(1 , TimeUnit.SECONDS)
-                        .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
-                foundElement = fluentWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(elementXpath)));
-            }
-        } catch (Exception e) {
-        }
-        return foundElement;
-    }
-
-    public List<WebElement> getElementsFromJson(WebDriver driver, String jsonPath, String locatorPath) {
-
-        String elementXpath = getLocatorFromJson(driver,jsonPath,locatorPath);
-        try {
-            if(elementXpath.startsWith("//")) {
-                Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
-                        .withTimeout(10, TimeUnit.SECONDS)
-                        .pollingEvery(1 , TimeUnit.SECONDS)
-                        .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
-                fluentWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementXpath)));
-            }
-            else {
-                Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
-                        .withTimeout(10, TimeUnit.SECONDS)
-                        .pollingEvery(1 , TimeUnit.SECONDS)
-                        .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
-                fluentWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(elementXpath)));
-            }
-        } catch (Exception e) {
-        }
-        return driver.findElements(By.xpath(elementXpath));
-    }
-
 
     public WebElementFacade fluentWaitForElement(WebDriver driver, WebElementFacade element) {
         WebElementFacade foundElement = null;
         try {
             Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
                     .withTimeout(10, TimeUnit.SECONDS)
-                    .pollingEvery(1 , TimeUnit.SECONDS)
-                    .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
+                    .pollingEvery(1, TimeUnit.SECONDS)
+                    .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
             foundElement = (WebElementFacade) fluentWait.until(visibilityOfElementLocated(element));
         } catch (Exception e) {
             e.printStackTrace();
@@ -489,13 +456,13 @@ public class UiBase extends PageObject {
      * @param element
      * @return boolean
      */
-    public  WebElementFacade fluentLongWaitForElement(WebDriver driver, WebElementFacade element) {
+    public WebElementFacade fluentLongWaitForElement(WebDriver driver, WebElementFacade element) {
         WebElementFacade foundElement = null;
         try {
             Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
                     .withTimeout(120, TimeUnit.SECONDS)
                     .pollingEvery(1, TimeUnit.SECONDS)
-                    .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
+                    .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
             foundElement = (WebElementFacade) fluentWait.until(visibilityOfElementLocated(element));
 
         } catch (Exception e) {
@@ -516,12 +483,12 @@ public class UiBase extends PageObject {
      * @param element
      * @return boolean
      */
-    public  WebElement fluentWaitForElement(WebDriver driver, WebElement element) {
+    public WebElement fluentWaitForElement(WebDriver driver, WebElement element) {
         WebElement foundElement = null;
         try {
             Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
                     .withTimeout(90, TimeUnit.SECONDS)
-                    .pollingEvery(5 , TimeUnit.SECONDS)
+                    .pollingEvery(5, TimeUnit.SECONDS)
                     .ignoring(NoSuchElementException.class);
             foundElement = fluentWait.until(visibilityOfElementLocated(element));
             return foundElement;
@@ -533,13 +500,13 @@ public class UiBase extends PageObject {
         return foundElement;
     }
 
-    public  boolean fluentWaitForElementDissapear(WebDriver driver, By by ) {
+    public boolean fluentWaitForElementDissapear(WebDriver driver, By by) {
         //WebElement foundElement = null;
         boolean isElementDisappeared = false;
         try {
             Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
                     .withTimeout(120, TimeUnit.SECONDS)
-                    .pollingEvery(2 , TimeUnit.SECONDS)
+                    .pollingEvery(2, TimeUnit.SECONDS)
                     .ignoring(NoSuchElementException.class);
             isElementDisappeared = fluentWait.until(ExpectedConditions.invisibilityOfElementLocated((By) by));
             System.out.println("The value of found element is  " + isElementDisappeared);
@@ -551,7 +518,7 @@ public class UiBase extends PageObject {
         }
     }
 
-    public static String getRandomNumber(){
+    public static String getRandomNumber() {
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(100000);
         return Integer.toString(randomInt);
@@ -561,9 +528,10 @@ public class UiBase extends PageObject {
 
     /**
      * This method generates a Random String value with 9 digits
+     *
      * @return
      */
-    public static String getRandomNumberwith9digits(){
+    public static String getRandomNumberwith9digits() {
         Random r = new Random(System.currentTimeMillis());
         int randomInt9digitnumber = 100000000 + r.nextInt(2000000000);
         return Integer.toString(randomInt9digitnumber);
@@ -572,9 +540,10 @@ public class UiBase extends PageObject {
 
     /**
      * This method generates a Random String value with 10  digits
+     *
      * @return
      */
-    public static String getRandomNumberwith10digits(){
+    public static String getRandomNumberwith10digits() {
 
         Random r = new Random(System.currentTimeMillis());
         int randomInt10digitnumber = 1000000000 + r.nextInt(2000000000);
@@ -586,11 +555,11 @@ public class UiBase extends PageObject {
      * This method will upload file for the POI list feature
      * @param filePath
      */
-    public  void uploadFile(String filePath) {
-        try{
+    public void uploadFile(String filePath) {
+        try {
 
             //Copy to clipboard
-            StringSelection stringSelection= new StringSelection(filePath);
+            StringSelection stringSelection = new StringSelection(filePath);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
             //Create a new robot Object
@@ -614,13 +583,13 @@ public class UiBase extends PageObject {
             robot.keyRelease(KeyEvent.VK_ENTER);
             robot.setAutoDelay(1000);
 
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             t.printStackTrace();
         }
     }
 
-    public  void saveFile(){
-        try{
+    public void saveFile() {
+        try {
             System.out.println(" Save File");
             //Create a new robot Object
             Robot robot = new Robot();
@@ -636,13 +605,13 @@ public class UiBase extends PageObject {
             Thread.sleep(2000);
             robot.keyPress(KeyEvent.VK_ENTER);
 
-        }catch(Throwable t){
+        } catch (Throwable t) {
             t.printStackTrace();
         }
     }
 
-    public  void OpenFile(){
-        try{
+    public void OpenFile() {
+        try {
             //Create a new robot Object
             Robot robot = new Robot();
 
@@ -651,7 +620,7 @@ public class UiBase extends PageObject {
 
             robot.keyPress(KeyEvent.VK_ENTER);
 
-        }catch(Throwable t){
+        } catch (Throwable t) {
             t.printStackTrace();
         }
     }
@@ -661,8 +630,7 @@ public class UiBase extends PageObject {
      *
      * @param element
      */
-    public static void mouseOver(WebDriver driver, WebElement element)
-    {
+    public static void mouseOver(WebDriver driver, WebElement element) {
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
@@ -690,59 +658,59 @@ public class UiBase extends PageObject {
         driver.switchTo().window(mainWindowHandle);
     }
 
-    public static void SwitchtoTab(WebDriver driver,int tabNumber) {
-        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+    public static void SwitchtoTab(WebDriver driver, int tabNumber) {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabNumber));
     }
 
-    public static  String readPdfContent(String url) throws IOException {
+    public static String readPdfContent(String url) throws IOException {
         URL pdfUrl = new URL(url);
         InputStream in = pdfUrl.openStream();
         BufferedInputStream bf = new BufferedInputStream(in);
         PDDocument doc = PDDocument.load(bf);
         int numberOfPages = doc.getNumberOfPages();
-        System.out.println("The total number of pages "+numberOfPages);
+        System.out.println("The total number of pages " + numberOfPages);
         String content = new PDFTextStripper().getText(doc);
         doc.close();
         return content;
     }
 
 
-    public  boolean mouseLeftClick(String locatorPath){
+    public boolean mouseLeftClick(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
 //        WebElementFacade element = getElementFromJson(locatorPath);
-        try{
+        try {
             Actions action = new Actions(getDriver());
             action.moveToElement(element).click(element).build().perform();
             return true;
-        }catch(Throwable t){
+        } catch (Throwable t) {
         }
 
         return false;
     }
 
-    public  boolean moveToElement(String locatorPath){
+    public boolean moveToElement(String locatorPath) {
 
         WebElement element = getElementFromJson(locatorPath);
 //        WebElementFacade element = getElementFromJson(locatorPath);
 
-        try{
+        try {
             Actions action = new Actions(getDriver());
             action.moveToElement(element).build().perform();
             return true;
-        }catch(Throwable t){
+        } catch (Throwable t) {
         }
 
         return false;
     }
 
-    public void clickUsingAction(String locatorPath){
+    public void clickUsingAction(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
 //        WebElementFacade element = getElementFromJson(locatorPath);
-        try{
+        try {
             Actions customersCheckboxForExternal = new Actions(getDriver());
             customersCheckboxForExternal.click(element).build().perform();
-        }catch(Throwable t){
+        } catch (Throwable t) {
         }
     }
 
@@ -758,19 +726,19 @@ public class UiBase extends PageObject {
                             "evt.dataTransfer=dataTransfer;target.dispatchEvent(evt);};emit('" +
                             "dragstart',src);emit('dragenter',tgt);emit('dragover',tgt);emit(" +
                             "'drop',tgt);emit('dragend',src);";
-            ((JavascriptExecutor)getDriver()).executeScript(java_script, from, to);
+            ((JavascriptExecutor) getDriver()).executeScript(java_script, from, to);
             Thread.sleep(1000);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-// Pagination Utils
-    public boolean verifyRecordDisplayed(WebDriver driver,WebElement pagescountText, WebElement nextButton,String searchText) {
+
+    // Pagination Utils
+    public boolean verifyRecordDisplayed(WebDriver driver, WebElement pagescountText, WebElement nextButton, String searchText) {
         try {
             String[] strArr = pagescountText.getText().split(" of ");
-            int totalRecords = Integer.parseInt(strArr[1].replaceAll(",",""));
+            int totalRecords = Integer.parseInt(strArr[1].replaceAll(",", ""));
             do {
                 try {
                     if (driver.getPageSource().contains(searchText)) {
@@ -784,7 +752,7 @@ public class UiBase extends PageObject {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } while(totalRecords != 0);
+            } while (totalRecords != 0);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

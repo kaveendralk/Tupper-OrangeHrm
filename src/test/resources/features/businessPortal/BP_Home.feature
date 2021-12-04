@@ -3,11 +3,13 @@ Feature: Validate the Login page and home page of business portal
 
   @Login @TC_01 @Smoke @TestRestructuring
   Scenario: Validate that Consultant is able to login in BP portal with valid credentials
-  Given User is on "Business" Portal
-  And User logins to the application with "validLogin" on "Business" Portal
-  And User navigates to "Home" page
+    Given User is on "Business" Portal
+    And User logins to the application with "validLogin" on "Business" Portal
+    And User navigates to "Home" page
+    And User verify "Various Elements" on "Home" page
+    And User clicks on "Hamburger Icon" on "Home" page
+    And User clicks on "dfddfdgd Icon" on "Home" page
 
-    And User navigates to "ViewOrders" page
 
   @ForgotPassword @TC_2 @Smoke
     Scenario: Validate that Consultant is able to reset password using Forgot Password link
