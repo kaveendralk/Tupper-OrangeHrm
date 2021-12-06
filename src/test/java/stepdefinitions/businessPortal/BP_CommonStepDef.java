@@ -26,7 +26,8 @@ public class BP_CommonStepDef {
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_homePage.navigateToPage());
                 break;
             case "Business Dashboard":
-//                bp_businessDashboardPage.navigateToPage();
+                Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.navigateToPage());
+                break;
             default:
 
         }
@@ -61,5 +62,10 @@ public class BP_CommonStepDef {
 
     }
 
+    @And("User clicks on {string} from side menu")
+    public void user_click_on_side_menu(String elementName) throws PendingException {
+        bp_homePage.clicktoElement(elementName);
+        logger.info("User has clicked +" + elementName + " from side menu");
+    }
 
 }

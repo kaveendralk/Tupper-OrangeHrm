@@ -108,6 +108,8 @@ public class UiBase extends PageObject {
         return null;
     }
 
+
+    //Modify this to accept two parameters - pageName, loactorPath
     public String getLocatorFromJson(String locatorPath) {
         String json = null;
         try {
