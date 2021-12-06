@@ -1,4 +1,4 @@
-package pagesActions.older;
+package pagesActions.businessPortal;
 
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
@@ -11,11 +11,11 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import utils.UiBase;
 
-public class SalesPage extends PageObject {
+public class BP_SalesPageAction extends PageObject {
 
 	WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
-	public SalesPage(WebDriver driver) {
+	public BP_SalesPageAction(WebDriver driver) {
 		super(driver);
 	}
 	public UiBase uiBase = new UiBase();

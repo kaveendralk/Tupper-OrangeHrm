@@ -108,6 +108,8 @@ public class UiBase extends PageObject {
         return null;
     }
 
+
+    //Modify this to accept two parameters - pageName, loactorPath
     public String getLocatorFromJson(String locatorPath) {
         String json = null;
         try {
@@ -370,14 +372,17 @@ public class UiBase extends PageObject {
 
     }
 
-    /**
-     * Wait for element is visible
-     *
-     * @param driver
-     * @param element
-     * @param time
-     * @return
-     */
+    public boolean waitUntilElementDisplayed(String locatorPath, int timeInSeconds){
+        WebElement element = getElementFromJson(locatorPath);
+        try{
+            (new WebDriverWait(getDriver(),timeInSeconds)).until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+    }
+
+
     public WebElementFacade explicitWaitForElement(WebDriver driver, WebElementFacade element, int time) {
         WebDriverWait explicitWait = new WebDriverWait(driver, time);
         explicitWait.until(visibilityOfElementLocated(element));

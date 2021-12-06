@@ -129,7 +129,8 @@
         
       },
         "HomePage": {
-           "logo":"//div[@id='logo-area']/div[@class='logo medium']"
+           "logo":"//div[@id='logo-area']/div[@class='logo medium']",
+           "businessDashboardIcon": "//li[@class='nav-item business-dashboard']/a"
         }
    
     }

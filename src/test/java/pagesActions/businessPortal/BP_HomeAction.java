@@ -21,10 +21,18 @@ public class BP_HomeAction extends PageObject {
     public void clickToElement(String elementName) {
         switch (elementName) {
             case "Hamburger Icon":
-                uiBase.clickElement("BusinessDashboardPage:hambergerMenu");
+                uiBase.clickElement("BusinessPage:hambergerMenu");
                 break;
             case "Business Dashboard Icon":
-                uiBase.clickElement("BusinessDashboardPage:hambergerMenu");
+                uiBase.clickElement("HomePage:businessDashboardIcon");
+                break;
+            case "My Business":
+                uiBase.clickElement("BusinessPage:lnkMyBusiness");
+                break;
+            case "Dashboard Report":
+                uiBase.clickElement("BusinessPage:lnkDashboardReports");
+                break;
+            case "Manage Parties":
                 break;
         }
     }
