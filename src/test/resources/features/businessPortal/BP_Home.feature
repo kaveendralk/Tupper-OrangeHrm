@@ -7,9 +7,6 @@ Feature: Validate the Login page and home page of business portal
     And User logins to the application with "validLogin" on "Business" Portal
     And User navigates to "Home" page
     And User verify "Various Elements" on "Home" page
-    And User clicks on "Hamburger Icon" on "Home" page
-    And User clicks on "dfddfdgd Icon" on "Home" page
-
 
   @ForgotPassword @TC_2 @Smoke
     Scenario: Validate that Consultant is able to reset password using Forgot Password link
