@@ -127,6 +127,9 @@
       },
       "PersonalWebsitePage":{
         
-      }
+      },
+        "HomePage": {
+           "logo":"//div[@id='logo-area']/div[@class='logo medium']"
+        }
    
     }
