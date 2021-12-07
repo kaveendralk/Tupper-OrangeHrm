@@ -1,6 +1,25 @@
 {
   "validLoginDetails":{
-    "UserName": "CHELSEACAMERON",
+    "UserName": "PATTYK",
     "Password": "test"
+  },
+  "AddedProductList":{
+   "productID":"011579"
+   },
+  "ShippingDetails":{
+    "firstName":"James",
+    "LastName":"Croff",
+    "address1":"4138 Elphinstone St",
+    "city":"Regina",
+    "state":"Alberta",
+    "postalCode":"S4S 3L2"
+  },
+  "paymentDetails":{
+    "cardNo":"4111111111111111",
+    "month":'12',
+    "year":'2022',
+    "cvn":'123'
   }
+  
+    
 }

@@ -41,7 +41,7 @@ public class UiBase extends PageObject {
         WebElement element = getElementFromJson(locatorPath);
         element.click();
     }
-
+ 
     public void enterText(String locatorPath, String textToEnter) {
         WebElement element = getElementFromJson(locatorPath);
         element.clear();
@@ -416,6 +416,16 @@ public class UiBase extends PageObject {
         return elementXpath;
     }
 
+    public boolean waitUntilElementDisplayed(String locatorPath, int timeInSeconds){
+        WebElement element = getElementFromJson(locatorPath);
+        try{
+        	
+            (new WebDriverWait(getDriver(),timeInSeconds)).until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+    }
 
     public WebElement getElementFromJson(WebDriver driver, String jsonPath, String locatorPath) {
         String elementXpath = getLocatorFromJson(driver,jsonPath, locatorPath);
@@ -492,7 +502,8 @@ public class UiBase extends PageObject {
     public  WebElementFacade fluentLongWaitForElement(WebDriver driver, WebElementFacade element) {
         WebElementFacade foundElement = null;
         try {
-            Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
+           
+			Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
                     .withTimeout(120, TimeUnit.SECONDS)
                     .pollingEvery(1, TimeUnit.SECONDS)
                     .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);

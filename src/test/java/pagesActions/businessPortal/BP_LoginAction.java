@@ -13,8 +13,8 @@ public class BP_LoginAction extends PageObject {
 
     public void enterLoginDetails() throws InterruptedException {
 
-        logger.info("User is on login page)");
-        Thread.sleep(10000);
+        logger.info("User is on login page");
+        uiBase.waitUntilElementDisplayed("TupperLoginPage:txtUsername", 50);
         uiBase.enterText("TupperLoginPage:txtUsername", uiBase.getTestDataFromJson("validLoginDetails:UserName"));
         uiBase.enterText("TupperLoginPage:txtPassword", uiBase.getTestDataFromJson("validLoginDetails:Password"));
         uiBase.clickElement("TupperLoginPage:btnSubmit");
