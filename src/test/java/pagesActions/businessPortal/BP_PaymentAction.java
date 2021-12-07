@@ -36,23 +36,28 @@ public class BP_PaymentAction extends PageObject{
 	public boolean verifyShippingAndPaymentDetails() throws InterruptedException {
 		try {
 			logger.info("User is entering shipping address on Shipping details Page");
-			
-			uiBase.waitUntilElementDisplayed("SalesPage:inpFName", 50);
-			uiBase.getElementFromJson("SalesPage:inpFName").clear();
-			uiBase.enterText("SalesPage:inpFName", uiBase.getTestDataFromJson("ShippingDetails:firstName"));
-			uiBase.getElementFromJson("SalesPage:inpSName").clear();
-			uiBase.enterText("SalesPage:inpSName", uiBase.getTestDataFromJson("ShippingDetails:LastName"));
-			uiBase.getElementFromJson("SalesPage:inpAddress1").clear();
-			uiBase.enterText("SalesPage:inpAddress1", uiBase.getTestDataFromJson("ShippingDetails:address1"));
-			uiBase.getElementFromJson("SalesPage:inpCity").clear();
-			uiBase.enterText("SalesPage:inpCity", uiBase.getTestDataFromJson("ShippingDetails:city"));
-			
-			Select select=new Select(uiBase.getElementFromJson("SalesPage:selState"));
-			select.selectByVisibleText(uiBase.getTestDataFromJson("ShippingDetails:state"));
-			uiBase.getElementFromJson("SalesPage:inpPostalCode").clear();
-			uiBase.enterText("SalesPage:inpPostalCode", uiBase.getTestDataFromJson("ShippingDetails:postalCode"));
-			logger.info("User verified shipping address on Shipping details Page");
-			return true;
+
+			if(uiBase.waitUntilElementDisplayed("SalesPage:inpFName", 50))
+			{
+				uiBase.getElementFromJson("SalesPage:inpFName").clear();
+				uiBase.enterText("SalesPage:inpFName", uiBase.getTestDataFromJson("ShippingDetails:firstName"));
+				uiBase.getElementFromJson("SalesPage:inpSName").clear();
+				uiBase.enterText("SalesPage:inpSName", uiBase.getTestDataFromJson("ShippingDetails:LastName"));
+				uiBase.getElementFromJson("SalesPage:inpAddress1").clear();
+				uiBase.enterText("SalesPage:inpAddress1", uiBase.getTestDataFromJson("ShippingDetails:address1"));
+				uiBase.getElementFromJson("SalesPage:inpCity").clear();
+				uiBase.enterText("SalesPage:inpCity", uiBase.getTestDataFromJson("ShippingDetails:city"));
+
+				Select select=new Select(uiBase.getElementFromJson("SalesPage:selState"));
+				select.selectByVisibleText(uiBase.getTestDataFromJson("ShippingDetails:state"));
+				uiBase.getElementFromJson("SalesPage:inpPostalCode").clear();
+				uiBase.enterText("SalesPage:inpPostalCode", uiBase.getTestDataFromJson("ShippingDetails:postalCode"));
+				logger.info("User verified shipping address on Shipping details Page");
+				return true;
+			}else
+			{
+				return false;
+			}
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -92,11 +97,15 @@ public class BP_PaymentAction extends PageObject{
 	public boolean clickOnSubmitAndVerify() throws InterruptedException {
 		try {
 			logger.info("User is entering visa card details on payment details Page");
-			uiBase.waitUntilElementDisplayed("SalesPage:btnSubmit", 50);
-			uiBase.getElementFromJson("SalesPage:btnSubmit").isDisplayed();
+			if(uiBase.waitUntilElementDisplayed("SalesPage:btnSubmit", 50))
+			{
+			Thread.sleep(3000);
 			uiBase.clickElement("SalesPage:btnSubmit");
 			logger.info("User entered visa card details on payment details Page");
 			return true;
+			}else {
+				return false;
+			}	
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -105,10 +114,11 @@ public class BP_PaymentAction extends PageObject{
 
 	public boolean verifyOrderInformationOfProducts() throws InterruptedException {
 		try {
-			
+
 			logger.info("User is verifying Order details on OrderConfirmation Page");
-			uiBase.waitUntilElementDisplayed("OrderConfirmationPage:OrderNumber", 50);
-			uiBase.getElementFromJson("OrderConfirmationPage:OrderNumber").isDisplayed();
+			if(uiBase.waitUntilElementDisplayed("OrderConfirmationPage:OrderNumber", 50)) {
+				uiBase.getElementFromJson("OrderConfirmationPage:OrderNumber").isDisplayed();
+			}
 			uiBase.getElementFromJson("OrderConfirmationPage:CustomerName").isDisplayed();
 			uiBase.getElementFromJson("OrderConfirmationPage:CustomerID").isDisplayed();
 			uiBase.getElementFromJson("OrderConfirmationPage:ProductID").isDisplayed();
@@ -151,11 +161,10 @@ public class BP_PaymentAction extends PageObject{
 			uiBase.getElementFromJson("OrderConfirmationPage:lnkReturnOrder").isDisplayed();
 			uiBase.clickElement("OrderConfirmationPage:lnkReturnOrder");
 			uiBase.waitUntilElementDisplayed("OrderConfirmationPage:lblViewOrder", 20);
-			uiBase.getElementFromJson("OrderConfirmationPage:lblViewOrder").isDisplayed();
 			uiBase.clickElement("OrderConfirmationPage:lblViewOrder");
 			logger.info("User is able to view ordered list.");
 			return true;
-			
+
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}

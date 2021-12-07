@@ -20,7 +20,7 @@ public class BP_ProductListAction extends PageObject{
 			logger.info("User is on product Overlay Page to select listed products");
 			
 			uiBase.waitUntilElementDisplayed("SalesPage:btnKitchenTools", 50);
-			uiBase.getElementFromJson("SalesPage:btnKitchenTools").isDisplayed();
+			
 			uiBase.clickElement("SalesPage:btnKitchenTools");
 			uiBase.getElementFromJson("SalesPage:lnkFirstProduct").isDisplayed();
 			
@@ -43,7 +43,7 @@ public class BP_ProductListAction extends PageObject{
 		try {
 			logger.info("User verifying the added product on cart");
 			uiBase.waitUntilElementDisplayed("SalesPage:txtpoductID", 50);
-			uiBase.getElementFromJson("SalesPage:txtpoductID").isDisplayed();
+			//uiBase.getElementFromJson("SalesPage:txtpoductID").isDisplayed();
 			String ActualproductId=uiBase.getElementFromJson("SalesPage:txtpoductID").getText();
 			System.out.println("ActualproductId : "+ActualproductId);
 			String ExpectedProductId=uiBase.getTestDataFromJson("AddedProductList:productID");

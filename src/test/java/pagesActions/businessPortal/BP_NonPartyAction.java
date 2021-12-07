@@ -10,6 +10,7 @@ import net.serenitybdd.core.pages.PageObject;
 import utils.UiBase;
 
 
+
 public class BP_NonPartyAction extends PageObject{
 
 	Logger logger= LoggerFactory.getLogger(BP_NonPartyAction.class);
@@ -19,29 +20,24 @@ public class BP_NonPartyAction extends PageObject{
 	public boolean navigateToCreatePersonalOrder() throws InterruptedException {
 		try {
 			logger.info("User is on Create Order Page");
-
-
-			uiBase.waitUntilElementDisplayed("BusinessDashboardPage:hambergerMenu", 30);
-
-			uiBase.clickElement("BusinessDashboardPage:hambergerMenu");
-			uiBase.clickElement("BusinessDashboardPage:lnkSales");
-			uiBase.clickElement("SalesPage:lnkNonPartyOrder");
-			uiBase.waitUntilElementDisplayed("BusinessDashboardPage:selectDirOption", 30);
-
-			uiBase.getElementFromJson("BusinessDashboardPage:selectDirOption").isDisplayed();
-
 			Actions action = new Actions(getDriver());
-			action.moveToElement(uiBase.getElementFromJson("BusinessDashboardPage:selectDirOption")).click().build().perform();
 
-			uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 50);
+			if(uiBase.waitUntilElementDisplayed("BusinessDashboardPage:hambergerMenu", 30))
+			{
+				uiBase.clickElement("BusinessDashboardPage:hambergerMenu");
+				uiBase.clickElement("BusinessDashboardPage:lnkSales");
+				uiBase.clickElement("SalesPage:lnkNonPartyOrder");
 
-			uiBase.getElementFromJson("SalesPage:lblCreateOrder").isDisplayed();
+			}
+			if(uiBase.waitUntilElementDisplayed("BusinessDashboardPage:selectDirOption", 30))
+			{
+				action.moveToElement(uiBase.getElementFromJson("BusinessDashboardPage:selectDirOption")).click().build().perform();
+			}
 
-			uiBase.getElementFromJson("SalesPage:btnBrowse").isDisplayed();
-			uiBase.waitUntilElementDisplayed("SalesPage:btnBrowse", 50);
-			uiBase.clickElement("SalesPage:btnBrowse");
-
-			logger.info("user has clicked on browse button");
+			if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 30)) {
+				Thread.sleep(5000);
+				uiBase.clickElement("SalesPage:btnBrowse");
+			}
 			return true;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();

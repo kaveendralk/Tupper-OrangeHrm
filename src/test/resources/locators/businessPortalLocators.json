@@ -125,7 +125,8 @@
          "lnkNonPartyOrder":"//a[contains( text(), 'Create Non-Party Order')]",
          "btnAddOrder":"//span[contains( text(),'Add to Order')]",
          "txtpoductID":"//div[@class = 'item-alternatecode']",
-         "lblPaymentOptions":"//h1[contains( text(),'Payment Options')]"
+         "lblPaymentOptions":"//h1[contains( text(),'Payment Options')]",
+         
       },
       "TupperLoginPage":{
          "txtUsername":"//input[@id='fvUserName']",

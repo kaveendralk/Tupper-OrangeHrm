@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class UiBase extends PageObject {
+public class UiBase	 extends PageObject {
 
     public String BP_Locator_File = "src/test/resources/locators/businessPortalLocators.json";
     public String BP_TestData_File = "src/test/resources/testData/businessPortalTestData.json";
@@ -764,4 +764,6 @@ public class UiBase extends PageObject {
         }
         return false;
     }
+    
+    
 }

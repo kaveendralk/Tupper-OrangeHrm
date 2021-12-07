@@ -18,11 +18,17 @@ public class BP_CheckOutAction extends PageObject {
 		try {
 			logger.info("User click in checkout button on create Order Page");
 
-			uiBase.waitUntilElementDisplayed("SalesPage:btnCheckout", 30);
-			uiBase.getElementFromJson("SalesPage:btnCheckout").isDisplayed();
-			uiBase.clickElement("SalesPage:btnCheckout");
-			logger.info("User verified checkout button on create Order Page");
-			return true;
+			if(uiBase.waitUntilElementDisplayed("SalesPage:btnCheckout", 30))
+			{
+				Thread.sleep(5000);
+				uiBase.getElementFromJson("SalesPage:btnCheckout").isDisplayed();
+				uiBase.clickElement("SalesPage:btnCheckout");
+				logger.info("User verified checkout button on create Order Page");
+				return true;
+			}else
+			{
+				return false;
+			}
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -34,10 +40,16 @@ public class BP_CheckOutAction extends PageObject {
 		try{
 			logger.info("User is verifying Payment button on create Order Page");
 
-			uiBase.waitUntilElementDisplayed("SalesPage:btnAddPayment", 30);
-			uiBase.getElementFromJson("SalesPage:btnAddPayment").isDisplayed();
-			logger.info("User verified Payment button on create Order Page");
-			return true;
+			if(uiBase.waitUntilElementDisplayed("SalesPage:btnAddPayment", 30))
+			{
+				Thread.sleep(3000);
+				uiBase.getElementFromJson("SalesPage:btnAddPayment").isDisplayed();
+				logger.info("User verified Payment button on create Order Page");
+				return true;
+			}else
+			{
+				return false;
+			}
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -48,11 +60,15 @@ public class BP_CheckOutAction extends PageObject {
 		try {
 			logger.info("User click in Payment button on create Order Page");
 
-			uiBase.waitUntilElementDisplayed("SalesPage:btnAddPayment", 30);
-			uiBase.clickElement("SalesPage:btnAddPayment");
-
-			logger.info("User clicked in Payment button on create Order Page");
-			return true;
+			if(uiBase.waitUntilElementDisplayed("SalesPage:btnAddPayment", 30))
+			{
+				uiBase.clickElement("SalesPage:btnAddPayment");
+				logger.info("User clicked in Payment button on create Order Page");
+				return true;
+			}else
+			{
+				return false;
+			}
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
