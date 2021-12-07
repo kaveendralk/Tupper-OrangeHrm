@@ -10,6 +10,10 @@ Feature: Validate all the business reports including Dashboard Report, Personal 
   Scenario: Validate the Business Dashboard report and its functionality
     And User clicks on "Business Dashboard Icon" on "Home" page
     And User navigates to "Business Dashboard" page
+    Then User clicks each report tab and validate reports are loading correctly
+    Then User navigates to each personal report and verify pages are loading correctly
+
+
     And User verify "Various Elements" on "Business Dashboard" page
     And User verify "Various Elements" in Team tile
     And User verify "Various Elements" in Potential Earnings tile
@@ -19,7 +23,7 @@ Feature: Validate all the business reports including Dashboard Report, Personal 
   Scenario: Validate that consultant is able to navigate to Business Dashboard report by clicking on 'Dashboard Report' menu from hamburger icon
     And User clicks on "Hamburger Icon" from side menu
     And User clicks on "My Business" from side menu
-    And User clicks on "Dashboard Report" from side menu
+      And User clicks on "Dashboard Report" from side menu
     And User navigates to "Business Dashboard" page
 
   @PersonalReport_PaymentSummary @TC_6 @Smoke @Sanity

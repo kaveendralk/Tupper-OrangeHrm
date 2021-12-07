@@ -1,12 +1,9 @@
-package pagesActions.older;
+package pagesActions.businessPortal;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,11 +11,11 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import utils.UiBase;
 
-public class SalesPage extends PageObject {
+public class BP_SalesPageAction extends PageObject {
 
 	WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
-	public SalesPage(WebDriver driver) {
+	public BP_SalesPageAction(WebDriver driver) {
 		super(driver);
 	}
 	public UiBase uiBase = new UiBase();
