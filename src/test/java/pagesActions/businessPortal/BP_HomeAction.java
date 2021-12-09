@@ -11,11 +11,14 @@ public class BP_HomeAction extends PageObject {
     Logger logger = LoggerFactory.getLogger(BP_HomeAction.class);
     UiBase uiBase = new UiBase();
 
-    public boolean PageOpened() {
+    public boolean PageOpened()  {
+    	
         if (uiBase.isElementDisplayed("HomePage:logo")) {
             return true;
+        
         }
-        return false;
+		return false;
+        
     }
 
     public void clickToElement(String elementName) {
@@ -31,6 +34,12 @@ public class BP_HomeAction extends PageObject {
                 break;
             case "Dashboard Report":
                 uiBase.clickElement("BusinessPage:lnkDashboardReports");
+                break;
+            case "Sales":
+            	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
+                 break;
+            case "Browse Products":
+           	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
                 break;
             case "Manage Parties":
                 break;

@@ -16,7 +16,9 @@
          "btnEnroll":"//button[@class = 'btn btn-default enrolledButton']",
          "lnkSales":"//a[contains( text(), 'My Business')]//following::a[contains( text(), 'Sales ')]",
          "lnkPersonalOrder":"//a[contains( text(), 'Create Personal Order')]",
-         "lnkPartyOrder":"//a[contains( text(), 'Create A Party')]"
+         "lnkPartyOrder":"//a[contains( text(), 'Create A Party')]",
+         "lblOrderType":"//div[contains( text(), 'Type of Order:')]",
+         "selectDirOption":"//div[contains( text(),'Sales Order for Directors')]"
       },
       "BusinessPage":{
          "hambergerMenu":"//div[@class='box-shadow-menu']",
@@ -54,7 +56,7 @@
          "btnCheckout":"//button[. = 'Checkout']",
          "lblSubtotal":"//*[@class= 'summary-amount subtotal']",
          "lblQVolume":"//*[@class= 'summary-amount subtotal']//following::span[@data-bind= 'text: AmountString'][1]",
-         "lblComVolume":"///*[@class= 'summary-amount subtotal']//following::span[@data-bind= 'text: AmountString'][3]",
+         "lblComVolume":"//*[@class= 'summary-amount subtotal']//following::span[@data-bind= 'text: AmountString'][2]",
          "lblRetaindedProf":"//*[@class= 'summary-amount subtotal']//following::span[@data-bind= 'text: AmountString'][3]",
          "btnAddPayment":"//button[. = 'Add Payment']",
          "btnSubmit":"//button[. = 'Submit']",
@@ -118,12 +120,47 @@
          "btnAddGuestPop":"//button[. = 'Cancel']//following::button[. = 'Add Guest']",
          "inpSearchItem":"//input[@type = 'search']",
          "lblSearchedItem":"//button[@aria-label= 'Chef Series II Gourmet Set Select for details']",
-         "btnAddtoCart":"//button[.= 'Add to Cart']"
+         "btnAddtoCart":"//button[.= 'Add to Cart']",
+         "lblCreateOrder":"//h1[contains( text(),'Create Order')]",
+         "lnkNonPartyOrder":"//a[contains( text(), 'Create Non-Party Order')]",
+         "btnAddOrder":"//span[contains( text(),'Add to Order')]",
+         "txtpoductID":"//div[@class = 'item-alternatecode']",
+         "lblPaymentOptions":"//h1[contains( text(),'Payment Options')]",
+         "btnOvenware":"//li[. = 'Ovenware']",
+         "btnBlackFriday":"//li[. = 'Black Friday']",
+         "btnCurrentBrosher":"//li[. = 'Current Brochure']",
+         "lnkSecondProductBro":"//li[. = 'Current Brochure']//following::div[@class ='product-details'][2]",
+         "lnkSecondProductBlackFri":"//li[. = 'Black Friday']//following::div[@class ='product-details'][2]",
+         "txtCartSubTotal":"//div[@data-bind='text: subtotal']",
+         "txtHandyProductID":"//*[contains(text(),'HANDY SPIRALIZER')]//following-sibling::div[@data-bind='text: alternateCode']",
+         "txEcoProductID":"//*[contains(text(),'Eco+ Large Water Bottle/Aruba')]//following-sibling::div[@data-bind='text: alternateCode']",
+         "lblReviewOrder":"//h2[contains(text(),'Review your Order']",
+         "btnNextReviewPage":"//input[@name='commit']",
+         "OrderTotal":"//div[contains(text(),'Order Total')]"
+         
+        
       },
       "TupperLoginPage":{
          "txtUsername":"//input[@id='fvUserName']",
          "txtPassword":"//input[@id='fvPassword']",
          "btnSubmit":"//input[@data-bind='click: fvSubmit']"
+      },
+      "OrderConfirmationPage":{
+      	"OrderNumber":"//*[contains( text(), 'Order Number:')]//following::strong[@data-bind= 'text: header.SalesOrderNumber']",
+      	"CustomerName":"//*[contains( text(),'Customer Name:')]//following::strong[@data-bind= 'text: header.CustomerName()']",
+      	"CustomerID":"//*[contains( text(),'Customer ID:')]//following::strong[@data-bind= 'text: header.CustomerAccountCode()']",
+      	"ProductID":"//*[@class= 'item-holder line form-group']//child::span[@data-bind= 'text: ProductAlternateCode']",
+      	"ProductName":"//*[@class= 'item-holder line form-group']//child::span[@data-bind= 'text: Description']",
+      	"PriceValue":"//*[@class= 'item-holder line form-group']//child::span[@data-bind= 'text: FinalPrice.DisplayValue']",
+      	"OrderTotal":"//*[@id='total-template-id']//child::div[1]/span[2][@data-bind= 'text: Total']",
+      	"shipping":"//*[@id='total-template-id']//child::div[2]/span[2][@data-bind= 'text: Total']",
+      	"Tax":"//*[@id='total-template-id']//child::div[3]/span[2][@data-bind= 'text: Total']",
+      	"Total":"//*[@id='total-template-id']//child::div[4]/span[2][@data-bind= 'text: Total']",
+      	"lnkReturnOrder":"//a[contains( text(),'Return to Order List')]",
+      	"lblViewOrder":"//h1[contains ( text(),'View Orders')]",
+      	"lblSalesOrder":"//*[@data-bind='text: header.SalesOrderType']",
+      	"lblStatus":"//*[@data-bind='text: header.Status']"
+      	
       },
       "PersonalWebsitePage":{
         

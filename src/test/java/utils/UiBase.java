@@ -30,13 +30,17 @@ import java.util.List;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class UiBase extends PageObject {
+public class UiBase	 extends PageObject {
 
     public String BP_Locator_File = "src/test/resources/locators/businessPortalLocators.json";
     public String BP_TestData_File = "src/test/resources/testData/businessPortalTestData.json";
 
     private static String mainWindowHandle;
 
+    public void  getWaitForload() throws InterruptedException
+    {
+    	Thread.sleep(5000);
+    }
     public void clickElement(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         element.click();
@@ -139,6 +143,7 @@ public class UiBase extends PageObject {
         return foundElement;
     }
 
+   
 
     public String getTestDataFromJson(String locatorPath) {
         String json = null;
@@ -269,7 +274,19 @@ public class UiBase extends PageObject {
             e.printStackTrace();
         }
     }
+    
+    /*Scroll Element*/
+    public void scrollToElementLocation(String locatorPath) {
+    	WebElement element = getElementFromJson(locatorPath);
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript(
+                    "arguments[0].scrollIntoView();", element);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    
     public void scrollToBottom(WebDriver driver) {
         try {
             ((JavascriptExecutor) driver)
@@ -639,6 +656,8 @@ public class UiBase extends PageObject {
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
+    
+    
 
     public static String getCurrentDate() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -764,4 +783,6 @@ public class UiBase extends PageObject {
         }
         return false;
     }
+    
+    
 }
