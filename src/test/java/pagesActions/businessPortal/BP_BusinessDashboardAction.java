@@ -1,121 +1,162 @@
 package pagesActions.businessPortal;
 
+import io.vavr.collection.List;
+import javafx.collections.MapChangeListener;
 import net.serenitybdd.core.pages.PageObject;
+import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.UiBase;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 public class BP_BusinessDashboardAction extends PageObject {
 
-    Logger logger= LoggerFactory.getLogger(BP_BusinessDashboardAction.class);
+    Logger logger = LoggerFactory.getLogger(BP_BusinessDashboardAction.class);
 
-    UiBase uiBase= new UiBase();
+    ArrayList<String> list = new ArrayList<>();
+
+    UiBase uiBase = new UiBase();
 
     public boolean PageOpened() {
-        if (uiBase.isElementDisplayed("BusinessDashboardPage:lnkMyBusiness")) {
+
+        if (uiBase.waitUntilElementDisplayed("BusinessDashboardPage:txtBusinessDashboard", 10)) {
+//                uiBase.isElementDisplayed("BusinessDashboardPage:lnkMyBusiness")) {
             return true;
         }
         return false;
     }
 
-    public boolean checkReportsLoading() throws InterruptedException{
+    public boolean checkDashboardReportsLoading() throws InterruptedException {
         try {
             Thread.sleep(1000);
             getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            uiBase.clickElement("BusinessDashboardPage:tabOrgGrowth");
-            Thread.sleep(1000);
-            uiBase.getElementFromJson("BusinessDashboardPage:lblMyOrganization").isDisplayed();
-            uiBase.clickElement("BusinessDashboardPage:tabDirectorGrowth");
-            Thread.sleep(1000);
-            if(uiBase.isElementDisplayed("BusinessDashboardPage:btnRefresh")){
-                uiBase.clickElement("BusinessDashboardPage:tabWYD");
+            if (uiBase.isElementDisplayed("BusinessDashboardPage:thisMonthTabActive")) {
+                list.add("BusinessDashboardPage:teamSection");
+                list.add("BusinessDashboardPage:potentialEarningsSection");
+                list.add("BusinessDashboardPage:tabWYD");
+                for (int i = 0; i < list.size(); i++) {
+                    if (uiBase.isElementDisplayed(list.get(i))) {
+                        logger.info("Element" + list.get(i) + " is present");
+                    } else {
+                        logger.info("Element" + list.get(i) + " is not present");
+                        return false;
+                    }
+                }
+                if (uiBase.isElementDisplayed("BusinessDashboardPage:tabWYD")) {
+                    uiBase.clickElement("BusinessDashboardPage:tabWYD");
+                    if (uiBase.waitUntilElementDisplayed("BusinessDashboardPage:headerWhatYourDrive", 30)) {
+                        return true;
+                    } else {
+                        logger.info("'What's Your Drive' page is not loaded");
+                        return false;
+                    }
+                }
+
+            } else {
+                return false;
             }
-            if(uiBase.isElementDisplayed("BusinessDashboardPage:lblCurrent")){
-                uiBase.clickElement("BusinessDashboardPage:tabThisMonth");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean paymentSummaryPersonalReportOpened() throws InterruptedException {
+        Thread.sleep(5000);
+        if(uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryHeading", 30))   {
+            return true;
+        }
+        return false;
+    }
+
+    public HashMap<String, Boolean> paymentSummaryReportLoading(){
+//        getDriver().switchTo().frame(uiBase.getElementFromJson("BusinessPage:paymentSummaryIframe"));
+//        getDriver().switchTo().frame(0);
+        HashMap<String,Boolean> map = new HashMap<String, Boolean>();
+            if(uiBase.isElementDisplayed("BusinessPage:paymentDateText")){
+                map.put("Payment Date dropdown is visible", true);
+            }else{
+                map.put("Payment Date dropdown is not visible", false);
             }
-			Thread.sleep(1000);
-            uiBase.getElementFromJson("BusinessDashboardPage:lblMaintain").isDisplayed();
-            return true;
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
+            if(uiBase.isElementDisplayed("BusinessPage:viewReportButtonInPaymentSummary")){
+                map.put("View Report button is visible", true);
+            }else{
+                map.put("View Report button is not visible", false);
+            }
+        if(uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryText", 30)){
+            map.put("Payment Summary text is visible", true);
+        }else{
+            map.put("Payment Summary text is not visible", false);
         }
-        return false;
+            if(uiBase.waitUntilElementDisplayed("BusinessPage:dateColumnInPaymentSummary", 30) &&
+            uiBase.waitUntilElementDisplayed("BusinessPage:descriptionColumnInPaymentSummary", 30) && uiBase.waitUntilElementDisplayed("BusinessPage:amountInPaymentSummary", 30)
+            && uiBase.waitUntilElementDisplayed("BusinessPage:adjustmentInPaymentSummary", 30) && uiBase.waitUntilElementDisplayed("BusinessPage:paidAmountInPaymentSummary", 30)){
+                map.put("Date or Description or Amount or Adjustment or Paid Amount are visible", true);
+            }else{
+                map.put("Date or Description or Amount or Adjustment or Paid Amount or all of them are not visible", false);
+            }
+        return map;
     }
 
-    public boolean navigateToPersonalReportsAndVerify() throws InterruptedException{
-        try {
-            Thread.sleep(1000);
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:hambergerMenu");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkMyBusiness2");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkPersonalReports");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkPaymentSummary");
-//			Thread.sleep(2000);
-//			elementUtils.getElementFromJson(getDriver(),"Tupperware.json","BusinessPage:lblWelcome").isDisplayed();
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:hambergerMenu");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkMyBusiness");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkPersonalReports");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkPersonalHistory");
-//			Thread.sleep(2000);
-//			elementUtils.getElementFromJson(getDriver(),"Tupperware.json","BusinessPage:lblWelcome").isDisplayed();
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:hambergerMenu");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkMyBusiness");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkPersonalReports");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkYearEndSummary");
-//			Thread.sleep(2000);
-//			elementUtils.getElementFromJson(getDriver(),"Tupperware.json","BusinessPage:lblWelcome").isDisplayed();
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkHome");
-            return true;
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
+public boolean navigateToPersonalReportsAndVerify()throws InterruptedException{
+        try{
+        Thread.sleep(1000);
+        getDriver().manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+        uiBase.clickElement("BusinessPage:hambergerMenu");
+        uiBase.clickElement("BusinessPage:lnkMyBusiness2");
+        uiBase.clickElement("BusinessPage:lnkPersonalReports");
+        uiBase.clickElement("BusinessPage:lnkPaymentSummary");
+        Thread.sleep(2000);
+        uiBase.getElementFromJson("BusinessPage:lblWelcome").isDisplayed();
+        uiBase.clickElement("BusinessPage:hambergerMenu");
+        uiBase.clickElement("BusinessPage:lnkMyBusiness");
+        uiBase.clickElement("BusinessPage:lnkPersonalReports");
+        uiBase.clickElement("BusinessPage:lnkPersonalHistory");
+        Thread.sleep(2000);
+        uiBase.getElementFromJson("BusinessPage:lblWelcome").isDisplayed();
+        uiBase.clickElement("BusinessPage:hambergerMenu");
+        uiBase.clickElement("BusinessPage:lnkMyBusiness");
+        uiBase.clickElement("BusinessPage:lnkPersonalReports");
+        uiBase.clickElement("BusinessPage:lnkYearEndSummary");
+        Thread.sleep(2000);
+        uiBase.getElementFromJson("BusinessPage:lblWelcome").isDisplayed();
+        uiBase.clickElement("BusinessPage:lnkHome");
+        return true;
+        }catch(NoSuchElementException e){
+        e.printStackTrace();
         }
         return false;
-    }
+        }
 
-
-//    public boolean navigateToPersonalWebSite() throws InterruptedException{
-//        try {
-//            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-////			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lblWelcome");
-////			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:btnProfile");
-////			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessPage:lnkPersonalWeb");
-//            return true;
-//        } catch (NoSuchElementException e) {
-//            e.printStackTrace();
-//        }
-//        return false;
-//    }
-
-
-    /* Navigate to create personal order */
-    public boolean navigateToCreatePersonalOrderPage() throws InterruptedException{
-        try {
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+public boolean navigateToCreatePersonalOrderPage()throws InterruptedException{
+        try{
+        getDriver().manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 //			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:hambergerMenu");
 //			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkSales");
 //			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkPersonalOrder");
-            return true;
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
+        return true;
+        }catch(NoSuchElementException e){
+        e.printStackTrace();
         }
         return false;
-    }
+        }
 
 
-    /* Navigate to create party */
-    public boolean navigateToCreateParty() throws InterruptedException{
-        try {
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+/* Navigate to create party */
+public boolean navigateToCreateParty()throws InterruptedException{
+        try{
+        getDriver().manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 //			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:hambergerMenu");
 //			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkSales");
 //			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkPartyOrder");
-            return true;
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
+        return true;
+        }catch(NoSuchElementException e){
+        e.printStackTrace();
         }
         return false;
-    }
-}
+        }
+        }

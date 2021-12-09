@@ -1,6 +1,10 @@
 {
-  "validLoginDetails":{
-    "UserName": "CHELSEACAMERON",
+  "validLoginDetails_CA": {
+    "UserName": "CAROLYNZ",
+    "Password": "test"
+    },
+  "validLoginDetails_US": {
+    "UserName": "WANDALEE1",
     "Password": "test"
   }
 }

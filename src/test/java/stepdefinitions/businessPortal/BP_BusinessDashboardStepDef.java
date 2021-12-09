@@ -19,15 +19,22 @@ public class BP_BusinessDashboardStepDef {
     @Steps
     BP_BusinessDashboardPage bp_businessDashboardPage;
 
-    @Then("User clicks each report tab and validate reports are loading correctly")
+    @Then("User click each report tab and validate reports are loading correctly")
     public void checkReportsLoading() throws Exception {
         Assert.assertTrue("Reports are not loading correctly.", bp_businessDashboardPage.verifyReportAreLoading());
     }
 
-    @And("User navigates to each personal report and verify pages are loading correctly")
-    public void navigateToPersonalReportsAndVerify() throws Exception {
-        Assert.assertTrue("Personal Reports are not loading correctly",bp_businessDashboardPage.navigateToPersonalReportsAndVerify());
+    @And("User verify that Payment Summary are loading correctly")
+    public void navigateToPaymentSummaryAndVerify() throws Exception {
+        for(String key: bp_businessDashboardPage.paymentSummaryReportLoaded().keySet()){
+            if(!bp_businessDashboardPage.paymentSummaryReportLoaded().get(key)){
+            }
+            Assert.assertTrue(key, bp_businessDashboardPage.paymentSummaryReportLoaded().get(key));
+        }
     }
+
+
+
 
 //    @And("I navigate to Business dashboard page")
 //    public void deldot_inspector_login() throws Exception {

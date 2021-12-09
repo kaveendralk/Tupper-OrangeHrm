@@ -155,6 +155,16 @@ public class UiBase extends PageObject {
         return elementXpath;
     }
 
+    /*Scroll Element*/
+    public void scrollToElementLocation(String locatorPath) {
+        WebElement element = getElementFromJson(locatorPath);
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript(
+                    "arguments[0].scrollIntoView();", element);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public boolean selectCheckBox(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         if (element.isSelected()) {
@@ -630,15 +640,6 @@ public class UiBase extends PageObject {
         }
     }
 
-    /**
-     * Mouse Hover in Web element
-     *
-     * @param element
-     */
-    public static void mouseOver(WebDriver driver, WebElement element) {
-        Actions builder = new Actions(driver);
-        builder.moveToElement(element).build().perform();
-    }
 
     public static String getCurrentDate() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
