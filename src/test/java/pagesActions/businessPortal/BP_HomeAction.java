@@ -40,6 +40,13 @@ public class BP_HomeAction extends PageObject {
                 break;
             case "Payment Summary":
                 uiBase.clickElement("BusinessDashboardPage:lnkPaymentSummary");
+            case "Sales":
+            	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
+                 break;
+            case "Browse Products":
+           	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
+                break;
+            case "Manage Parties":
                 break;
 
         }

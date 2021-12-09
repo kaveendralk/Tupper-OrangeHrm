@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.businessPortal.BP_BusinessDashboardPage;
 import pages.businessPortal.BP_HomePage;
+import pages.businessPortal.BP_NonPartyPage;
 
 public class BP_CommonStepDef {
 
@@ -19,15 +20,24 @@ public class BP_CommonStepDef {
     @Steps
     BP_BusinessDashboardPage bp_businessDashboardPage;
 
+    @Steps
+    BP_NonPartyPage bp_NonPartyPage;
+
     @Then("User navigate to {string} page")
     public void user_navigates_to_page(String pageName) throws Exception {
         logger.info("User is navigating to "+pageName+" page");
+
+    @Then("User navigates to {string} page")
+    public void user_navigates_to_page(String pageName) throws PendingException  {
         switch(pageName){
             case "Home":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_homePage.navigateToPage());
                 break;
             case "Business Dashboard":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.navigateToPage());
+                break;
+            case "Create Order":
+            	Assert.assertTrue("User is not navigated to "+pageName+" page", bp_NonPartyPage.navigateToPage());
                 break;
             case "Personal Report: Payment Summary":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.paymentSummaryReportOpened());
@@ -49,6 +59,15 @@ public class BP_CommonStepDef {
 //                bp_businessDashboardPage.clicktoElement();
                 logger.info("User has clicked +" + elementName + " on " + pageName + " page");
                 break;
+            case "Sales":
+            	bp_homePage.clicktoElement(elementName);
+                logger.info("User has clicked +" + elementName + " on " + pageName + " page");
+                break;
+            case "Browse Products":
+            	bp_homePage.clicktoElement(elementName);
+                logger.info("User has clicked +" + elementName + " on " + pageName + " page");
+                break;
+
         }
     }
 

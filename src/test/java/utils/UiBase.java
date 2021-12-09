@@ -37,6 +37,10 @@ public class UiBase extends PageObject {
 
     private static String mainWindowHandle;
 
+    public void  getWaitForload() throws InterruptedException
+    {
+    	Thread.sleep(5000);
+    }
     public void clickElement(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         element.click();
@@ -274,6 +278,17 @@ public class UiBase extends PageObject {
     public void scrollToElement(WebDriver driver, WebElement element) {
         try {
             ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].scrollIntoView();", element);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*Scroll Element*/
+    public void scrollToElementLocation(String locatorPath) {
+    	WebElement element = getElementFromJson(locatorPath);
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript(
                     "arguments[0].scrollIntoView();", element);
         } catch (Exception e) {
             e.printStackTrace();
@@ -639,6 +654,17 @@ public class UiBase extends PageObject {
             t.printStackTrace();
         }
     }
+
+    /**
+     * Mouse Hover in Web element
+     *
+     * @param element
+     */
+    public static void mouseOver(WebDriver driver, WebElement element) {
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
+    }
+
 
 
     public static String getCurrentDate() {
