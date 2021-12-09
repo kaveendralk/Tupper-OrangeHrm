@@ -137,11 +137,10 @@ public class BP_HomeAction extends PageObject {
             }
             uiBase.clickElement("BusinessDashboardPage:lnkMyBusiness");
             Thread.sleep(10000);
-            uiBase.scrollToElementLocation("BusinessDashboardPage:linkAwardsOrderingReport");
             if (uiBase.isElementDisplayed("BusinessDashboardPage:linkSales")) {
                 uiBase.clickElement("BusinessDashboardPage:linkSales");
                 uiBase.waitUntilElementDisplayed("BusinessDashboardPage:linkCreateNonPartyOrder", 30);
-                uiBase.scrollToElementLocation("BusinessDashboardPage:linkSales");
+                uiBase.scrollToElementLocation("BusinessDashboardPage:linkOrderPartiallyShipped");
                 if(uiBase.isElementDisplayed("BusinessDashboardPage:linkCreateNonPartyOrder") &&
                         uiBase.isElementDisplayed("BusinessDashboardPage:linkCreateNonPartyCustomerOrder") &&
                         uiBase.isElementDisplayed("BusinessDashboardPage:linkViewOrders") &&

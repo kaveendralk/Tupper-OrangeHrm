@@ -17,8 +17,6 @@ public class BP_NonPartyAction extends PageObject{
 
 	public UiBase uiBase = new UiBase();
     
-	
-		
 	public boolean PageOpened() {
 		
 		uiBase.clickElement("SalesPage:lnkNonPartyOrder");

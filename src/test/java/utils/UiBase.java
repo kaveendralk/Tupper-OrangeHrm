@@ -158,17 +158,6 @@ public class UiBase extends PageObject {
         String elementXpath = obj.getString(elements[elements.length - 1]);
         return elementXpath;
     }
-
-    /*Scroll Element*/
-    public void scrollToElementLocation(String locatorPath) {
-        WebElement element = getElementFromJson(locatorPath);
-        try {
-            ((JavascriptExecutor) getDriver()).executeScript(
-                    "arguments[0].scrollIntoView();", element);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     public boolean selectCheckBox(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         if (element.isSelected()) {

@@ -26,9 +26,6 @@ public class BP_CommonStepDef {
     @Then("User navigate to {string} page")
     public void user_navigates_to_page(String pageName) throws Exception {
         logger.info("User is navigating to "+pageName+" page");
-
-    @Then("User navigates to {string} page")
-    public void user_navigates_to_page(String pageName) throws PendingException  {
         switch(pageName){
             case "Home":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_homePage.navigateToPage());
@@ -42,9 +39,6 @@ public class BP_CommonStepDef {
             case "Personal Report: Payment Summary":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.paymentSummaryReportOpened());
                 break;
-
-
-
         }
     }
 
