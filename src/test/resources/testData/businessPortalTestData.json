@@ -1,18 +1,22 @@
 {
   "validLoginDetails":{
-    "UserName": "PATTYK",
+    "UserName": "WANDALEE1",
     "Password": "test"
   },
   "AddedProductList":{
-   "productID":"011579"
+   "productID":"011579",
+   "ProductID1":"011573",
+   "productID2":"085517",
+   "ProductName":"MASHER",
+   "ProductByID":"010530"
    },
   "ShippingDetails":{
     "firstName":"James",
     "LastName":"Croff",
     "address1":"4138 Elphinstone St",
-    "city":"Regina",
-    "state":"Alberta",
-    "postalCode":"S4S 3L2"
+    "city":"Camuy",
+    "state":"Puerto Rico",
+    "postalCode":"00627"
   },
   "paymentDetails":{
     "cardNo":"4111111111111111",

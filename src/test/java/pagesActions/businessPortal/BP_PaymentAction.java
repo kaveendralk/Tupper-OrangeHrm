@@ -20,7 +20,8 @@ public class BP_PaymentAction extends PageObject{
 	public boolean clickOnAddPaymentButtonAndVerify() throws InterruptedException {
 		try {
 			logger.info("User click in Add Payment button on create Order Page");
-			Thread.sleep(5000);
+			
+			uiBase.getWaitForload();
 			uiBase.getElementFromJson("SalesPage:lblPaymentOptions").isDisplayed();
 			uiBase.getElementFromJson("SalesPage:btnAddNewCard").isDisplayed();
 			uiBase.clickElement("SalesPage:btnAddNewCard");
@@ -96,16 +97,21 @@ public class BP_PaymentAction extends PageObject{
 
 	public boolean clickOnSubmitAndVerify() throws InterruptedException {
 		try {
-			logger.info("User is entering visa card details on payment details Page");
+			logger.info("User is verifying visa card details on payment details Page");
+			if(uiBase.waitUntilElementDisplayed("SalesPage:btnNextReviewPage", 20)){
+				uiBase.isElementDisplayed("SalesPage:btnNextReviewPage");
+				uiBase.clickElement("SalesPage:btnNextReviewPage");
+			}
+			
 			if(uiBase.waitUntilElementDisplayed("SalesPage:btnSubmit", 50))
 			{
-			Thread.sleep(3000);
+			
+			uiBase.getWaitForload();
+			uiBase.scrollToElementLocation("SalesPage:OrderTotal");
 			uiBase.clickElement("SalesPage:btnSubmit");
 			logger.info("User entered visa card details on payment details Page");
+			}
 			return true;
-			}else {
-				return false;
-			}	
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -122,6 +128,9 @@ public class BP_PaymentAction extends PageObject{
 			uiBase.getElementFromJson("OrderConfirmationPage:CustomerName").isDisplayed();
 			uiBase.getElementFromJson("OrderConfirmationPage:CustomerID").isDisplayed();
 			uiBase.getElementFromJson("OrderConfirmationPage:ProductID").isDisplayed();
+			uiBase.getElementFromJson("OrderConfirmationPage:lblSalesOrder").isDisplayed();
+			uiBase.getElementFromJson("OrderConfirmationPage:lblStatus").isDisplayed();
+			
 
 			uiBase.getElementFromJson("OrderConfirmationPage:ProductName").isDisplayed();
 			uiBase.getElementFromJson("OrderConfirmationPage:PriceValue").isDisplayed();

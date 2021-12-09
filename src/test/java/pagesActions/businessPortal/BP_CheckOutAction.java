@@ -20,7 +20,8 @@ public class BP_CheckOutAction extends PageObject {
 
 			if(uiBase.waitUntilElementDisplayed("SalesPage:btnCheckout", 30))
 			{
-				Thread.sleep(5000);
+				
+				uiBase.getWaitForload();
 				uiBase.getElementFromJson("SalesPage:btnCheckout").isDisplayed();
 				uiBase.clickElement("SalesPage:btnCheckout");
 				logger.info("User verified checkout button on create Order Page");
@@ -42,7 +43,8 @@ public class BP_CheckOutAction extends PageObject {
 
 			if(uiBase.waitUntilElementDisplayed("SalesPage:btnAddPayment", 30))
 			{
-				Thread.sleep(3000);
+				
+				uiBase.getWaitForload();
 				uiBase.getElementFromJson("SalesPage:btnAddPayment").isDisplayed();
 				logger.info("User verified Payment button on create Order Page");
 				return true;

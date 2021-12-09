@@ -37,6 +37,10 @@ public class UiBase	 extends PageObject {
 
     private static String mainWindowHandle;
 
+    public void  getWaitForload() throws InterruptedException
+    {
+    	Thread.sleep(5000);
+    }
     public void clickElement(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         element.click();
@@ -139,6 +143,7 @@ public class UiBase	 extends PageObject {
         return foundElement;
     }
 
+   
 
     public String getTestDataFromJson(String locatorPath) {
         String json = null;
@@ -269,7 +274,19 @@ public class UiBase	 extends PageObject {
             e.printStackTrace();
         }
     }
+    
+    /*Scroll Element*/
+    public void scrollToElementLocation(String locatorPath) {
+    	WebElement element = getElementFromJson(locatorPath);
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript(
+                    "arguments[0].scrollIntoView();", element);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    
     public void scrollToBottom(WebDriver driver) {
         try {
             ((JavascriptExecutor) driver)
@@ -639,6 +656,8 @@ public class UiBase	 extends PageObject {
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
+    
+    
 
     public static String getCurrentDate() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

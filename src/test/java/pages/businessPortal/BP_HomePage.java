@@ -8,7 +8,7 @@ public class BP_HomePage {
     BP_HomeAction bp_homeAction;
 
     @Step
-    public boolean navigateToPage() {
+    public boolean navigateToPage()  {
         return bp_homeAction.PageOpened();
     }
 

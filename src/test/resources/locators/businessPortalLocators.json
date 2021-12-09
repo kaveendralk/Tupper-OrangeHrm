@@ -126,7 +126,19 @@
          "btnAddOrder":"//span[contains( text(),'Add to Order')]",
          "txtpoductID":"//div[@class = 'item-alternatecode']",
          "lblPaymentOptions":"//h1[contains( text(),'Payment Options')]",
+         "btnOvenware":"//li[. = 'Ovenware']",
+         "btnBlackFriday":"//li[. = 'Black Friday']",
+         "btnCurrentBrosher":"//li[. = 'Current Brochure']",
+         "lnkSecondProductBro":"//li[. = 'Current Brochure']//following::div[@class ='product-details'][2]",
+         "lnkSecondProductBlackFri":"//li[. = 'Black Friday']//following::div[@class ='product-details'][2]",
+         "txtCartSubTotal":"//div[@data-bind='text: subtotal']",
+         "txtHandyProductID":"//*[contains(text(),'HANDY SPIRALIZER')]//following-sibling::div[@data-bind='text: alternateCode']",
+         "txEcoProductID":"//*[contains(text(),'Eco+ Large Water Bottle/Aruba')]//following-sibling::div[@data-bind='text: alternateCode']",
+         "lblReviewOrder":"//h2[contains(text(),'Review your Order']",
+         "btnNextReviewPage":"//input[@name='commit']",
+         "OrderTotal":"//div[contains(text(),'Order Total')]"
          
+        
       },
       "TupperLoginPage":{
          "txtUsername":"//input[@id='fvUserName']",
@@ -145,7 +157,9 @@
       	"Tax":"//*[@id='total-template-id']//child::div[3]/span[2][@data-bind= 'text: Total']",
       	"Total":"//*[@id='total-template-id']//child::div[4]/span[2][@data-bind= 'text: Total']",
       	"lnkReturnOrder":"//a[contains( text(),'Return to Order List')]",
-      	"lblViewOrder":"//h1[contains ( text(),'View Orders')]"
+      	"lblViewOrder":"//h1[contains ( text(),'View Orders')]",
+      	"lblSalesOrder":"//*[@data-bind='text: header.SalesOrderType']",
+      	"lblStatus":"//*[@data-bind='text: header.Status']"
       	
       },
       "PersonalWebsitePage":{

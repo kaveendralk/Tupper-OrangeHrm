@@ -1,5 +1,5 @@
 @Tupperware @Regression
-Feature: Validate the Login page and home page of business portal
+Feature: Validate that consultant is able to submit orders and order information is shown correctly
 
 @Login @TC_01 @Smoke @Sanity 
   Scenario: Validate that Consultant is able to login in BP portal with valid credentials
@@ -13,13 +13,13 @@ Feature: Validate the Login page and home page of business portal
     Then "Browse By Category" overlay is opened
     And User verify that correct product is added
    
-  @CreateOrder @TC_10 @TC11 @Smoke  
+  @CreateOrder @TC_10 @TC11 @Smoke 
   Scenario: Validate that consultant is able to checkout the product
     And User clicks on Checkout button 
     And User verify that Add Payment button is displayed and Click
     Then verify Payment Options overlay is opened
     
-  @CreateOrder @TC_10 @TC11 @Smoke 
+  @CreateOrder @TC_10 @TC11 @Smoke
   Scenario: validate that consultant is able to add payment for selected product
     And User clicks on Add New Card on Payment Options overlay
     And User verify shipping and payment details on Payment Details page
