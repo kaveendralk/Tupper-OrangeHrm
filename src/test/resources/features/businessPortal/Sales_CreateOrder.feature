@@ -3,26 +3,21 @@ Feature: Validate that user is able to create Non party orders
 
   Background: Validate non party order creation
     Given User is on "Business" Portal
-    And User logins to the application with "validLogin" on "Business" Portal
-    Then User navigates to "Home" page
-    And User clicks on "Place Order CTA" on "Home" page
+    And User login to the application with "US_User" on "Business" Portal
+    Then User navigate to "Home" page
+    And  User click on "Hamburger Icon" from side menu
+    And User click on "Sales" on "Home" page
 
-  @CreateOrder @NonPartyOrder @NonPartyOrder_AddProduct @TC_10 @Smoke
+  @CreateOrder @NonPartyOrder @NonPartyOrder_AddProduct @TC_10 @Smoke @Demo
     Scenario: Validate that consultant is able to navigate to Create Orders page and able to search product by ID or name
-    Then User navigates to "Create Order" page
-    And User verify "Profile Information elements" on "Create Order" page
-    And User verify that "Checkout button" is not displayed on "Create Order" page
-    Then User adds product by searching product by "Product_ID"
-    And User verify that correct product is added
-    Then User adds product by searching product by "Product_Name"
-    And User verify that correct product is added
-    And User clicks on "Browse Products" on "Home" page
-    Then "Browse By Category" overlay is opened
-    And User adds first product to the cart
-    And User verify that correct product is added
+    Then User navigate to "Create Order" page
+    And User adds product by searching product by Product_ID
+     Then User adds product by searching product by Product_Name
+    And User adds multiple product of different product category to the cart
+    And  User verify the added product of multiple category
     And User verify that correct Order Total is displayed on Create Orders page
-    And User verify that "Checkout button" is displayed on "Create Order" page
-
+    
+        
   @CreateOrder @NonPartyOrder @NonPartyOrder_DeleteProduct @DeleteProduct @TC_10 @Smoke
   Scenario: Validate that consultant is able to delete products and Order total is updated accordingly
     Then User navigates to "Create Order" page

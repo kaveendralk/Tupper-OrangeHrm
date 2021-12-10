@@ -10,10 +10,12 @@ import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.awt.*;
+import java.awt.Dimension;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -37,6 +39,10 @@ public class UiBase extends PageObject {
 
     private static String mainWindowHandle;
 
+    public void  getWaitForload() throws InterruptedException
+    {
+    	Thread.sleep(10000);
+    }
     public void clickElement(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         element.click();
@@ -129,7 +135,7 @@ public class UiBase extends PageObject {
         String elementXpath = getLocatorFromJson(locatorPath);
         WebElement foundElement = null;
         try {
-            if (elementXpath.startsWith("//")) {
+            if (elementXpath.startsWith("//") || elementXpath.startsWith("(//")) {
                 foundElement = $(By.xpath(elementXpath));
             } else {
                 foundElement = $(By.cssSelector(elementXpath));
@@ -269,6 +275,19 @@ public class UiBase extends PageObject {
             e.printStackTrace();
         }
     }
+
+    /*Scroll Element*/
+    public void scrollToElementLocation(String locatorPath) {
+    	WebElement element = getElementFromJson(locatorPath);
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript(
+                    "arguments[0].scrollIntoView();", element);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public void scrollToBottom(WebDriver driver) {
         try {
@@ -639,6 +658,8 @@ public class UiBase extends PageObject {
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
+
+
 
     public static String getCurrentDate() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

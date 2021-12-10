@@ -25,13 +25,10 @@ public class BP_LoginStepDef {
         logger.info("User is on "+string+" portal");
     }
 
-    @And("User logins to the application with {string} on {string} Portal")
-    public void user_logins_to_the_application_with_on_Portal(String string, String string2) throws PendingException, InterruptedException {
-        bp_loginPage.loginToPortal();
-        logger.info("User has logged in to the "+string2+" portal");
-
+    @And("User login to the application with {string} on {string} Portal")
+    public void user_login_to_the_application_with_County_User_on_Portal(String countyUser, String portal) throws InterruptedException {
+        bp_loginPage.loginToPortal(countyUser);
+        logger.info("User has logged in to the "+portal+" portal");
     }
-
-
 
 }
