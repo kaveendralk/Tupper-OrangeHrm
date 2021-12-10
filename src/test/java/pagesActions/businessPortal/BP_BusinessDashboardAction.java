@@ -70,7 +70,7 @@ public class BP_BusinessDashboardAction extends PageObject {
 
     public boolean paymentSummaryPersonalReportOpened() throws InterruptedException {
         uiBase.getWaitForload();
-        if(uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryHeading", 30))   {
+        if(uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryHeading", 60))   {
             return true;
         }
         return false;

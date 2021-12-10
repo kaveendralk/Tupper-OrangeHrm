@@ -74,13 +74,11 @@ public class BP_ProductListAction extends PageObject{
 	}
 
 	public boolean addProductByIdOnCart() throws InterruptedException, AWTException {
-
 		try {
 			uiBase.getWaitForload();
 			logger.info("User added product by SearchID on cart");
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
-			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductName"));
-			
+			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductByID"));
 			uiBase.getWaitForload();
 			WebElement element=uiBase.getElementFromJson("SalesPage:inpAddNewItem");
 			element.sendKeys(Keys.ARROW_DOWN, Keys.RETURN);
@@ -90,14 +88,16 @@ public class BP_ProductListAction extends PageObject{
 			e.printStackTrace();
 		}
 		return false;
+
 	}
 
 	public boolean addProductByNameOnCart() throws InterruptedException {
 		try {
 			logger.info("User added product by SearchID on cart");
+			uiBase.getWaitForload();
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
-			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductByID"));
-			
+			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductName"));
+
 			uiBase.getWaitForload();
 			WebElement element=uiBase.getElementFromJson("SalesPage:inpAddNewItem");
 			element.sendKeys(Keys.ARROW_DOWN, Keys.RETURN);
@@ -106,6 +106,7 @@ public class BP_ProductListAction extends PageObject{
 			e.printStackTrace();
 		}
 		return false;
+
 	}
 
 
@@ -141,27 +142,22 @@ public class BP_ProductListAction extends PageObject{
 
 	public boolean addProductWithMultipleCatagoryOnCart() {
 		try {
+			uiBase.getWaitForload();
 			uiBase.isElementDisplayed("SalesPage:btnBrowse");
 			uiBase.clickElement("SalesPage:btnBrowse");
-			uiBase.isElementDisplayed("SalesPage:lnkSecondProductBro");
+			uiBase.isElementDisplayed("SalesPage:btnKidsToys");
 			Actions action = new Actions(getDriver());
-			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductBro")).click().build().perform();
+			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductToys")).click().build().perform();
+
 			uiBase.isElementDisplayed("SalesPage:btnAddToOrderPop");
-
-
-			action.moveToElement(uiBase.getElementFromJson("SalesPage:addToOrderFromListing")).click().build().perform();
-			uiBase.getWaitForload();
-//			uiBase.clickElement("SalesPage:addToOrderButtonOnOverlay");
-
-//			uiBase.clickElement("SalesPage:addToOrderFromListing");
-//			uiBase.clickElement("SalesPage:btnAddToOrderPop");
+			uiBase.clickElement("SalesPage:btnAddToOrderPop");
 			uiBase.getWaitForload();
 			uiBase.waitUntilElementDisplayed("SalesPage:btnBrowse", 30);
 			uiBase.clickElement("SalesPage:btnBrowse");
-			uiBase.isElementDisplayed("SalesPage:btnBlackFriday");
-			uiBase.clickElement("SalesPage:btnBlackFriday");
-			uiBase.isElementDisplayed("SalesPage:lnkSecondProductBlackFri");
-			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductBlackFri")).click().build().perform();
+			uiBase.isElementDisplayed("SalesPage:btnServeWare");
+			uiBase.clickElement("SalesPage:btnServeWare");
+			//uiBase.isElementDisplayed("SalesPage:lnkSecondProductBlackFri");
+			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductWare")).click().build().perform();
 			uiBase.isElementDisplayed("SalesPage:btnAddToOrderPop");
 			uiBase.clickElement("SalesPage:btnAddToOrderPop");
 			return true;

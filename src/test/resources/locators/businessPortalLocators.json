@@ -82,7 +82,7 @@
          "paidAmountInPaymentSummary": "//table[@id='ctl02_ReportViewerCtl_fixedTable']//tr//td//div[text()='Paid Amount']"
         },
       "SalesPage":{
-         "btnBrowse":"//button[. = 'Browse Products']",
+         "btnBrowse":"//button[@class='browse-btn']",
          "btnKitchenTools":"//li[. = 'Kitchen Tools']",
          "btnCurrentBrochure":"//li[. = 'Current Brochure']",
          "firstProduct":"(//div[@class ='product-details']//div[@class='product-title'])[2]",
@@ -184,9 +184,11 @@
          "txEcoProductID":"//*[contains(text(),'Eco+ Large Water Bottle/Aruba')]//following-sibling::div[@data-bind='text: alternateCode']",
          "lblReviewOrder":"//h2[contains(text(),'Review your Order']",
          "btnNextReviewPage":"//input[@name='commit']",
-         "OrderTotal":"//div[contains(text(),'Order Total')]"
-
-
+         "OrderTotal":"//div[contains(text(),'Order Total')]",
+         "btnKidsToys":"//li[. = 'Kids & Toys']",
+         "lnkSecondProductToys":"(//div[@class ='product-details']//div[@class='product-title'])[2]",
+         "btnServeWare":"//li[. = 'Serveware']",
+         "lnkSecondProductWare":"(//div[@class ='product-details']//div[@class='product-title'])[2]"
       },
       "TupperLoginPage":{
          "txtUsername":"//input[@id='fvUserName']",

@@ -103,9 +103,8 @@ public class BP_PaymentAction extends PageObject{
 				uiBase.clickElement("SalesPage:btnNextReviewPage");
 			}
 			uiBase.getWaitForload();
-			uiBase.scrollToElementLocation("SalesPage:OrderTotal");
+//			uiBase.scrollToElementLocation("SalesPage:btnSubmit");
 			uiBase.clickElement("SalesPage:btnSubmit");
-			logger.info("User entered visa card details on payment details Page");
 			uiBase.getWaitForload();
 			return true;
 		}catch(NoSuchElementException e) {
