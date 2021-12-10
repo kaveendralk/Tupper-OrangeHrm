@@ -30,15 +30,10 @@ public class BP_NonPartyAction extends PageObject{
 	public boolean navigateToCreatePersonalOrder() throws InterruptedException {
 		try {
 			logger.info("User is on Create Order Page");
-			Actions action = new Actions(getDriver());
-			if(uiBase.waitUntilElementDisplayed("BusinessDashboardPage:selectDirOption", 30))
-			{
-				action.moveToElement(uiBase.getElementFromJson("BusinessDashboardPage:selectDirOption")).click().build().perform();
-			}
-
 			if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 30)) {
 				uiBase.getWaitForload();
 //				uiBase.scrollToElementLocation("SalesPage:btnBrowse");
+				Thread.sleep(500);
 				uiBase.clickElement("SalesPage:btnBrowse");
 			}
 			return true;

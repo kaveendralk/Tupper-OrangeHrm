@@ -13,8 +13,8 @@ Feature: Validate that user is able to create Non party orders
     Then User navigate to "Create Order" page
     And User adds product by searching product by Product_ID
      Then User adds product by searching product by Product_Name
-    And User adds multiple product of different product category to the cart
-    And  User verify the added product of multiple category
+#    And User adds multiple product of different product category to the cart
+#    And  User verify the added product of multiple category
     And User verify that correct Order Total is displayed on Create Orders page
     
         

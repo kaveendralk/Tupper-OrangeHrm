@@ -27,7 +27,7 @@ Feature: Validate all the business reports including Dashboard Report, Personal 
     And User click on "Personal Report" from side menu
     And User click on "Payment Summary" from side menu
     And User navigate to "Personal Report: Payment Summary" page
-    And User verify that Payment Summary are loading correctly
+#    And User verify that Payment Summary are loading correctly
 
   @PersonalReport_PersonalHistory @TC_7 @Smoke @Sanity
   Scenario: Validate that consultant is able to see Personal History under Personal Report and it is working correctly
