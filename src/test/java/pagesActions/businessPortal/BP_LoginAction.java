@@ -20,7 +20,7 @@ public class BP_LoginAction extends PageObject {
             userName = uiBase.getTestDataFromJson("validLoginDetails_US:UserName");
             password = uiBase.getTestDataFromJson("validLoginDetails_US:Password");
         }
-        Thread.sleep(10000);
+        uiBase.getWaitForload();
         uiBase.enterText("TupperLoginPage:txtUsername", userName);
         uiBase.enterText("TupperLoginPage:txtPassword", password);
         uiBase.clickElement("TupperLoginPage:btnSubmit");

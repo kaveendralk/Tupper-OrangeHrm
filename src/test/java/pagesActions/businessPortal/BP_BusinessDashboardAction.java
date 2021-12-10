@@ -35,17 +35,20 @@ public class BP_BusinessDashboardAction extends PageObject {
             Thread.sleep(1000);
             getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             if (uiBase.isElementDisplayed("BusinessDashboardPage:thisMonthTabActive")) {
-                list.add("BusinessDashboardPage:teamSection");
+//                list.add("BusinessDashboardPage:teamSection");
                 list.add("BusinessDashboardPage:potentialEarningsSection");
-                list.add("BusinessDashboardPage:tabWYD");
+//                list.add("BusinessDashboardPage:tabWYD");
                 for (int i = 0; i < list.size(); i++) {
                     if (uiBase.isElementDisplayed(list.get(i))) {
                         logger.info("Element" + list.get(i) + " is present");
+                        /* Added for consultant login */
+                        return true;
                     } else {
                         logger.info("Element" + list.get(i) + " is not present");
                         return false;
                     }
                 }
+                /*Not applicable for Consultant
                 if (uiBase.isElementDisplayed("BusinessDashboardPage:tabWYD")) {
                     uiBase.clickElement("BusinessDashboardPage:tabWYD");
                     if (uiBase.waitUntilElementDisplayed("BusinessDashboardPage:headerWhatYourDrive", 30)) {
@@ -54,7 +57,7 @@ public class BP_BusinessDashboardAction extends PageObject {
                         logger.info("'What's Your Drive' page is not loaded");
                         return false;
                     }
-                }
+                } */
 
             } else {
                 return false;
@@ -66,17 +69,16 @@ public class BP_BusinessDashboardAction extends PageObject {
     }
 
     public boolean paymentSummaryPersonalReportOpened() throws InterruptedException {
-        Thread.sleep(5000);
+        uiBase.getWaitForload();
         if(uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryHeading", 30))   {
             return true;
         }
         return false;
     }
 
-    public HashMap<String, Boolean> paymentSummaryReportLoading(){
-//        getDriver().switchTo().frame(uiBase.getElementFromJson("BusinessPage:paymentSummaryIframe"));
-//        getDriver().switchTo().frame(0);
+    public HashMap<String, Boolean> paymentSummaryReportLoading() throws InterruptedException {
         HashMap<String,Boolean> map = new HashMap<String, Boolean>();
+        uiBase.getWaitForload();
             if(uiBase.isElementDisplayed("BusinessPage:paymentDateText")){
                 map.put("Payment Date dropdown is visible", true);
             }else{

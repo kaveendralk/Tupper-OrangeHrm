@@ -20,9 +20,9 @@ public class BP_ProductListStepDef {
 	@Steps
 	BP_ProductListPage bp_ProductListPage;
 
-	@Then("{string} overlay is opened")
-	public void overlay_is_opened(String string) throws InterruptedException {
-		assertTrue(bp_ProductListPage.verifytheProductOverlayPage());
+	@Then("User add product from {string} overlay")
+	public void user_add_product_from_overlay(String string) throws InterruptedException {
+		assertTrue(bp_ProductListPage.verifyTheProductOverlayPage());
 		logger.info("User has clicked on  ");
 	}
 
@@ -41,12 +41,12 @@ public class BP_ProductListStepDef {
 
 
 
-	@Then("User adds multiple product of different product catagory to the cart")
+	@Then("User adds multiple product of different product category to the cart")
 	public void user_adds_multiple_product_of_different_product_catagory_to_the_cart() {
 		assertTrue(bp_ProductListPage.addProductWithMultipleCatagoryOnCart());
 	}
 
-	@Then("User verify the added product of mutiple category")
+	@Then("User verify the added product of multiple category")
 	public void user_verify_the_added_product_of_mutiple_category() throws InterruptedException {
 		assertTrue(bp_ProductListPage.verifyProductWithMultipleCatagoryOnCart());
 	}

@@ -1,38 +1,33 @@
 @Tupperware @Regression
 Feature: Validate all the business reports including Dashboard Report, Personal report and Custom report
 
-  Background: Validate business reports
+  Background: Validate various business reports
     Given User is on "Business" Portal
-
-  @BusinessDashboardUI @TC_5 @Smoke @Sanity
-  Scenario: Validate the Business Dashboard report and its functionality
     And User login to the application with "CA_User" on "Business" Portal
     And User navigate to "Home" page
+
+  @BusinessDashboardUI @TC_5 @Smoke @Sanity @Demo
+  Scenario: Validate the Business Dashboard report and its functionality
     And User click on "Business Dashboard Icon" on "Home" page
     And User navigate to "Business Dashboard" page
     Then User click each report tab and validate reports are loading correctly
 
   @BusinessDashboard @TC_5 @Smoke
   Scenario: Validate that consultant is able to navigate to Business Dashboard report by clicking on 'Dashboard Report' menu from hamburger icon
-    And User login to the application with "CA_User" on "Business" Portal
-    And User navigate to "Home" page
     And User click on "Hamburger Icon" from side menu
     And User click on "My Business" from side menu
     And User click on "Dashboard Report" from side menu
     And User navigate to "Business Dashboard" page
     Then User click each report tab and validate reports are loading correctly
 
-  @PersonalReport_PaymentSummary @TC_6 @Smoke @Sanity
+  @PersonalReport_PaymentSummary @TC_6 @Smoke @Sanity @Demo
   Scenario:Validate that consultant is able to see Payment Summary under Personal Report and it is working correctly
-    And User login to the application with "CA_User" on "Business" Portal
-    And User navigate to "Home" page
     And User click on "Hamburger Icon" from side menu
     And User click on "My Business" from side menu
     And User click on "Personal Report" from side menu
     And User click on "Payment Summary" from side menu
     And User navigate to "Personal Report: Payment Summary" page
     And User verify that Payment Summary are loading correctly
-
 
   @PersonalReport_PersonalHistory @TC_7 @Smoke @Sanity
   Scenario: Validate that consultant is able to see Personal History under Personal Report and it is working correctly

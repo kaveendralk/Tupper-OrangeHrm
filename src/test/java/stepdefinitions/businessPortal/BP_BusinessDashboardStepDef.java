@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import pages.businessPortal.BP_BusinessDashboardPage;
 import pages.businessPortal.BP_HomePage;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.assertTrue;
 
 public class BP_BusinessDashboardStepDef {
@@ -26,10 +28,11 @@ public class BP_BusinessDashboardStepDef {
 
     @And("User verify that Payment Summary are loading correctly")
     public void navigateToPaymentSummaryAndVerify() throws Exception {
-        for(String key: bp_businessDashboardPage.paymentSummaryReportLoaded().keySet()){
-            if(!bp_businessDashboardPage.paymentSummaryReportLoaded().get(key)){
+        HashMap<String, Boolean> map= bp_businessDashboardPage.paymentSummaryReportLoaded();
+        for(String key: map.keySet()){
+            if(!map.get(key)){
             }
-            Assert.assertTrue(key, bp_businessDashboardPage.paymentSummaryReportLoaded().get(key));
+            Assert.assertTrue(key, map.get(key));
         }
     }
 

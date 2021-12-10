@@ -23,19 +23,15 @@ public class BP_ProductListAction extends PageObject{
 
 	public UiBase uiBase = new UiBase();
 
-	public boolean verifytheProductOverlayPage() throws InterruptedException {
+	public boolean verifyTheProductOverlayPage() throws InterruptedException {
 		try {
 			logger.info("User is on product Overlay Page to select listed products");
-
 			uiBase.waitUntilElementDisplayed("SalesPage:btnKitchenTools", 50);
-
 			uiBase.clickElement("SalesPage:btnKitchenTools");
-			uiBase.getElementFromJson("SalesPage:lnkFirstProduct").isDisplayed();
-
 			Actions action = new Actions(getDriver());
-			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkFirstProduct")).click().build().perform();
-			uiBase.getElementFromJson("SalesPage:btnAddOrder").isDisplayed();
-			action.moveToElement(uiBase.getElementFromJson("SalesPage:btnAddOrder")).click().build().perform();
+			action.moveToElement(uiBase.getElementFromJson("SalesPage:firstProduct")).click().build().perform();
+			uiBase.getWaitForload();
+			uiBase.clickElement("SalesPage:addToOrderButtonOnOverlay");
 			logger.info("User added the product on cart");
 			return true;
 		}catch(NoSuchElementException e) {
@@ -80,6 +76,7 @@ public class BP_ProductListAction extends PageObject{
 	public boolean addProductByIdOnCart() throws InterruptedException, AWTException {
 
 		try {
+			uiBase.getWaitForload();
 			logger.info("User added product by SearchID on cart");
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
 			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductName"));
@@ -150,11 +147,17 @@ public class BP_ProductListAction extends PageObject{
 			Actions action = new Actions(getDriver());
 			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductBro")).click().build().perform();
 			uiBase.isElementDisplayed("SalesPage:btnAddToOrderPop");
-			uiBase.clickElement("SalesPage:btnAddToOrderPop");
 
-			uiBase.isElementDisplayed("SalesPage:btnBrowse");
+
+			action.moveToElement(uiBase.getElementFromJson("SalesPage:addToOrderFromListing")).click().build().perform();
+			uiBase.getWaitForload();
+//			uiBase.clickElement("SalesPage:addToOrderButtonOnOverlay");
+
+//			uiBase.clickElement("SalesPage:addToOrderFromListing");
+//			uiBase.clickElement("SalesPage:btnAddToOrderPop");
+			uiBase.getWaitForload();
+			uiBase.waitUntilElementDisplayed("SalesPage:btnBrowse", 30);
 			uiBase.clickElement("SalesPage:btnBrowse");
-
 			uiBase.isElementDisplayed("SalesPage:btnBlackFriday");
 			uiBase.clickElement("SalesPage:btnBlackFriday");
 			uiBase.isElementDisplayed("SalesPage:lnkSecondProductBlackFri");
@@ -163,7 +166,7 @@ public class BP_ProductListAction extends PageObject{
 			uiBase.clickElement("SalesPage:btnAddToOrderPop");
 			return true;
 
-		}catch(NoSuchElementException e) {
+		}catch(NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		}
 		return false;

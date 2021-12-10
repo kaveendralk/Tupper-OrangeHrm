@@ -43,7 +43,7 @@ public class BP_CommonStepDef {
     }
 
     @And("User click on {string} on {string} page")
-    public void user_clicks_on_on_page(String elementName, String pageName) throws PendingException {
+    public void user_clicks_on_on_page(String elementName, String pageName) throws PendingException, InterruptedException {
         switch (pageName) {
             case "Home":
                 bp_homePage.clicktoElement(elementName);
@@ -80,7 +80,7 @@ public class BP_CommonStepDef {
     }
 
     @And("User click on {string} from side menu")
-    public void user_click_on_side_menu(String elementName) throws PendingException {
+    public void user_click_on_side_menu(String elementName) throws PendingException, InterruptedException {
         bp_homePage.clicktoElement(elementName);
         logger.info("User has clicked +" + elementName + " from side menu");
     }

@@ -10,10 +10,12 @@ import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.awt.*;
+import java.awt.Dimension;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -39,7 +41,7 @@ public class UiBase extends PageObject {
 
     public void  getWaitForload() throws InterruptedException
     {
-    	Thread.sleep(5000);
+    	Thread.sleep(10000);
     }
     public void clickElement(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
@@ -133,7 +135,7 @@ public class UiBase extends PageObject {
         String elementXpath = getLocatorFromJson(locatorPath);
         WebElement foundElement = null;
         try {
-            if (elementXpath.startsWith("//")) {
+            if (elementXpath.startsWith("//") || elementXpath.startsWith("(//")) {
                 foundElement = $(By.xpath(elementXpath));
             } else {
                 foundElement = $(By.cssSelector(elementXpath));
@@ -158,6 +160,7 @@ public class UiBase extends PageObject {
         String elementXpath = obj.getString(elements[elements.length - 1]);
         return elementXpath;
     }
+
     public boolean selectCheckBox(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         if (element.isSelected()) {
@@ -283,6 +286,8 @@ public class UiBase extends PageObject {
             e.printStackTrace();
         }
     }
+
+
 
     public void scrollToBottom(WebDriver driver) {
         try {

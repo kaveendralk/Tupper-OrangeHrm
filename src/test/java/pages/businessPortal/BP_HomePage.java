@@ -15,7 +15,7 @@ public class BP_HomePage {
     }
 
     @Step
-    public void clicktoElement(String elementName) {
+    public void clicktoElement(String elementName) throws InterruptedException {
         bp_homeAction.clickToElement(elementName);
     }
 
