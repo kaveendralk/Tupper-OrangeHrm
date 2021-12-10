@@ -10,10 +10,12 @@ import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.awt.*;
+import java.awt.Dimension;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -30,7 +32,7 @@ import java.util.List;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class UiBase	 extends PageObject {
+public class UiBase extends PageObject {
 
     public String BP_Locator_File = "src/test/resources/locators/businessPortalLocators.json";
     public String BP_TestData_File = "src/test/resources/testData/businessPortalTestData.json";
@@ -39,7 +41,7 @@ public class UiBase	 extends PageObject {
 
     public void  getWaitForload() throws InterruptedException
     {
-    	Thread.sleep(5000);
+    	Thread.sleep(10000);
     }
     public void clickElement(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
@@ -133,7 +135,7 @@ public class UiBase	 extends PageObject {
         String elementXpath = getLocatorFromJson(locatorPath);
         WebElement foundElement = null;
         try {
-            if (elementXpath.startsWith("//")) {
+            if (elementXpath.startsWith("//") || elementXpath.startsWith("(//")) {
                 foundElement = $(By.xpath(elementXpath));
             } else {
                 foundElement = $(By.cssSelector(elementXpath));
@@ -143,7 +145,6 @@ public class UiBase	 extends PageObject {
         return foundElement;
     }
 
-   
 
     public String getTestDataFromJson(String locatorPath) {
         String json = null;
@@ -274,7 +275,7 @@ public class UiBase	 extends PageObject {
             e.printStackTrace();
         }
     }
-    
+
     /*Scroll Element*/
     public void scrollToElementLocation(String locatorPath) {
     	WebElement element = getElementFromJson(locatorPath);
@@ -286,7 +287,8 @@ public class UiBase	 extends PageObject {
         }
     }
 
-    
+
+
     public void scrollToBottom(WebDriver driver) {
         try {
             ((JavascriptExecutor) driver)
@@ -656,8 +658,8 @@ public class UiBase	 extends PageObject {
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
-    
-    
+
+
 
     public static String getCurrentDate() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -783,6 +785,4 @@ public class UiBase	 extends PageObject {
         }
         return false;
     }
-    
-    
 }

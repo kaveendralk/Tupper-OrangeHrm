@@ -17,8 +17,6 @@ public class BP_NonPartyAction extends PageObject{
 
 	public UiBase uiBase = new UiBase();
     
-	
-		
 	public boolean PageOpened() {
 		
 		uiBase.clickElement("SalesPage:lnkNonPartyOrder");
@@ -33,22 +31,14 @@ public class BP_NonPartyAction extends PageObject{
 		try {
 			logger.info("User is on Create Order Page");
 			Actions action = new Actions(getDriver());
-
-			if(uiBase.waitUntilElementDisplayed("BusinessDashboardPage:hambergerMenu", 30))
-			{
-				uiBase.clickElement("BusinessDashboardPage:hambergerMenu");
-				uiBase.clickElement("BusinessDashboardPage:lnkSales");
-				uiBase.clickElement("SalesPage:lnkNonPartyOrder");
-
-			}
 			if(uiBase.waitUntilElementDisplayed("BusinessDashboardPage:selectDirOption", 30))
 			{
 				action.moveToElement(uiBase.getElementFromJson("BusinessDashboardPage:selectDirOption")).click().build().perform();
 			}
 
 			if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 30)) {
-				
 				uiBase.getWaitForload();
+//				uiBase.scrollToElementLocation("SalesPage:btnBrowse");
 				uiBase.clickElement("SalesPage:btnBrowse");
 			}
 			return true;

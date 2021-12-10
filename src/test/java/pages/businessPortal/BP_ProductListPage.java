@@ -11,8 +11,8 @@ public class BP_ProductListPage {
 	BP_ProductListAction bp_ProductListAction;
 
 	@Step
-	public boolean verifytheProductOverlayPage() throws InterruptedException {
-		return bp_ProductListAction.verifytheProductOverlayPage();
+	public boolean verifyTheProductOverlayPage() throws InterruptedException {
+		return bp_ProductListAction.verifyTheProductOverlayPage();
 
 	}
 

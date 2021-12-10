@@ -21,10 +21,10 @@ public class BP_NonPartyStepDef {
 	@Steps
 	BP_NonPartyPage bp_NonPartyPage;
 
-	@And("User clicks on {string} on {string}")
-	public void user_clicks_on_on(String string, String string2) throws InterruptedException {
+	@And("User select type of order and navigate to Create Order page")
+	public void user_select_type_of_order_to_create_order() throws InterruptedException {
+		logger.info("User is navigating to Create Order page");
 		assertTrue(bp_NonPartyPage.navigateToCreatePersonalOrder());
-		logger.info("User has clicked on "+string+" on "+string2+" ");
 	}
 	
 	

@@ -1,5 +1,9 @@
 {
-  "validLoginDetails":{
+  "validLoginDetails_CA": {
+    "UserName": "CAROLYNZ",
+    "Password": "test"
+    },
+  "validLoginDetails_US": {
     "UserName": "WANDALEE1",
     "Password": "test"
   },
@@ -20,10 +24,8 @@
   },
   "paymentDetails":{
     "cardNo":"4111111111111111",
-    "month":'12',
-    "year":'2022',
-    "cvn":'123'
+    "month":"12",
+    "year":"2022",
+    "cvn":"123"
   }
-  
-    
 }

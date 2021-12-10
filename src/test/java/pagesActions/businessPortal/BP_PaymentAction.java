@@ -102,15 +102,11 @@ public class BP_PaymentAction extends PageObject{
 				uiBase.isElementDisplayed("SalesPage:btnNextReviewPage");
 				uiBase.clickElement("SalesPage:btnNextReviewPage");
 			}
-			
-			if(uiBase.waitUntilElementDisplayed("SalesPage:btnSubmit", 50))
-			{
-			
 			uiBase.getWaitForload();
 			uiBase.scrollToElementLocation("SalesPage:OrderTotal");
 			uiBase.clickElement("SalesPage:btnSubmit");
 			logger.info("User entered visa card details on payment details Page");
-			}
+			uiBase.getWaitForload();
 			return true;
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
@@ -166,7 +162,7 @@ public class BP_PaymentAction extends PageObject{
 
 	public boolean clickReturnToOrderListAndVerify() {
 		try {
-			logger.info("User is click on retur to order list link ");
+			logger.info("User is click on return to order list link ");
 			uiBase.getElementFromJson("OrderConfirmationPage:lnkReturnOrder").isDisplayed();
 			uiBase.clickElement("OrderConfirmationPage:lnkReturnOrder");
 			uiBase.waitUntilElementDisplayed("OrderConfirmationPage:lblViewOrder", 20);
