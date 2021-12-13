@@ -19,14 +19,25 @@ public class BP_NonPartyAction extends PageObject{
     
 	public boolean PageOpened() {
 		
-		uiBase.clickElement("SalesPage:lnkNonPartyOrder");
+		//uiBase.clickElement("SalesPage:lnkNonPartyOrder");
 		if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 50)) {
-			uiBase.isElementDisplayed("SalesPage:btnBrowse");
 			return true;
         }
         return false;
 	}
 
+	public void clickToElement(String elementName) {
+	
+		 switch (elementName) {
+		 case "Sales":
+			 	uiBase.clickElement("BusinessDashboardPage:lnkSales");
+			 	uiBase.clickElement("SalesPage:lnkNonPartyOrder");
+			 break;
+		 
+		}
+
+	}
+	
 	public boolean navigateToCreatePersonalOrder() throws InterruptedException {
 		try {
 			logger.info("User is on Create Order Page");
@@ -48,6 +59,7 @@ public class BP_NonPartyAction extends PageObject{
 		return false;
 	}
 
+	
 	
 
 	

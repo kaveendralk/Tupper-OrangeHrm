@@ -5,27 +5,29 @@ Feature: Validate that user is able to create Non party orders
     Given User is on "Business" Portal
     And User login to the application with "US_User" on "Business" Portal
     Then User navigate to "Home" page
-    And  User click on "Hamburger Icon" from side menu
-    And User click on "Sales" on "Home" page
+    And User click on "Hamburger Icon" from side menu
+    And User click on "Sales" on "Sales- Create Non Party Order" page
 
-  @CreateOrder @NonPartyOrder @NonPartyOrder_AddProduct @TC_10 @Smoke @Demo
+  @CreateOrder @NonPartyOrder @NonPartyOrder_AddProduct @TC_10 @Smoke @Demo1
     Scenario: Validate that consultant is able to navigate to Create Orders page and able to search product by ID or name
     Then User navigate to "Create Order" page
     And User adds product by searching product by Product_ID
-     Then User adds product by searching product by Product_Name
+    Then User adds product by searching product by Product_Name
     And User adds multiple product of different product category to the cart
-    And  User verify the added product of multiple category
+    And User verify the added product of multiple category 
     And User verify that correct Order Total is displayed on Create Orders page
     
         
   @CreateOrder @NonPartyOrder @NonPartyOrder_DeleteProduct @DeleteProduct @TC_10 @Smoke
   Scenario: Validate that consultant is able to delete products and Order total is updated accordingly
-    Then User navigates to "Create Order" page
-    And User verify that "Checkout button" is not displayed on "Create Order" page
-    Then User adds product by searching product by "Product_ID"
-    And User verify that correct product is added
+    Then User navigate to "Create Order" page
+    And  User adds product by searching product by Product_ID
+    Then User adds product by searching product by Product_Name
+    And User adds multiple product of different product category to the cart
+    And User verify the added product of multiple category 
+    And User verify that correct Order Total is displayed on Create Orders page
     And User verify that delete icon is coming against products
-    And User clicks on "Delete Icon" on "Create Order" page
+    And User clicks on "Delete Icon" on "Sales- Create Non Party Order" page
     Then "Product Deletion Confirmation" overlay is opened
     And User verify "Various elements" on "Product Deletion Confirmation" overlay
     And User clicks on "No" on "Product Deletion Confirmation" overlay

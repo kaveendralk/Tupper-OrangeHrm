@@ -172,7 +172,7 @@
          "lnkNonPartyOrder":"//a[contains( text(), 'Create Non-Party Order')]",
          "btnAddOrder":"//span[contains( text(),'Add to Order')]",
          "addToOrderButtonOnOverlay": "//div[@class='add-product-btn']/button[text()='Add to Order']",
-         "txtpoductID":"//div[@class = 'item-alternatecode']",
+         "txtpoductID":"(//div[@class='cart-product-descriptions']//div[@data-bind='text: alternateCode'])[1]",
          "lblPaymentOptions":"//h1[contains( text(),'Payment Options')]",
          "btnOvenware":"//li[. = 'Ovenware']",
          "btnBlackFriday":"//li[. = 'Black Friday']",
@@ -184,9 +184,15 @@
          "txEcoProductID":"//*[contains(text(),'Eco+ Large Water Bottle/Aruba')]//following-sibling::div[@data-bind='text: alternateCode']",
          "lblReviewOrder":"//h2[contains(text(),'Review your Order']",
          "btnNextReviewPage":"//input[@name='commit']",
-         "OrderTotal":"//div[contains(text(),'Order Total')]"
-
-
+         "OrderTotal":"//div[contains(text(),'Order Total')]",
+         "btnKidsToys":"//li[. = 'Kids & Toys']",
+         "lnkSecondProductToys":"(//div[@class ='product-details']//div[@class='product-title'])[2]",
+         "firstProductTitle":"(//div[@class='details clearfix']//div[@data-bind ='text: ProductName'])",
+         "firstProductPrice":"(//div[@class='price clearfix']//span[@class='price-amt'])",
+         "firstProductDescription":"(//div[@class='cart-product-descriptions']//div[@class='item-name'])[1]",
+         "firstProductUnitPrice":"(//div[@class='price-line']//span[@data-bind='text: price'])[1]",
+         "SecondProductDesc":"(//div[@class='cart-product-descriptions']//div[@class='item-name'])[2]",
+         "ThirdProductDescription":"(//div[@class='cart-product-descriptions']//div[@class='item-name'])[3]"
       },
       "TupperLoginPage":{
          "txtUsername":"//input[@id='fvUserName']",
