@@ -25,7 +25,7 @@ Background: Validate creation of non party orders
     And User verify that Add Payment button is displayed 
     Then User click on Add Payment button 
     
-  @CreateOrder @TC_10 @TC_12 @Smoke @Demo @Rachana
+  @CreateOrder @TC_10 @TC_12 @Smoke @Demo
   Scenario: validate that consultant is able to add payment for selected product
     And User click on "Hamburger Icon" from side menu
     And User click on "Sales" on "Sales- Create Non Party Order" page

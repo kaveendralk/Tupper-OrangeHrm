@@ -72,7 +72,6 @@ public class BP_ProductListAction extends PageObject{
 	}
 
 	public boolean addProductByIdOnCart() throws InterruptedException, AWTException {
-
 		try {
 			logger.info("User is on product Overlay Page to select product by Product ID");
 			uiBase.getWaitForload();
@@ -88,10 +87,12 @@ public class BP_ProductListAction extends PageObject{
 			e.printStackTrace();
 		}
 		return false;
+
 	}
 
 	public boolean addProductByNameOnCart() throws InterruptedException {
 		try {
+
 			logger.info("User is on product Overlay Page to select product by Product Name");;
 			uiBase.getWaitForload();
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
@@ -105,6 +106,7 @@ public class BP_ProductListAction extends PageObject{
 			e.printStackTrace();
 		}
 		return false;
+
 	}
 
 
@@ -156,6 +158,7 @@ public class BP_ProductListAction extends PageObject{
 				uiBase.clickElement("SalesPage:btnAddToOrderPop");
 			}
 			logger.info("User added product by Browse");
+			
 			return true;
 
 		}catch(NoSuchElementException e) {

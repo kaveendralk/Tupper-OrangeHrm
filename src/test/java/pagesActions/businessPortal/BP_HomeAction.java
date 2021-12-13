@@ -39,10 +39,18 @@ public class BP_HomeAction extends PageObject {
                 uiBase.clickElement("BusinessDashboardPage:lnkPersonalReports");
                 break;
             case "Payment Summary":
-                uiBase.getWaitForload();
                 uiBase.clickElement("BusinessDashboardPage:lnkPaymentSummary");
                 break;
-            
+            case "Sales":
+            	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
+                 break;
+            case "Browse Products":
+           	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
+                break;
+            case "Sales- Create Non Party Order":
+                uiBase.clickElement("BusinessDashboardPage:lnkSales");
+                uiBase.clickElement("SalesPage:lnkNonPartyOrder");
+                break;
             case "Manage Parties":
                 break;
 
@@ -140,12 +148,9 @@ public class BP_HomeAction extends PageObject {
                 uiBase.scrollToElementLocation("BusinessDashboardPage:linkOrderPartiallyShipped");
                 if(uiBase.isElementDisplayed("BusinessDashboardPage:linkCreateNonPartyOrder") &&
                         uiBase.isElementDisplayed("BusinessDashboardPage:linkCreateNonPartyCustomerOrder") &&
-//                        uiBase.isElementDisplayed("BusinessDashboardPage:linkViewOrders") &&
                         uiBase.isElementDisplayed("BusinessDashboardPage:linkCreateAParty") &&
                         uiBase.isElementDisplayed("BusinessDashboardPage:linkManageParties") &&
                         uiBase.isElementDisplayed("BusinessDashboardPage:linkPartyOrderDetail")
-//                        && uiBase.isElementDisplayed("BusinessDashboardPage:linkOrderPartiallyShipped") &&
-//                        uiBase.isElementDisplayed("BusinessDashboardPage:linkAwardsOrderingReport")
                 ){
                     map.put("All the menu links under Sales are visible", true);
                 } else{
