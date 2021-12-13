@@ -23,14 +23,14 @@ public class BP_ProductListStepDef {
 	@Then("User add product from {string} overlay")
 	public void user_add_product_from_overlay(String string) throws InterruptedException {
 		assertTrue(bp_ProductListPage.verifyTheProductOverlayPage());
-		logger.info("User has clicked on  ");
+		logger.info("User clicked on Browse button ");
 	}
 
 
 	@And("User verify that correct product is added")
 	public void user_verify_that_correct_product_is_added() throws InterruptedException {
 		assertTrue(bp_ProductListPage.verifytheAddedProduct());
-		logger.info("User has clicked on  ");
+		logger.info("User is on Product List Page  ");
 	}
 
 	@And("User adds product by searching product by Product_ID")
@@ -42,13 +42,15 @@ public class BP_ProductListStepDef {
 
 
 	@Then("User adds multiple product of different product category to the cart")
-	public void user_adds_multiple_product_of_different_product_catagory_to_the_cart() {
+	public void user_adds_multiple_product_of_different_product_catagory_to_the_cart() throws InterruptedException {
 		assertTrue(bp_ProductListPage.addProductWithMultipleCatagoryOnCart());
+		logger.info("User is adding product");
 	}
 
 	@Then("User verify the added product of multiple category")
 	public void user_verify_the_added_product_of_mutiple_category() throws InterruptedException {
 		assertTrue(bp_ProductListPage.verifyProductWithMultipleCatagoryOnCart());
+		logger.info("User is verifying selected product");
 	}
 
 	@And("User verify that correct Order Total is displayed on Create Orders page")

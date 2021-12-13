@@ -53,14 +53,11 @@ public class BP_CommonStepDef {
 //                bp_businessDashboardPage.clicktoElement();
                 logger.info("User has clicked +" + elementName + " on " + pageName + " page");
                 break;
-            case "Sales":
-            	bp_homePage.clicktoElement(elementName);
+            case "Sales- Create Non Party Order":
+            	bp_NonPartyPage.clicktoElement(elementName);
                 logger.info("User has clicked +" + elementName + " on " + pageName + " page");
                 break;
-            case "Browse Products":
-            	bp_homePage.clicktoElement(elementName);
-                logger.info("User has clicked +" + elementName + " on " + pageName + " page");
-                break;
+           
 
         }
     }

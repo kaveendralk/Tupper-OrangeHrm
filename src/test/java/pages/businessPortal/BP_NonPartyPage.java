@@ -19,6 +19,12 @@ public class BP_NonPartyPage {
 		
 	}
 
+	@Step
+	public void clicktoElement(String elementName) {
+		bp_NonPartyAction.clickToElement(elementName);
+		
+	}
+
 	
 
 	

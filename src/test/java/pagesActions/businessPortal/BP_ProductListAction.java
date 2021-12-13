@@ -1,5 +1,7 @@
 package pagesActions.businessPortal;
 
+import static org.junit.Assert.assertEquals;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -13,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import junit.framework.Assert;
 import net.serenitybdd.core.pages.PageObject;
 
 import utils.UiBase;
@@ -22,6 +25,10 @@ public class BP_ProductListAction extends PageObject{
 	Logger logger= LoggerFactory.getLogger(BP_ProductListAction.class);
 
 	public UiBase uiBase = new UiBase();
+	public String productTitle;
+	public String ProductPrice;
+	public String productKidsTitle;
+	public String productServeWareTitle;
 
 	public boolean verifyTheProductOverlayPage() throws InterruptedException {
 		try {
@@ -31,6 +38,8 @@ public class BP_ProductListAction extends PageObject{
 			Actions action = new Actions(getDriver());
 			action.moveToElement(uiBase.getElementFromJson("SalesPage:firstProduct")).click().build().perform();
 			uiBase.getWaitForload();
+			productTitle=uiBase.getText("SalesPage:firstProductTitle");
+			ProductPrice=uiBase.getText("SalesPage:firstProductPrice");
 			uiBase.clickElement("SalesPage:addToOrderButtonOnOverlay");
 			logger.info("User added the product on cart");
 			return true;
@@ -46,26 +55,15 @@ public class BP_ProductListAction extends PageObject{
 	public boolean verifytheAddedProduct() throws InterruptedException {
 		try {
 			logger.info("User verifying the added product on cart");
-			uiBase.waitUntilElementDisplayed("SalesPage:txtpoductID", 50);
-			//uiBase.getElementFromJson("SalesPage:txtpoductID").isDisplayed();
-			String ActualproductId=uiBase.getElementFromJson("SalesPage:txtpoductID").getText();
-			System.out.println("ActualproductId : "+ActualproductId);
-			String ExpectedProductId=uiBase.getTestDataFromJson("AddedProductList:productID");
-			System.out.println("ExpectedProductId : "+ExpectedProductId);
 
-			String SubTot = uiBase.getElementFromJson("SalesPage:lblSubtotal").getText();
-			System.out.println("SubTotal :" +SubTot);
-			String QVol = uiBase.getElementFromJson("SalesPage:lblQVolume").getText();
-			System.out.println("QVol :" +QVol);
-			String CVol =uiBase.getElementFromJson("SalesPage:lblComVolume").getText();
-			System.out.println("CVol :" +CVol);
-			String RetProf =uiBase.getElementFromJson("SalesPage:lblRetaindedProf").getText();
-			System.out.println("RetProf :" +RetProf);
-			if(ActualproductId.equals(ExpectedProductId))
-			{
-				System.out.println("Added Product exist in Cart");
-			}
-			logger.info("User verified the added product on cart");
+			uiBase.waitUntilElementDisplayed("SalesPage:firstProductDescription", 20);
+			String ActualproductTitle=uiBase.getText("SalesPage:firstProductDescription");
+			System.out.println("ActualproductId : "+ActualproductTitle);
+			String ExpectedProductTitle=productTitle.toUpperCase();
+			System.out.println("ExpectedProductId : "+ExpectedProductTitle);
+			assertEquals(ActualproductTitle, ExpectedProductTitle);
+
+			logger.info("User Verified the added product on cart");
 			return true;
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
@@ -75,8 +73,9 @@ public class BP_ProductListAction extends PageObject{
 
 	public boolean addProductByIdOnCart() throws InterruptedException, AWTException {
 		try {
+			logger.info("User is on product Overlay Page to select product by Product ID");
 			uiBase.getWaitForload();
-			logger.info("User added product by SearchID on cart");
+			logger.info("User add product by SearchID on cart");
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
 			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductByID"));
 			uiBase.getWaitForload();
@@ -93,14 +92,17 @@ public class BP_ProductListAction extends PageObject{
 
 	public boolean addProductByNameOnCart() throws InterruptedException {
 		try {
-			logger.info("User added product by SearchID on cart");
+
+
+			logger.info("User is on product Overlay Page to select product by Product Name");;
+
 			uiBase.getWaitForload();
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
 			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductName"));
-
 			uiBase.getWaitForload();
 			WebElement element=uiBase.getElementFromJson("SalesPage:inpAddNewItem");
 			element.sendKeys(Keys.ARROW_DOWN, Keys.RETURN);
+			logger.info("User added product by product name on cart");
 			return true;
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
@@ -112,6 +114,7 @@ public class BP_ProductListAction extends PageObject{
 
 	public boolean verifyTheTotalOrderOfProductPrice() {
 		try {
+			logger.info("User is on product cart Page to verify the total price of listed products");
 			String SubtotalPrice= uiBase.getText("SalesPage:lblSubtotal");
 			double totalprice=Double.parseDouble(SubtotalPrice.replace("$", ""));
 
@@ -131,6 +134,7 @@ public class BP_ProductListAction extends PageObject{
 			{
 				System.out.println("Product price equals to Sum of added products");
 			}
+			logger.info("User has verified the total price");
 			return true;
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
@@ -140,29 +144,27 @@ public class BP_ProductListAction extends PageObject{
 
 
 
-	public boolean addProductWithMultipleCatagoryOnCart() {
+	public boolean addProductWithMultipleCatagoryOnCart() throws InterruptedException {
+		Actions action = new Actions(getDriver());
 		try {
+
+			logger.info("User is on product select page to add product by Browse");
 			uiBase.getWaitForload();
 			uiBase.isElementDisplayed("SalesPage:btnBrowse");
 			uiBase.clickElement("SalesPage:btnBrowse");
-			uiBase.isElementDisplayed("SalesPage:btnKidsToys");
-			Actions action = new Actions(getDriver());
-			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductToys")).click().build().perform();
-
-			uiBase.isElementDisplayed("SalesPage:btnAddToOrderPop");
-			uiBase.clickElement("SalesPage:btnAddToOrderPop");
-			uiBase.getWaitForload();
-			uiBase.waitUntilElementDisplayed("SalesPage:btnBrowse", 30);
-			uiBase.clickElement("SalesPage:btnBrowse");
-			uiBase.isElementDisplayed("SalesPage:btnServeWare");
-			uiBase.clickElement("SalesPage:btnServeWare");
-			//uiBase.isElementDisplayed("SalesPage:lnkSecondProductBlackFri");
-			action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductWare")).click().build().perform();
-			uiBase.isElementDisplayed("SalesPage:btnAddToOrderPop");
-			uiBase.clickElement("SalesPage:btnAddToOrderPop");
+			if(uiBase.isElementDisplayed("SalesPage:btnKidsToys")) {
+				uiBase.clickElement("SalesPage:btnKidsToys");
+				uiBase.getWaitForload();
+				action.moveToElement(uiBase.getElementFromJson("SalesPage:lnkSecondProductToys")).click().build().perform();
+				uiBase.isElementDisplayed("SalesPage:btnAddToOrderPop");
+				productKidsTitle=uiBase.getText("SalesPage:firstProductTitle");
+				uiBase.clickElement("SalesPage:btnAddToOrderPop");
+			}
+			logger.info("User added product by Browse");
+			
 			return true;
 
-		}catch(NoSuchElementException | InterruptedException e) {
+		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
 		return false;
@@ -172,50 +174,33 @@ public class BP_ProductListAction extends PageObject{
 
 	public boolean verifyProductWithMultipleCatagoryOnCart() throws InterruptedException {
 		try {
-			uiBase.isElementDisplayed("SalesPage:txtHandyProductID");
-			String ActualProductID1=uiBase.getElementFromJson("SalesPage:txtHandyProductID").getText();
-			System.out.println("ActualproductId : "+ActualProductID1);
-			String ExpectedProductID1=uiBase.getTestDataFromJson("AddedProductList:ProductID1");
-			System.out.println("ExpectedProductId : "+ExpectedProductID1);
+			logger.info("User is verifying added product in cart");
+			uiBase.getWaitForload();
+			String ActualFirstProductID=uiBase.getText("SalesPage:txtpoductID");
+			String ExpectedFirstProductID=uiBase.getTestDataFromJson("AddedProductList:ProductByID");
+			assertEquals(ActualFirstProductID, ExpectedFirstProductID);
 
-			if(ActualProductID1.equals(ExpectedProductID1))
+			String ActualSecondProductTitle=uiBase.getText("SalesPage:SecondProductDesc");
+			String ExpectedSecondProductTitle=uiBase.getTestDataFromJson("AddedProductList:ProductName");
+			assertEquals(ActualSecondProductTitle, ExpectedSecondProductTitle);
+
+			uiBase.isElementDisplayed("SalesPage:ThirdProductDescription");
+			String ActualThirdProductTitle=uiBase.getText("SalesPage:ThirdProductDescription");
+
+			System.out.println("ActualThirdProductTitle : "+ActualThirdProductTitle);
+			String ExpectedThirdProductTitle=productKidsTitle.toUpperCase();
+			System.out.println("ExpectedThirdProductTitle : "+ExpectedThirdProductTitle);
+			if(ActualThirdProductTitle.contains(ExpectedThirdProductTitle))
 			{
-				System.out.println("Added first Product exist in Cart");
+				System.out.println("Added Product present in cart");
 			}
-
-			uiBase.isElementDisplayed("SalesPage:txEcoProductID");
-			Thread.sleep(5000);
-			String ActualProductID2=uiBase.getElementFromJson("SalesPage:txEcoProductID").getText();
-			System.out.println("ActualproductId : "+ActualProductID2);
-			String ExpectedProductID2=uiBase.getTestDataFromJson("AddedProductList:productID2");
-			System.out.println("ExpectedProductId : "+ExpectedProductID2);
-			if(ActualProductID2.equals(ExpectedProductID2))
-			{
-				System.out.println("Added Second Product exist in Cart");
-			}
-			return true;
-
+			
+			logger.info("User verified added product in cart");
+			return true;		
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
