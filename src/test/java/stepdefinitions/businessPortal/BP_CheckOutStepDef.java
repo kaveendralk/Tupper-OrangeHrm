@@ -18,17 +18,17 @@ public class BP_CheckOutStepDef {
 	@Steps
 	BP_CheckOutPage bp_CheckOutPage;
 	
-	@And("User clicks on Checkout button")
+	@And("User click on Checkout button")
 	public void user_clicks_on_Checkout_button() throws InterruptedException {
 		assertTrue(bp_CheckOutPage.clickOnCheckOutbuttonAndVerify());
 	}
 
-	@And("User verify that Add Payment button is displayed and Click")
+	@And("User verify that Add Payment button is displayed")
 	public void user_verify_that_Add_Payment_button_is_displayed_and_Click() throws InterruptedException {
 		assertTrue(bp_CheckOutPage.clickOnPaymentButtonAndVerify());
 	}
 
-	@Then("verify Payment Options overlay is opened")
+	@Then("User click on Add Payment button")
 	public void verify_Payment_Options_overlay_is_opened() throws InterruptedException {
 		assertTrue(bp_CheckOutPage.clickOnPaymentOptionsAndVerify());
 	}

@@ -28,7 +28,7 @@ public class BP_ProductListPage {
 	}
 
 	@Step
-	public boolean addProductWithMultipleCatagoryOnCart() {
+	public boolean addProductWithMultipleCatagoryOnCart() throws InterruptedException {
 		return bp_ProductListAction.addProductWithMultipleCatagoryOnCart();
 	}
 
