@@ -93,7 +93,9 @@ public class BP_ProductListAction extends PageObject{
 	public boolean addProductByNameOnCart() throws InterruptedException {
 		try {
 
+
 			logger.info("User is on product Overlay Page to select product by Product Name");;
+
 			uiBase.getWaitForload();
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
 			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductName"));
@@ -145,6 +147,7 @@ public class BP_ProductListAction extends PageObject{
 	public boolean addProductWithMultipleCatagoryOnCart() throws InterruptedException {
 		Actions action = new Actions(getDriver());
 		try {
+
 			logger.info("User is on product select page to add product by Browse");
 			uiBase.getWaitForload();
 			uiBase.isElementDisplayed("SalesPage:btnBrowse");
@@ -199,22 +202,5 @@ public class BP_ProductListAction extends PageObject{
 		}
 		return false;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

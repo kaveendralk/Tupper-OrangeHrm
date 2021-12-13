@@ -12,6 +12,7 @@ Feature: Validate that user is able to create Non party orders
     Scenario: Validate that consultant is able to navigate to Create Orders page and able to search product by ID or name
     Then User navigate to "Create Order" page
     And User adds product by searching product by Product_ID
+
     Then User adds product by searching product by Product_Name
     And User adds multiple product of different product category to the cart
     And User verify the added product of multiple category 
