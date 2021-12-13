@@ -35,8 +35,9 @@ public class BP_BusinessDashboardAction extends PageObject {
             Thread.sleep(1000);
             getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             if (uiBase.isElementDisplayed("BusinessDashboardPage:thisMonthTabActive")) {
-//                list.add("BusinessDashboardPage:teamSection");
-                list.add("BusinessDashboardPage:potentialEarningsSection");
+/*Applicable for Director role
+                list.add("BusinessDashboardPage:teamSection"); */
+               list.add("BusinessDashboardPage:potentialEarningsSection");
 //                list.add("BusinessDashboardPage:tabWYD");
                 for (int i = 0; i < list.size(); i++) {
                     if (uiBase.isElementDisplayed(list.get(i))) {
@@ -79,6 +80,7 @@ public class BP_BusinessDashboardAction extends PageObject {
     public HashMap<String, Boolean> paymentSummaryReportLoading() throws InterruptedException {
         HashMap<String,Boolean> map = new HashMap<String, Boolean>();
         uiBase.getWaitForload();
+        uiBase.getWaitForload();
             if(uiBase.isElementDisplayed("BusinessPage:paymentDateText")){
                 map.put("Payment Date dropdown is visible", true);
             }else{
@@ -102,6 +104,7 @@ public class BP_BusinessDashboardAction extends PageObject {
                 map.put("Date or Description or Amount or Adjustment or Paid Amount or all of them are not visible", false);
             }
         return map;
+
     }
 
 public boolean navigateToPersonalReportsAndVerify()throws InterruptedException{

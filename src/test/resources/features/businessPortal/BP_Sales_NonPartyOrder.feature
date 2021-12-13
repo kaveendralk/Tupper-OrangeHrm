@@ -25,8 +25,8 @@ Background: Validate creation of non party orders
     And User verify that Add Payment button is displayed and Click
     Then verify Payment Options overlay is opened
     
-  @CreateOrder @TC_10 @TC_12 @Smoke @Demo
-  Scenario: validate that consultant is able to add payment for selected product
+  @CreateOrder @TC_10 @TC_12 @Smoke @Demo @CreateNonPartyOrder_Demo
+  Scenario: Validate that consultant is able to submit orders and order information is shown correctly
     And User click on "Hamburger Icon" from side menu
     And User click on "Sales- Create Non Party Order" from side menu
     And User select type of order and navigate to Create Order page
