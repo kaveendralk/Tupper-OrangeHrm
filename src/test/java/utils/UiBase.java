@@ -146,14 +146,14 @@ public class UiBase extends PageObject {
     }
 
 
-    public String getTestDataFromJson(String locatorPath) {
+    public String getTestDataFromJson(String testDataPath) {
         String json = null;
         try {
             json = new String(Files.readAllBytes(Paths.get(BP_TestData_File)));
         } catch (IOException e1) {
         }
         JSONObject obj = new JSONObject(json);
-        String[] elements = locatorPath.split(":");
+        String[] elements = testDataPath.split(":");
         for (int i = 0; i < elements.length - 1; i++) {
             obj = obj.getJSONObject(elements[i]);
         }

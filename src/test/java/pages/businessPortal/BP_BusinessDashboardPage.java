@@ -30,4 +30,13 @@ public class BP_BusinessDashboardPage {
      return bp_businessDashboardAction.paymentSummaryReportLoading();
     }
 
+    @Step
+    public boolean personalHistoryReportOpened() throws InterruptedException {
+        return bp_businessDashboardAction.personalHistoryReportOpened();
+    }
+
+    @Step
+    public HashMap<String, Boolean> personalHistoryReportLoaded() throws InterruptedException {
+        return bp_businessDashboardAction.personalHistoryReportLoading();
+    }
 }

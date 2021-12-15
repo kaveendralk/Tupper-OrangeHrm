@@ -39,6 +39,9 @@ public class BP_CommonStepDef {
             case "Personal Report: Payment Summary":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.paymentSummaryReportOpened());
                 break;
+            case "Personal Report: Personal History":
+                Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.personalHistoryReportOpened());
+                break;
         }
     }
 

@@ -77,9 +77,16 @@ public class BP_BusinessDashboardAction extends PageObject {
         return false;
     }
 
+    public boolean personalHistoryReportOpened() throws InterruptedException {
+        uiBase.getWaitForload();
+        if(uiBase.waitUntilElementDisplayed("BusinessPage:lblPersonalHistory", 60))   {
+            return true;
+        }
+        return false;
+    }
+
     public HashMap<String, Boolean> paymentSummaryReportLoading() throws InterruptedException {
         HashMap<String,Boolean> map = new HashMap<String, Boolean>();
-        uiBase.getWaitForload();
         uiBase.getWaitForload();
             if(uiBase.isElementDisplayed("BusinessPage:paymentDateText")){
                 map.put("Payment Date dropdown is visible", true);
@@ -107,35 +114,26 @@ public class BP_BusinessDashboardAction extends PageObject {
 
     }
 
-public boolean navigateToPersonalReportsAndVerify()throws InterruptedException{
-        try{
-        Thread.sleep(1000);
-        getDriver().manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-        uiBase.clickElement("BusinessPage:hambergerMenu");
-        uiBase.clickElement("BusinessPage:lnkMyBusiness2");
-        uiBase.clickElement("BusinessPage:lnkPersonalReports");
-        uiBase.clickElement("BusinessPage:lnkPaymentSummary");
-        Thread.sleep(2000);
-        uiBase.getElementFromJson("BusinessPage:lblWelcome").isDisplayed();
-        uiBase.clickElement("BusinessPage:hambergerMenu");
-        uiBase.clickElement("BusinessPage:lnkMyBusiness");
-        uiBase.clickElement("BusinessPage:lnkPersonalReports");
-        uiBase.clickElement("BusinessPage:lnkPersonalHistory");
-        Thread.sleep(2000);
-        uiBase.getElementFromJson("BusinessPage:lblWelcome").isDisplayed();
-        uiBase.clickElement("BusinessPage:hambergerMenu");
-        uiBase.clickElement("BusinessPage:lnkMyBusiness");
-        uiBase.clickElement("BusinessPage:lnkPersonalReports");
-        uiBase.clickElement("BusinessPage:lnkYearEndSummary");
-        Thread.sleep(2000);
-        uiBase.getElementFromJson("BusinessPage:lblWelcome").isDisplayed();
-        uiBase.clickElement("BusinessPage:lnkHome");
-        return true;
-        }catch(NoSuchElementException e){
-        e.printStackTrace();
+    public HashMap<String, Boolean> personalHistoryReportLoading() throws InterruptedException {
+        HashMap<String,Boolean> map = new HashMap<String, Boolean>();
+        uiBase.getWaitForload();
+        if(uiBase.isElementDisplayed("BusinessPage:personalHistoryText")){
+            map.put("Personal History text is visible", true);
+        }else{
+            map.put("Personal History text is not visible", false);
         }
-        return false;
+        if(uiBase.isElementDisplayed("BusinessPage:yearDropdownInPersonalHistory")){
+            map.put("Year dropdown is visible", true);
+        }else{
+            map.put("Year dropdown is not visible", false);
         }
+        if(uiBase.isElementDisplayed("BusinessPage:viewReportButtonInPersonalHistory")){
+            map.put("View Report button is visible", true);
+        }else{
+            map.put("View Report button is not visible", false);
+        }
+        return map;
+    }
 
 public boolean navigateToCreatePersonalOrderPage()throws InterruptedException{
         try{

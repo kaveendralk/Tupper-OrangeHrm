@@ -79,7 +79,10 @@
          "descriptionColumnInPaymentSummary": "//table[@id='ctl02_ReportViewerCtl_fixedTable']//tr//td//div[text()='Description']",
          "amountInPaymentSummary": "//table[@id='ctl02_ReportViewerCtl_fixedTable']//tr//td//div[text()='Amount']",
          "adjustmentInPaymentSummary": "//table[@id='ctl02_ReportViewerCtl_fixedTable']//tr//td//div[text()='Adjustment']",
-         "paidAmountInPaymentSummary": "//table[@id='ctl02_ReportViewerCtl_fixedTable']//tr//td//div[text()='Paid Amount']"
+         "paidAmountInPaymentSummary": "//table[@id='ctl02_ReportViewerCtl_fixedTable']//tr//td//div[text()='Paid Amount']",
+         "personalHistoryText": "//div[text()='Personal History']",
+         "yearDropdownInPersonalHistory": "//div[@id='ctl02_ReportViewerCtl_ctl04']//span[text()='Year']",
+         "viewReportButtonInPersonalHistory": "//input[@type='submit']"
         },
       "SalesPage":{
          "btnBrowse":"//button[@class='browse-btn']",

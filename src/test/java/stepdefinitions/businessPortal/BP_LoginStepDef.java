@@ -13,6 +13,8 @@ import pages.businessPortal.BP_LoginPage;
 public class BP_LoginStepDef {
 
     Logger logger= LoggerFactory.getLogger(BP_LoginStepDef.class);
+
+
     @Steps
     BP_LoginPage bp_loginPage;
 

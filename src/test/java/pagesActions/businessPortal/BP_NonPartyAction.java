@@ -27,13 +27,11 @@ public class BP_NonPartyAction extends PageObject{
 	}
 
 	public void clickToElement(String elementName) {
-	
 		 switch (elementName) {
 		 case "Sales":
-			 	uiBase.clickElement("BusinessDashboardPage:lnkSales");
-			 	uiBase.clickElement("SalesPage:lnkNonPartyOrder");
+			 uiBase.clickElement("BusinessDashboardPage:lnkSales");
+			 uiBase.clickElement("SalesPage:lnkNonPartyOrder");
 			 break;
-		 
 		}
 
 	}

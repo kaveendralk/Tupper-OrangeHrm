@@ -36,8 +36,7 @@ Feature: Validate all the business reports including Dashboard Report, Personal 
     And User click on "Personal Report" from side menu
     And User click on "Personal History" from side menu
     And User navigate to "Personal Report: Personal History" page
-    And User verify "Various Elements" on "Personal Report: Payment Summary" page
-
+    And User verify that personal history are loading correctly
 
   @PersonalReport_YearEndReport @TC_8 @Smoke @Sanity
   Scenario: Validate that consultant is able to see Year End Report Summary and it is working correctly

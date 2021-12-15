@@ -36,6 +36,18 @@ public class BP_BusinessDashboardStepDef {
         }
     }
 
+    @And("User verify that personal history are loading correctly")
+    public void navigateToPersonalHistoryAndVerify() throws Exception {
+        HashMap<String, Boolean> map= bp_businessDashboardPage.personalHistoryReportLoaded();
+        for(String key: map.keySet()){
+            if(!map.get(key)){
+            }
+            Assert.assertTrue(key, map.get(key));
+        }
+    }
+
+
+
 
 
 

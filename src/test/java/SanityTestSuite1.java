@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/resources/features/businessPortal", tags = {"@Demo"}
+        features = "src/test/resources/features/businessPortal", tags = {"@CreateNonPartyOrder_Demo"}
 )
 public class SanityTestSuite1 {
 }

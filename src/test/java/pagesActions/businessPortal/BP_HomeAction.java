@@ -38,6 +38,9 @@ public class BP_HomeAction extends PageObject {
             case "Personal Report":
                 uiBase.clickElement("BusinessDashboardPage:lnkPersonalReports");
                 break;
+            case "Personal History":
+                uiBase.clickElement("BusinessDashboardPage:lnkPersonalHistory");
+                break;
             case "Payment Summary":
                 uiBase.clickElement("BusinessDashboardPage:lnkPaymentSummary");
                 break;
@@ -46,10 +49,6 @@ public class BP_HomeAction extends PageObject {
                  break;
             case "Browse Products":
            	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
-                break;
-            case "Sales- Create Non Party Order":
-                uiBase.clickElement("BusinessDashboardPage:lnkSales");
-                uiBase.clickElement("SalesPage:lnkNonPartyOrder");
                 break;
             case "Manage Parties":
                 break;

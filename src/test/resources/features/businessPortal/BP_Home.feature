@@ -12,16 +12,6 @@ Feature: Validate the Login page and home page of business portal
       | CA_User     |
       | US_User     |
 
-  @Login @TC_01 @Smoke
-  Scenario Outline: Validate that Consultant is able to login in BP portal with valid credentials for US User
-    Given User is on "Business" Portal
-    And User login to the application with "<County_User>" on "Business" Portal
-    And User navigate to "Home" page
-
-    Examples:
-      | County_User |
-      | US_User     |
-
   @ForgotPassword @TC_2 @Smoke
     Scenario: Validate that Consultant is able to reset password using Forgot Password link
     Given User is on "Business" Portal
