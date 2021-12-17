@@ -2,10 +2,11 @@ package pagesActions.businessPortal;
 
 import java.util.NoSuchElementException;
 
-import org.apache.logging.log4j.LogManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.serenitybdd.core.pages.PageObject;
 import utils.UiBase;
 
@@ -22,8 +23,8 @@ public class BP_NonPartyAction extends PageObject{
 		//uiBase.clickElement("SalesPage:lnkNonPartyOrder");
 		if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 50)) {
 			return true;
-        }
-        return false;
+		}
+		return false;
 	}
 
 	public void clickToElement(String elementName) {
@@ -32,6 +33,20 @@ public class BP_NonPartyAction extends PageObject{
 			 uiBase.clickElement("BusinessDashboardPage:lnkSales");
 			 uiBase.clickElement("SalesPage:lnkNonPartyOrder");
 			 break;
+		case "Delete Icon":
+			uiBase.scrollToTop();
+			uiBase.clickElement("SalesPage:SecondProductDeleteIcon");
+			break;
+		case "No":
+			uiBase.clickElement("SalesPage:btndeleteNo");
+			break;
+		case "Yes":
+			uiBase.clickElement("SalesPage:btndeleteYes");
+			break;
+		case "Select this card":
+			uiBase.clickElement("SalesPage:btnSelectThisCard");
+			break;
+
 		}
 
 	}
@@ -41,7 +56,7 @@ public class BP_NonPartyAction extends PageObject{
 			logger.info("User is on Create Order Page");
 			if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 30)) {
 				uiBase.getWaitForload();
-//				uiBase.scrollToElementLocation("SalesPage:btnBrowse");
+				//				uiBase.scrollToElementLocation("SalesPage:btnBrowse");
 				Thread.sleep(500);
 				uiBase.clickElement("SalesPage:btnBrowse");
 			}

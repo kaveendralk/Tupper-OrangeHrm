@@ -68,7 +68,23 @@ public class BP_ProductListStepDef {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new cucumber.api.PendingException();
 	}*/
+	@Then("User verify that delete icon is coming against products")
+	public void user_verify_that_delete_icon_is_coming_against_products() {
+		assertTrue(bp_ProductListPage.verifyDeleteIcon());
+	}
 
+	
+    @And("User verify that product is not deleted")
+	public void user_verify_that_product_is_not_deleted() {
+		assertTrue(bp_ProductListPage.verifyProductNotDeleted());;
+	}
+
+    @And("User verify that product is deleted")
+    public void user_verify_that_product_is_deleted() {
+    	assertTrue(bp_ProductListPage.verifyProductIsDeleted());;
+    }
+
+   
 
 
 

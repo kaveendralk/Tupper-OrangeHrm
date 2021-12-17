@@ -8,6 +8,11 @@ public class BP_PaymentPage {
 	BP_PaymentAction bp_PaymentAction;
 
 	@Step
+	public boolean navigateToPage() {
+		return bp_PaymentAction.PageOpened();
+	}
+	
+	@Step
 	public boolean clickOnAddPaymentButtonAndVerify() throws InterruptedException {
 		return bp_PaymentAction.clickOnAddPaymentButtonAndVerify();
 	}
@@ -37,9 +42,16 @@ public class BP_PaymentPage {
 		return bp_PaymentAction.clickReturnToOrderListAndVerify();
 	}
 
+	@Step
+	public boolean clickOnExistingPaymentCard() {
+		return bp_PaymentAction.clickOnExistingPaymentCard();
+
+	}
+
+	@Step
+	public boolean verifyPaymentCardDetails() {
+		return bp_PaymentAction.verifyPaymentCardDetails();
+	}
+
 	
-
-
-
-
 }

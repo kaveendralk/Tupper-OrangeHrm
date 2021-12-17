@@ -16,6 +16,14 @@ public class BP_PaymentAction extends PageObject{
 Logger logger= LogManager.getLogger(BP_PaymentAction.class);
 
 	public UiBase uiBase = new UiBase();
+	
+	public boolean PageOpened() {
+		 if (uiBase.isElementDisplayed("SalesPage:lblPaymentOptions")) {
+            return true;
+        }
+        return false;
+	}
+	
 
 	public boolean clickOnAddPaymentButtonAndVerify() throws InterruptedException {
 		try {
@@ -97,11 +105,12 @@ Logger logger= LogManager.getLogger(BP_PaymentAction.class);
 
 	public boolean clickOnSubmitAndVerify() throws InterruptedException {
 		try {
-			logger.info("User is verifying visa card details on payment details Page");
-			if(uiBase.waitUntilElementDisplayed("SalesPage:btnNextReviewPage", 20)){
-				uiBase.isElementDisplayed("SalesPage:btnNextReviewPage");
-				uiBase.clickElement("SalesPage:btnNextReviewPage");
-			}
+//			logger.info("User is verifying visa card details on payment details Page");
+//			if(uiBase.waitUntilElementDisplayed("SalesPage:btnNextReviewPage", 20)){
+//				uiBase.isElementDisplayed("SalesPage:btnNextReviewPage");
+//				uiBase.clickElement("SalesPage:btnNextReviewPage");
+//			}
+			logger.info("User is click on Submit button ");
 			uiBase.getWaitForload();
 //			uiBase.scrollToElementLocation("SalesPage:btnSubmit");
 			uiBase.clickElement("SalesPage:btnSubmit");
@@ -176,5 +185,32 @@ Logger logger= LogManager.getLogger(BP_PaymentAction.class);
 	}
 
 
+	public boolean clickOnExistingPaymentCard() {
+		try{
+			logger.info("User is click on Existing Payment Option ");
+			if(uiBase.isElementDisplayed("SalesPage:rdobtnPayment")) {
+				uiBase.clickElement("SalesPage:rdobtnPayment");
+				return true;
+			}
+		}catch(NoSuchElementException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
+
+	public boolean verifyPaymentCardDetails() {
+		try{
+			logger.info("User is Payment Card Details ");
+			if(uiBase.waitUntilElementDisplayed("SalesPage:btnNextReviewPage", 20)){
+				uiBase.clickElement("SalesPage:btnNextReviewPage");
+				return true;
+			}
+		}catch(NoSuchElementException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	
 }

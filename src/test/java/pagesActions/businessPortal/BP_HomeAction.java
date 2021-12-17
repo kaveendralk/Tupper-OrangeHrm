@@ -60,6 +60,10 @@ public class BP_HomeAction extends PageObject {
             case "Weekly Custom Report":
                 uiBase.clickElement("BusinessDashboardPage:lnkWeeklyCustomReport");
                 break;
+            case "View Orders":
+              	 uiBase.clickElement("BusinessDashboardPage:linkViewOrders");
+                 break;
+
         }
     }
 

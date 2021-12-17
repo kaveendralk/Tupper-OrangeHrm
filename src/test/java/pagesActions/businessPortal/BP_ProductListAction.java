@@ -1,6 +1,9 @@
 package pagesActions.businessPortal;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -22,10 +25,12 @@ public class BP_ProductListAction extends PageObject{
 	Logger logger= LogManager.getLogger(BP_ProductListAction.class);
 
 	public UiBase uiBase = new UiBase();
-	public String productTitle;
-	public String ProductPrice;
-	public String productKidsTitle;
-	public String productServeWareTitle;
+	public static String productTitle;
+	public static String ProductPrice;
+	public static String productKidsTitle;
+	public static String productServeWareTitle;
+	public static String ActualFirstProductID;
+	public static String ExpectedFirstProductID;
 
 	public boolean verifyTheProductOverlayPage() throws InterruptedException {
 		try {
@@ -89,10 +94,7 @@ public class BP_ProductListAction extends PageObject{
 
 	public boolean addProductByNameOnCart() throws InterruptedException {
 		try {
-
-
 			logger.info("User is on product Overlay Page to select product by Product Name");;
-
 			uiBase.getWaitForload();
 			uiBase.waitUntilElementDisplayed("SalesPage:inpAddNewItem", 15);
 			uiBase.enterText("SalesPage:inpAddNewItem", uiBase.getTestDataFromJson("AddedProductList:ProductName"));
@@ -144,7 +146,6 @@ public class BP_ProductListAction extends PageObject{
 	public boolean addProductWithMultipleCatagoryOnCart() throws InterruptedException {
 		Actions action = new Actions(getDriver());
 		try {
-
 			logger.info("User is on product select page to add product by Browse");
 			uiBase.getWaitForload();
 			uiBase.isElementDisplayed("SalesPage:btnBrowse");
@@ -158,7 +159,7 @@ public class BP_ProductListAction extends PageObject{
 				uiBase.clickElement("SalesPage:btnAddToOrderPop");
 			}
 			logger.info("User added product by Browse");
-			
+
 			return true;
 
 		}catch(NoSuchElementException e) {
@@ -194,6 +195,62 @@ public class BP_ProductListAction extends PageObject{
 			
 			logger.info("User verified added product in cart");
 			return true;		
+		}catch(NoSuchElementException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+
+	public boolean verifyDeleteIcon() {
+		try {
+			logger.info("User is verifying delete Icon on Create Order Page");
+			if(uiBase.isElementDisplayed("SalesPage:deleteIcon")) {
+				logger.info("Delete Icon exist On Page");
+				return true;
+			}
+		}catch(NoSuchElementException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+
+	public boolean verifyProductNotDeleted() {
+		try {
+			logger.info("User is verifying product not deleted");
+			ActualFirstProductID=uiBase.getText("SalesPage:txtpoductID");
+
+			if(ActualFirstProductID != null && !ActualFirstProductID.isEmpty()) {
+				System.out.println("Product is not deleted on the cart");
+				return true;
+			}else {
+				System.out.println("Product is  deleted on the cart");
+				return false;
+			}
+		}catch(NoSuchElementException e) {
+			e.printStackTrace();
+		}
+		return false;
+
+	}
+
+
+
+	public boolean verifyProductIsDeleted() {
+		try {
+			logger.info("User is verifying product get deleted");
+			ActualFirstProductID=uiBase.getText("SalesPage:txtpoductID");
+			ExpectedFirstProductID=uiBase.getTestDataFromJson("AddedProductList:ProductByID");
+			if(ActualFirstProductID!=ExpectedFirstProductID) {
+				System.out.println("Product is deleted on the cart");
+				return true;
+			}else {
+				System.out.println("Product is not deleted on the cart");
+				return false;
+			}
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}

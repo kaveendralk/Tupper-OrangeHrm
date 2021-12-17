@@ -10,6 +10,9 @@ import org.apache.logging.log4j.Logger;
 import pages.businessPortal.BP_BusinessDashboardPage;
 import pages.businessPortal.BP_HomePage;
 import pages.businessPortal.BP_NonPartyPage;
+import pages.businessPortal.BP_OrderInformationPage;
+import pages.businessPortal.BP_PaymentPage;
+import pages.businessPortal.BP_ViewOrdersPage;
 
 public class BP_CommonStepDef {
 
@@ -23,6 +26,15 @@ public class BP_CommonStepDef {
 
     @Steps
     BP_NonPartyPage bp_NonPartyPage;
+
+    @Steps
+    BP_PaymentPage bp_PaymentPage;
+
+    @Steps
+    BP_ViewOrdersPage bp_ViewOrdersPage;
+
+    @Steps
+    BP_OrderInformationPage bp_OrderInformationPage;
 
     @Then("User navigate to {string} page")
     public void user_navigates_to_page(String pageName) throws Exception {
@@ -50,6 +62,15 @@ public class BP_CommonStepDef {
             case "Custom Report: Weekly Custom Report":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.customReportOpened());
                 break;
+            case "Payment Options ":
+                Assert.assertTrue("User is not navigated to "+pageName+" page",bp_PaymentPage.navigateToPage());
+                break;
+            case "View Orders ":
+                Assert.assertTrue("User is not navigated to "+pageName+" page",bp_ViewOrdersPage.navigateToPage());
+                break;
+            case "Order Information ":
+                Assert.assertTrue("User is not navigated to "+pageName+" page",bp_OrderInformationPage.navigateToPage());
+                break;
         }
     }
 
@@ -68,7 +89,14 @@ public class BP_CommonStepDef {
             	bp_NonPartyPage.clicktoElement(elementName);
                 logger.info("User has clicked +" + elementName + " on " + pageName + " page");
                 break;
-           
+            case "View Orders":
+            	bp_ViewOrdersPage.clicktoElement(elementName);
+                logger.info("User has clicked +" + elementName + " on " + pageName + " page");
+                break;
+            case "Order Information":
+            	bp_OrderInformationPage.clicktoElement(elementName);
+                logger.info("User has clicked +" + elementName + " on " + pageName + " page");
+                break;
 
         }
     }

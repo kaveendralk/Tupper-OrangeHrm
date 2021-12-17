@@ -181,7 +181,7 @@ public class UiBase extends PageObject {
     }
 
     /*
-           Read the tets data from JSON
+           Read the test data from JSON
             */
     public String getTestDataFromJson(String testDataPath) {
         String json = null;
@@ -197,6 +197,24 @@ public class UiBase extends PageObject {
         String elementXpath = obj.getString(elements[elements.length - 1]);
         return elementXpath;
     }
+
+    /*Fecth List of Webelements*/
+    public List<WebElement> getElementsFromJson(String locatorPath) {
+        String elementXpath = getLocatorFromJson(locatorPath);
+        List<WebElement> foundElement = null;
+        try {
+            if (elementXpath.startsWith("//") || elementXpath.startsWith("(//")) {
+//               return foundElement = $(By.xpath(elementXpath));
+                return foundElement= getDriver().findElements(By.xpath(elementXpath));
+            } else {
+                foundElement = $(By.cssSelector(elementXpath));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /*
             Check whether checkbox is selected. If not, then select
             */
@@ -340,10 +358,11 @@ public class UiBase extends PageObject {
         }
     }
 
-    public void scrollToTop(WebDriver driver) {
+    //Changed
+    public void scrollToTop() {
         try {
-            ((JavascriptExecutor) driver)
-                    .executeScript("window.scrollBy(0, -250)", "");
+            ((JavascriptExecutor) getDriver())
+                    .executeScript("window.scrollBy(0, -450)", "");
         } catch (Exception e) {
             e.printStackTrace();
         }
