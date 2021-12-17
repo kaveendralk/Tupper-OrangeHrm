@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 
 import pages.businessPortal.BP_PaymentPage;
@@ -46,6 +47,15 @@ public class BP_PaymentStepDef {
 	public void user_clicks_on_Return_to_Order_List_on_Order_Information_page() {
 		assertTrue(bp_PaymentPage.clickReturnToOrderListAndVerify());
 	}
-
+	
+	@Then("User click on existing payment card option")
+	public void user_click_on_existing_payment_card_option() {
+		assertTrue(bp_PaymentPage.clickOnExistingPaymentCard());	
+		}
+	
+	@And("User verify that payment card details")
+	public void user_verify_that_payment_card_details() {
+		assertTrue(bp_PaymentPage.verifyPaymentCardDetails());
+	}
 
 }

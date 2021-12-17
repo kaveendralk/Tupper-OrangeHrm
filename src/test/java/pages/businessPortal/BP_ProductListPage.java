@@ -45,6 +45,20 @@ public class BP_ProductListPage {
 	public boolean addProductByNameOnCart() throws InterruptedException {
 		return bp_ProductListAction.addProductByNameOnCart();
 	}
+	
+	@Step
+	public boolean verifyDeleteIcon() {
+		return bp_ProductListAction.verifyDeleteIcon();
+	}
+	
+	@Step
+	public boolean verifyProductNotDeleted() {
+		return bp_ProductListAction.verifyProductNotDeleted();
+	}
+	@Step
+	public boolean verifyProductIsDeleted() {
+		return bp_ProductListAction.verifyProductIsDeleted();
+	}
 
 
 

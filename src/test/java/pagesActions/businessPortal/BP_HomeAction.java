@@ -53,6 +53,9 @@ public class BP_HomeAction extends PageObject {
                 break;
             case "Manage Parties":
                 break;
+            case "View Orders":
+              	 uiBase.clickElement("BusinessDashboardPage:linkViewOrders");
+                 break;
 
         }
     }
