@@ -2,6 +2,7 @@ package pagesActions.businessPortal;
 
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,34 +17,47 @@ public class BP_NonPartyAction extends PageObject{
 	Logger logger= LoggerFactory.getLogger(BP_NonPartyAction.class);
 
 	public UiBase uiBase = new UiBase();
-    
+
 	public boolean PageOpened() {
-		
+
 		//uiBase.clickElement("SalesPage:lnkNonPartyOrder");
 		if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 50)) {
 			return true;
-        }
-        return false;
+		}
+		return false;
 	}
 
 	public void clickToElement(String elementName) {
-	
-		 switch (elementName) {
-		 case "Sales":
-			 	uiBase.clickElement("BusinessDashboardPage:lnkSales");
-			 	uiBase.clickElement("SalesPage:lnkNonPartyOrder");
-			 break;
-		 
+
+		switch (elementName) {
+		case "Sales":
+			uiBase.clickElement("BusinessDashboardPage:lnkSales");
+			uiBase.clickElement("SalesPage:lnkNonPartyOrder");
+			break;
+		case "Delete Icon":
+			uiBase.scrollToTop();
+			uiBase.clickElement("SalesPage:SecondProductDeleteIcon");
+			break;
+		case "No":
+			uiBase.clickElement("SalesPage:btndeleteNo");
+			break;
+		case "Yes":
+			uiBase.clickElement("SalesPage:btndeleteYes");
+			break;
+		case "Select this card":
+			uiBase.clickElement("SalesPage:btnSelectThisCard");
+			break;
+			
 		}
 
 	}
-	
+
 	public boolean navigateToCreatePersonalOrder() throws InterruptedException {
 		try {
 			logger.info("User is on Create Order Page");
 			if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 30)) {
 				uiBase.getWaitForload();
-//				uiBase.scrollToElementLocation("SalesPage:btnBrowse");
+				//				uiBase.scrollToElementLocation("SalesPage:btnBrowse");
 				Thread.sleep(500);
 				uiBase.clickElement("SalesPage:btnBrowse");
 			}
@@ -54,8 +68,8 @@ public class BP_NonPartyAction extends PageObject{
 		return false;
 	}
 
-	
-	
 
-	
+
+
+
 }

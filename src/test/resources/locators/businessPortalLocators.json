@@ -192,7 +192,13 @@
          "firstProductDescription":"(//div[@class='cart-product-descriptions']//div[@class='item-name'])[1]",
          "firstProductUnitPrice":"(//div[@class='price-line']//span[@data-bind='text: price'])[1]",
          "SecondProductDesc":"(//div[@class='cart-product-descriptions']//div[@class='item-name'])[2]",
-         "ThirdProductDescription":"(//div[@class='cart-product-descriptions']//div[@class='item-name'])[3]"
+         "ThirdProductDescription":"(//div[@class='cart-product-descriptions']//div[@class='item-name'])[3]",
+         "deleteIcon":"//div[@class='col-data center item-delete']",
+         "btndeleteNo":"//button[@class='modal-decline subtle-btn']",
+         "btndeleteYes":"//button[@class='modal-confirm proceed-btn']",
+         "SecondProductDeleteIcon":"(//div[@class='col-data center item-delete'])[1]",
+         "rdobtnPayment":"(//div[@class='provider-select clearfix']//div[@class='radio-btn selectedXXX'])[1]",
+         "btnSelectThisCard":"//button[contains (text(),'Select this card')]"
 
       },
       "TupperLoginPage":{
@@ -233,6 +239,21 @@
            "WhatsNewTile": "//div[@class='carousel-list carousel-content-list']/div",
            "knowledgeCenterSectionHeading": "//div[@class='homepage-contentblock']//h1[contains(text(),'Knowledge')]",
            "knowledgeCenterTile": "//div[@class='carousel-list carousel-category-list']/div"
+        },
+        "ViewOrder":{
+        	"PaginationNumber":"//div[@id='viewOrders_paginate']//a",
+        	"lblPagination":"//div[@id='viewOrders_info']",
+        	"btnCreateOrder":"//*[contains(text(),'Create Order')]",
+        	"SearchByOrderNumber":"(//span[@id='searchByStringPlaceholder']//input[@type='search'])",
+        	"SearchByProductID":"//input[@id='productCode']",
+        	"ViewInfoIcon":"(//a[@class='dataTable-select'])[1]",
+        	"NoOfTableColumns":"//*[@id='viewOrders']/thead/tr/th",
+        	"NoOfTableRows":"//*[@id='viewOrders']/thead/tr",
+        	"txtOrderNumber":"//*[@id='viewOrders']/tbody/tr[' + (i+1)+ ']/td[2]",
+        	"txtOrderStatus":"//*[@id='viewOrders']/tbody/tr[' + (i+1)+ ']/td[7]",
+        	"btnOrderDelete":"(//a[@class='dataTable-remove'])[1]",
+        	"btnOk":"//button[@data-bb-handler='ok']",
+        	"lblAlertText":"//div[contains(text(),'Pending Order cancelled.')]"
         }
    
     }
