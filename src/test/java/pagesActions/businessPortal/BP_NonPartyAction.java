@@ -4,22 +4,19 @@ import java.util.NoSuchElementException;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import net.serenitybdd.core.pages.PageObject;
 import utils.UiBase;
-
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BP_NonPartyAction extends PageObject{
 
-	Logger logger= LoggerFactory.getLogger(BP_NonPartyAction.class);
+	Logger logger= LogManager.getLogger(BP_NonPartyAction.class);
 
 	public UiBase uiBase = new UiBase();
-
+    
 	public boolean PageOpened() {
-
+		
 		//uiBase.clickElement("SalesPage:lnkNonPartyOrder");
 		if(uiBase.waitUntilElementDisplayed("SalesPage:lblCreateOrder", 50)) {
 			return true;
@@ -28,12 +25,11 @@ public class BP_NonPartyAction extends PageObject{
 	}
 
 	public void clickToElement(String elementName) {
-
-		switch (elementName) {
-		case "Sales":
-			uiBase.clickElement("BusinessDashboardPage:lnkSales");
-			uiBase.clickElement("SalesPage:lnkNonPartyOrder");
-			break;
+		 switch (elementName) {
+		 case "Sales":
+			 uiBase.clickElement("BusinessDashboardPage:lnkSales");
+			 uiBase.clickElement("SalesPage:lnkNonPartyOrder");
+			 break;
 		case "Delete Icon":
 			uiBase.scrollToTop();
 			uiBase.clickElement("SalesPage:SecondProductDeleteIcon");
@@ -47,11 +43,11 @@ public class BP_NonPartyAction extends PageObject{
 		case "Select this card":
 			uiBase.clickElement("SalesPage:btnSelectThisCard");
 			break;
-			
+
 		}
 
 	}
-
+	
 	public boolean navigateToCreatePersonalOrder() throws InterruptedException {
 		try {
 			logger.info("User is on Create Order Page");
@@ -68,8 +64,8 @@ public class BP_NonPartyAction extends PageObject{
 		return false;
 	}
 
+	
+	
 
-
-
-
+	
 }

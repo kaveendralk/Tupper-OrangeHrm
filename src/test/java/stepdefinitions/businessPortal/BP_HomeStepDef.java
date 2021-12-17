@@ -4,16 +4,17 @@ import cucumber.api.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
+import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pages.businessPortal.BP_HomePage;
 
 import java.util.HashMap;
 
 public class BP_HomeStepDef {
 
-    Logger logger= LoggerFactory.getLogger(BP_HomeStepDef.class);
+    Logger logger= LogManager.getLogger(BP_HomeStepDef.class);
 
     @Steps
     BP_HomePage bp_homePage;

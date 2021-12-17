@@ -27,7 +27,7 @@ Feature: Validate all the business reports including Dashboard Report, Personal 
     And User click on "Personal Report" from side menu
     And User click on "Payment Summary" from side menu
     And User navigate to "Personal Report: Payment Summary" page
-#    And User verify that Payment Summary are loading correctly
+    And User verify that Payment Summary are loading correctly
 
   @PersonalReport_PersonalHistory @TC_7 @Smoke @Sanity
   Scenario: Validate that consultant is able to see Personal History under Personal Report and it is working correctly
@@ -36,8 +36,7 @@ Feature: Validate all the business reports including Dashboard Report, Personal 
     And User click on "Personal Report" from side menu
     And User click on "Personal History" from side menu
     And User navigate to "Personal Report: Personal History" page
-    And User verify "Various Elements" on "Personal Report: Payment Summary" page
-
+    And User verify that personal history are loading correctly
 
   @PersonalReport_YearEndReport @TC_8 @Smoke @Sanity
   Scenario: Validate that consultant is able to see Year End Report Summary and it is working correctly
@@ -45,21 +44,19 @@ Feature: Validate all the business reports including Dashboard Report, Personal 
     And User click on "My Business" from side menu
     And User click on "Personal Report" from side menu
     And User click on "Year End Report" from side menu
-    And User navigate to "Personal Report: Year End Report" page
-    And User verify "Various Elements" on "Personal Report: Year End Report" page
+    And User navigate to "Personal Report: Year End Report Summary" page
+    And User verify that year end report summary are loading correctly
 
   @CustomReport @TC_9 @Smoke @Sanity
   Scenario: Validate that consultant is able to see Custom Report and it is working correctly
     And User click on "Hamburger Icon" from side menu
     And User click on "My Business" from side menu
-    And User click on "Custom Report" from side menu
-    And User click on "Contact List" from side menu
-    And User navigate to "Custom Report: Contact List" page
-    And User verify "Various Elements" on "Custom Report: Contact List" page
+    And User click on "Custom Reports" from side menu
+    And User click on "Contact Listing" from side menu
+    And User navigate to "Custom Report: Contact Listing" page
     And User click on "Hamburger Icon" from side menu
     And User click on "My Business" from side menu
-    And User click on "Custom Report" from side menu
+    And User click on "Custom Reports" from side menu
     And User click on "Weekly Custom Report" from side menu
     And User navigate to "Custom Report: Weekly Custom Report" page
-    And User verify "Various Elements" on "Custom Report: Weekly Custom Report" page
 

@@ -4,9 +4,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.AWTException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -15,7 +15,7 @@ import pages.businessPortal.BP_ProductListPage;
 
 public class BP_ProductListStepDef {
 
-	Logger logger= LoggerFactory.getLogger(BP_ProductListStepDef.class);
+	Logger logger= LogManager.getLogger(BP_ProductListStepDef.class);
 
 	@Steps
 	BP_ProductListPage bp_ProductListPage;

@@ -5,8 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pages.businessPortal.BP_BusinessDashboardPage;
 import pages.businessPortal.BP_HomePage;
 import pages.businessPortal.BP_NonPartyPage;
@@ -16,7 +16,8 @@ import pages.businessPortal.BP_ViewOrdersPage;
 
 public class BP_CommonStepDef {
 
-    Logger logger= LoggerFactory.getLogger(BP_CommonStepDef.class);
+    Logger logger= LogManager.getLogger(BP_CommonStepDef.class);
+
     @Steps
     BP_HomePage bp_homePage;
 
@@ -25,13 +26,13 @@ public class BP_CommonStepDef {
 
     @Steps
     BP_NonPartyPage bp_NonPartyPage;
-    
+
     @Steps
     BP_PaymentPage bp_PaymentPage;
-    
+
     @Steps
     BP_ViewOrdersPage bp_ViewOrdersPage;
-    
+
     @Steps
     BP_OrderInformationPage bp_OrderInformationPage;
 
@@ -50,6 +51,16 @@ public class BP_CommonStepDef {
                 break;
             case "Personal Report: Payment Summary":
                 Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.paymentSummaryReportOpened());
+                break;
+            case "Personal Report: Personal History":
+                Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.personalHistoryReportOpened());
+                break;
+            case "Personal Report: Year End Report Summary":
+                Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.yearEndReportOpened());
+                break;
+            case "Custom Report: Contact Listing":
+            case "Custom Report: Weekly Custom Report":
+                Assert.assertTrue("User is not navigated to "+pageName+" page", bp_businessDashboardPage.customReportOpened());
                 break;
             case "Payment Options ":
                 Assert.assertTrue("User is not navigated to "+pageName+" page",bp_PaymentPage.navigateToPage());
@@ -86,7 +97,7 @@ public class BP_CommonStepDef {
             	bp_OrderInformationPage.clicktoElement(elementName);
                 logger.info("User has clicked +" + elementName + " on " + pageName + " page");
                 break;
-            
+
         }
     }
 

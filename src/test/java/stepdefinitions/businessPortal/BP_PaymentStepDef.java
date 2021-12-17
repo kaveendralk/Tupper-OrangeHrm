@@ -2,9 +2,9 @@ package stepdefinitions.businessPortal;
 
 import static org.junit.Assert.assertTrue;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -12,8 +12,8 @@ import net.thucydides.core.annotations.Steps;
 import pages.businessPortal.BP_PaymentPage;
 
 public class BP_PaymentStepDef {
-	
-	Logger logger= LoggerFactory.getLogger(BP_PaymentStepDef.class);
+
+Logger logger= LogManager.getLogger(BP_NonPartyStepDef.class);
 
 	@Steps
 	BP_PaymentPage bp_PaymentPage;

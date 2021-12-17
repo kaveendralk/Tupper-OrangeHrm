@@ -10,22 +10,19 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.NoSuchElementException;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
 import net.serenitybdd.core.pages.PageObject;
 
 import utils.UiBase;
 
 public class BP_ProductListAction extends PageObject{
 
-	Logger logger= LoggerFactory.getLogger(BP_ProductListAction.class);
+	Logger logger= LogManager.getLogger(BP_ProductListAction.class);
 
 	public UiBase uiBase = new UiBase();
 	public static String productTitle;
@@ -195,7 +192,7 @@ public class BP_ProductListAction extends PageObject{
 			{
 				System.out.println("Added Product present in cart");
 			}
-
+			
 			logger.info("User verified added product in cart");
 			return true;		
 		}catch(NoSuchElementException e) {
@@ -212,7 +209,7 @@ public class BP_ProductListAction extends PageObject{
 			if(uiBase.isElementDisplayed("SalesPage:deleteIcon")) {
 				logger.info("Delete Icon exist On Page");
 				return true;
-			}	
+			}
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
 		}

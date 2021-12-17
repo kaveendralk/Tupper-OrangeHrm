@@ -3,17 +3,17 @@ package pagesActions.businessPortal;
 
 import java.util.NoSuchElementException;
 
+import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import net.serenitybdd.core.pages.PageObject;
 import utils.UiBase;
 
 public class BP_PaymentAction extends PageObject{
 
-	Logger logger= LoggerFactory.getLogger(BP_PaymentAction.class);
+Logger logger= LogManager.getLogger(BP_PaymentAction.class);
 
 	public UiBase uiBase = new UiBase();
 	

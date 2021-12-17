@@ -38,27 +38,42 @@ public class UiBase extends PageObject {
     public String BP_TestData_File = "src/test/resources/testData/businessPortalTestData.json";
 
     private static String mainWindowHandle;
-
+    /*
+    Wait for specific time- Static wait
+    */
     public void  getWaitForload() throws InterruptedException
     {
     	Thread.sleep(10000);
     }
+
+    /*
+    Click on any web element based on locator path passed in JSON
+    */
     public void clickElement(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         element.click();
     }
 
+    /*
+    Enter value to any text field based on locator path passed in JSON
+    */
     public void enterText(String locatorPath, String textToEnter) {
         WebElement element = getElementFromJson(locatorPath);
         element.sendKeys(textToEnter);
     }
 
+    /*
+    Clear any text field and enter value to any text field based on locator path passed in JSON
+    */
     public void clearAndFillText(String locatorPath, String textToEnter) {
         WebElement element = getElementFromJson(locatorPath);
         element.clear();
         element.sendKeys(textToEnter);
     }
 
+    /*
+    Get the text of any web element based on locator path passed in JSON
+    */
     public String getText(String locatorPath) {
         String text = "";
         WebElement element = getElementFromJson(locatorPath);
@@ -70,11 +85,17 @@ public class UiBase extends PageObject {
         }
     }
 
+    /*
+    Clear any text field based on locator path passed in JSON
+    */
     public void clear(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         element.clear();
     }
 
+    /*
+    Check whether web element is enabled or not based on locator path passed in JSON
+    */
     public boolean isElementEnabled(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         try {
@@ -84,6 +105,9 @@ public class UiBase extends PageObject {
         }
     }
 
+    /*
+        Check whether element is displayed or not based on locator path passed in JSON
+        */
     public boolean isElementDisplayed(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         try {
@@ -93,12 +117,18 @@ public class UiBase extends PageObject {
         }
     }
 
+    /*
+    Get the value of any element based on some attribute based on locator path passed in JSON
+    */
     public String getAttributeValue(String locatorPath, String attributeName) {
         WebElement element = getElementFromJson(locatorPath);
         return element.getAttribute(attributeName);
 
     }
 
+    /*
+    Read data from the JSON file
+    */
     public Object jsonReader(String jsonFilePath, String key) {
         JSONParser parser = new JSONParser();
         Object obj = null;
@@ -114,8 +144,9 @@ public class UiBase extends PageObject {
         return null;
     }
 
-
-    //Modify this to accept two parameters - pageName, loactorPath
+    /*
+        Get the value from JSON file based on key
+        */
     public String getLocatorFromJson(String locatorPath) {
         String json = null;
         try {
@@ -131,6 +162,10 @@ public class UiBase extends PageObject {
         return elementXpath;
     }
 
+    /*
+        Get the value from JSON file
+        */
+
     public WebElement getElementFromJson(String locatorPath) {
         String elementXpath = getLocatorFromJson(locatorPath);
         WebElement foundElement = null;
@@ -144,31 +179,18 @@ public class UiBase extends PageObject {
         }
         return foundElement;
     }
-/*Added*/
-    public List<WebElement> getElementsFromJson(String locatorPath) {
-    	String elementXpath = getLocatorFromJson(locatorPath);
-    	List<WebElement> foundElement = null;
-        try {
-        	if (elementXpath.startsWith("//") || elementXpath.startsWith("(//")) {
-//               return foundElement = $(By.xpath(elementXpath));
-               return foundElement= getDriver().findElements(By.xpath(elementXpath));
-        	} else {
-                foundElement = $(By.cssSelector(elementXpath));
-        	}
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
-    public String getTestDataFromJson(String locatorPath) {
+    /*
+           Read the test data from JSON
+            */
+    public String getTestDataFromJson(String testDataPath) {
         String json = null;
         try {
             json = new String(Files.readAllBytes(Paths.get(BP_TestData_File)));
         } catch (IOException e1) {
         }
         JSONObject obj = new JSONObject(json);
-        String[] elements = locatorPath.split(":");
+        String[] elements = testDataPath.split(":");
         for (int i = 0; i < elements.length - 1; i++) {
             obj = obj.getJSONObject(elements[i]);
         }
@@ -176,6 +198,26 @@ public class UiBase extends PageObject {
         return elementXpath;
     }
 
+    /*Fecth List of Webelements*/
+    public List<WebElement> getElementsFromJson(String locatorPath) {
+        String elementXpath = getLocatorFromJson(locatorPath);
+        List<WebElement> foundElement = null;
+        try {
+            if (elementXpath.startsWith("//") || elementXpath.startsWith("(//")) {
+//               return foundElement = $(By.xpath(elementXpath));
+                return foundElement= getDriver().findElements(By.xpath(elementXpath));
+            } else {
+                foundElement = $(By.cssSelector(elementXpath));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /*
+            Check whether checkbox is selected. If not, then select
+            */
     public boolean selectCheckBox(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         if (element.isSelected()) {
@@ -186,6 +228,9 @@ public class UiBase extends PageObject {
         }
     }
 
+    /*
+        Unselect the checkbox if not selected
+        */
     public boolean unSelectCheckBox(String locatorPath) {
         WebElement element = getElementFromJson(locatorPath);
         if (element.isSelected()) {
@@ -801,5 +846,4 @@ public class UiBase extends PageObject {
         }
         return false;
     }
-    
 }

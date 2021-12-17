@@ -3,16 +3,16 @@ package stepdefinitions.businessPortal;
 import cucumber.api.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.EnvironmentVariables;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pages.businessPortal.BP_LoginPage;
 
 public class BP_LoginStepDef {
 
-    Logger logger= LoggerFactory.getLogger(BP_LoginStepDef.class);
+    Logger logger= LogManager.getLogger(BP_LoginStepDef.class);
+
     @Steps
     BP_LoginPage bp_loginPage;
 
