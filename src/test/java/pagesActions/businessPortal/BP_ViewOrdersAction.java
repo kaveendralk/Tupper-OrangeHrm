@@ -1,11 +1,6 @@
 package pagesActions.businessPortal;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -15,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import net.serenitybdd.core.pages.PageObject;
 
 import utils.UiBase;
+
+import static org.junit.Assert.assertEquals;
 
 public class BP_ViewOrdersAction extends PageObject{
 
@@ -92,7 +89,7 @@ public class BP_ViewOrdersAction extends PageObject{
 			for (int i =0;i<rows.size();i++)
 			{    
 				orderNumber= uiBase.getText("ViewOrder:txtOrderNumber");
-				productStatus=uiBase.getText("ViewOrder:txtOrderStatus"); 
+				productStatus=uiBase.getText("ViewOrder:txtOrderStatus");
 				assertEquals(searchedOrderNumber,orderNumber);
 				assertEquals(Orderstatus,productStatus);
 				return true;
