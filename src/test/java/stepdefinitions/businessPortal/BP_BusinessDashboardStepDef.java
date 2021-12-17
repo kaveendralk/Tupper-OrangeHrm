@@ -1,22 +1,22 @@
 package stepdefinitions.businessPortal;
 
 import cucumber.api.PendingException;
+import groovy.util.logging.Log;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
+import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import pages.businessPortal.BP_BusinessDashboardPage;
 import pages.businessPortal.BP_HomePage;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
 
 public class BP_BusinessDashboardStepDef {
-
-    Logger logger= LoggerFactory.getLogger(BP_BusinessDashboardStepDef.class);
+    Logger logger= LogManager.getLogger(BP_BusinessDashboardStepDef.class);
 
     @Steps
     BP_BusinessDashboardPage bp_businessDashboardPage;
@@ -46,6 +46,17 @@ public class BP_BusinessDashboardStepDef {
         }
     }
 
+
+
+    @And("User verify that year end report summary are loading correctly")
+    public void navigateToYearEndReportAndVerify() throws Exception {
+        HashMap<String, Boolean> map= bp_businessDashboardPage.yearEndReportLoaded();
+        for(String key: map.keySet()){
+            if(!map.get(key)){
+            }
+            Assert.assertTrue(key, map.get(key));
+        }
+    }
 
 
 

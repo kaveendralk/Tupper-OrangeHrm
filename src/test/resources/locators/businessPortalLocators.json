@@ -13,6 +13,12 @@
          "lnkPaymentSummary": "//a[contains( text(), 'Payment Summary')]",
          "lnkYearEndSummary": "//a[contains( text(), 'Year End Report Summary')]",
          "lnkPersonalHistory": "//a[contains( text(), 'Personal History')]",
+         "lnkContactListingCustom": "//a[contains( text(), 'Contact Listing')]",
+         "lnkWeeklyCustomReport": "//a[contains( text(), 'Weekly Custom Report')]",
+         "lnkTitleStepUp": "//a[contains( text(), 'Title Step Up')]",
+         "lblContactListing": "//h2[contains( text(), 'Contact Listing')]",
+         "lblWeeklyCustomReport": "//h2[contains( text(), 'Weekly Custom Report')]",
+         "lblTitleStepUp": "//h2[contains( text(), 'Title Step Up')]",
          "lblPaymentSummary": "//h2[contains( text(), 'Payment Summary')]",
          "lblPersonalHistory": "//h2[contains( text(), 'Personal History')]",
          "lblYearEndSummary": "//h2[contains( text(), 'Year End Report Summary')]",
@@ -82,7 +88,8 @@
          "paidAmountInPaymentSummary": "//table[@id='ctl02_ReportViewerCtl_fixedTable']//tr//td//div[text()='Paid Amount']",
          "personalHistoryText": "//div[text()='Personal History']",
          "yearDropdownInPersonalHistory": "//div[@id='ctl02_ReportViewerCtl_ctl04']//span[text()='Year']",
-         "viewReportButtonInPersonalHistory": "//input[@type='submit']"
+         "viewReportButtonInPersonalHistory": "//input[@type='submit']",
+         "yearEndReportSummaryText": "//div[text()='Year End Summary Details']"
         },
       "SalesPage":{
          "btnBrowse":"//button[@class='browse-btn']",

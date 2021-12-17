@@ -2,10 +2,10 @@ package pagesActions.businessPortal;
 
 import java.util.NoSuchElementException;
 
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.interactions.Actions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import net.serenitybdd.core.pages.PageObject;
 import utils.UiBase;
 
@@ -13,7 +13,7 @@ import utils.UiBase;
 
 public class BP_NonPartyAction extends PageObject{
 
-	Logger logger= LoggerFactory.getLogger(BP_NonPartyAction.class);
+	Logger logger= LogManager.getLogger(BP_NonPartyAction.class);
 
 	public UiBase uiBase = new UiBase();
     

@@ -21,19 +21,29 @@ Feature: Validate the Login page and home page of business portal
     And User click on "Email Link" on "Login" page
 
   @HomePageUI @TC_3 @Smoke @Sanity @Demo
-  Scenario: Validate that consultant is able to see the correct UI on home page
+  Scenario Outline: Validate that consultant is able to see the correct UI on home page
     Given User is on "Business" Portal
-    And User login to the application with "CA_User" on "Business" Portal
+    And User login to the application with "<County_User>" on "Business" Portal
     And User navigate to "Home" page
     And User verify that home page is appearing correctly
     And User verify What's new tiles
     And User verify Knowledge Center tiles
 
+    Examples:
+      | County_User |
+      | CA_User     |
+      | US_User     |
+
   @HomePageUI @TC_4 @Smoke @Demo
-  Scenario: Validate that all the links are coming in main menu under Hamburger icon
+  Scenario Outline: Validate that all the links are coming in main menu under Hamburger icon
     Given User is on "Business" Portal
-    And User login to the application with "CA_User" on "Business" Portal
+    And User login to the application with "<County_User>" on "Business" Portal
     And User navigate to "Home" page
     And User click on "Hamburger Icon" from side menu
     And User verify that all the menu links are coming correctly
+
+    Examples:
+      | County_User |
+      | CA_User     |
+      | US_User     |
 

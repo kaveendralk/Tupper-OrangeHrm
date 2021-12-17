@@ -4,8 +4,9 @@ import io.vavr.collection.List;
 import javafx.collections.MapChangeListener;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import stepdefinitions.businessPortal.BP_ProductListStepDef;
 import utils.UiBase;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BP_BusinessDashboardAction extends PageObject {
 
-    Logger logger = LoggerFactory.getLogger(BP_BusinessDashboardAction.class);
+    Logger logger = LogManager.getLogger(BP_BusinessDashboardAction.class);
 
     ArrayList<String> list = new ArrayList<>();
 
@@ -37,7 +38,7 @@ public class BP_BusinessDashboardAction extends PageObject {
             if (uiBase.isElementDisplayed("BusinessDashboardPage:thisMonthTabActive")) {
 /*Applicable for Director role
                 list.add("BusinessDashboardPage:teamSection"); */
-               list.add("BusinessDashboardPage:potentialEarningsSection");
+                list.add("BusinessDashboardPage:potentialEarningsSection");
 //                list.add("BusinessDashboardPage:tabWYD");
                 for (int i = 0; i < list.size(); i++) {
                     if (uiBase.isElementDisplayed(list.get(i))) {
@@ -71,7 +72,7 @@ public class BP_BusinessDashboardAction extends PageObject {
 
     public boolean paymentSummaryPersonalReportOpened() throws InterruptedException {
         uiBase.getWaitForload();
-        if(uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryHeading", 60))   {
+        if (uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryHeading", 60)) {
             return true;
         }
         return false;
@@ -79,87 +80,90 @@ public class BP_BusinessDashboardAction extends PageObject {
 
     public boolean personalHistoryReportOpened() throws InterruptedException {
         uiBase.getWaitForload();
-        if(uiBase.waitUntilElementDisplayed("BusinessPage:lblPersonalHistory", 60))   {
+        if (uiBase.waitUntilElementDisplayed("BusinessPage:lblPersonalHistory", 60)) {
             return true;
         }
         return false;
     }
 
-    public HashMap<String, Boolean> paymentSummaryReportLoading() throws InterruptedException {
-        HashMap<String,Boolean> map = new HashMap<String, Boolean>();
+    public boolean yearEndReportOpened() throws InterruptedException {
         uiBase.getWaitForload();
-            if(uiBase.isElementDisplayed("BusinessPage:paymentDateText")){
-                map.put("Payment Date dropdown is visible", true);
-            }else{
-                map.put("Payment Date dropdown is not visible", false);
-            }
-            if(uiBase.isElementDisplayed("BusinessPage:viewReportButtonInPaymentSummary")){
-                map.put("View Report button is visible", true);
-            }else{
-                map.put("View Report button is not visible", false);
-            }
-        if(uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryText", 30)){
+        if (uiBase.waitUntilElementDisplayed("BusinessPage:lblYearEndSummary", 60)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean customReportOpened() throws InterruptedException {
+        uiBase.getWaitForload();
+        if (uiBase.waitUntilElementDisplayed("BusinessDashboardPage:lblContactListing", 30) ||
+        uiBase.waitUntilElementDisplayed("BusinessDashboardPage:lblWeeklyCustomReport", 30)) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+    public HashMap<String, Boolean> paymentSummaryReportLoading() throws InterruptedException {
+        HashMap<String, Boolean> map = new HashMap<String, Boolean>();
+        uiBase.getWaitForload();
+        if (uiBase.isElementDisplayed("BusinessPage:paymentDateText")) {
+            map.put("Payment Date dropdown is visible", true);
+        } else {
+            map.put("Payment Date dropdown is not visible", false);
+        }
+        if (uiBase.isElementDisplayed("BusinessPage:viewReportButtonInPaymentSummary")) {
+            map.put("View Report button is visible", true);
+        } else {
+            map.put("View Report button is not visible", false);
+        }
+        if (uiBase.waitUntilElementDisplayed("BusinessPage:paymentSummaryText", 30)) {
             map.put("Payment Summary text is visible", true);
-        }else{
+        } else {
             map.put("Payment Summary text is not visible", false);
         }
-            if(uiBase.waitUntilElementDisplayed("BusinessPage:dateColumnInPaymentSummary", 30) &&
-            uiBase.waitUntilElementDisplayed("BusinessPage:descriptionColumnInPaymentSummary", 30) && uiBase.waitUntilElementDisplayed("BusinessPage:amountInPaymentSummary", 30)
-            && uiBase.waitUntilElementDisplayed("BusinessPage:adjustmentInPaymentSummary", 30) && uiBase.waitUntilElementDisplayed("BusinessPage:paidAmountInPaymentSummary", 30)){
-                map.put("Date or Description or Amount or Adjustment or Paid Amount are visible", true);
-            }else{
-                map.put("Date or Description or Amount or Adjustment or Paid Amount or all of them are not visible", false);
-            }
+        if (uiBase.waitUntilElementDisplayed("BusinessPage:dateColumnInPaymentSummary", 30) &&
+                uiBase.waitUntilElementDisplayed("BusinessPage:descriptionColumnInPaymentSummary", 30) && uiBase.waitUntilElementDisplayed("BusinessPage:amountInPaymentSummary", 30)
+                && uiBase.waitUntilElementDisplayed("BusinessPage:adjustmentInPaymentSummary", 30) && uiBase.waitUntilElementDisplayed("BusinessPage:paidAmountInPaymentSummary", 30)) {
+            map.put("Date or Description or Amount or Adjustment or Paid Amount are visible", true);
+        } else {
+            map.put("Date or Description or Amount or Adjustment or Paid Amount or all of them are not visible", false);
+        }
         return map;
 
     }
 
     public HashMap<String, Boolean> personalHistoryReportLoading() throws InterruptedException {
-        HashMap<String,Boolean> map = new HashMap<String, Boolean>();
+        HashMap<String, Boolean> map = new HashMap<String, Boolean>();
         uiBase.getWaitForload();
-        if(uiBase.isElementDisplayed("BusinessPage:personalHistoryText")){
+        if (uiBase.isElementDisplayed("BusinessPage:personalHistoryText")) {
             map.put("Personal History text is visible", true);
-        }else{
+        } else {
             map.put("Personal History text is not visible", false);
         }
-        if(uiBase.isElementDisplayed("BusinessPage:yearDropdownInPersonalHistory")){
+        if (uiBase.isElementDisplayed("BusinessPage:yearDropdownInPersonalHistory")) {
             map.put("Year dropdown is visible", true);
-        }else{
+        } else {
             map.put("Year dropdown is not visible", false);
         }
-        if(uiBase.isElementDisplayed("BusinessPage:viewReportButtonInPersonalHistory")){
+        if (uiBase.isElementDisplayed("BusinessPage:viewReportButtonInPersonalHistory")) {
             map.put("View Report button is visible", true);
-        }else{
+        } else {
             map.put("View Report button is not visible", false);
         }
         return map;
     }
 
-public boolean navigateToCreatePersonalOrderPage()throws InterruptedException{
-        try{
-        getDriver().manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:hambergerMenu");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkSales");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkPersonalOrder");
-        return true;
-        }catch(NoSuchElementException e){
-        e.printStackTrace();
+    public HashMap<String, Boolean> yearEndReportLoaded() throws InterruptedException {
+        HashMap<String, Boolean> map = new HashMap<String, Boolean>();
+        uiBase.getWaitForload();
+        uiBase.getWaitForload();
+        if (uiBase.isElementDisplayed("BusinessPage:lblYearEndSummary")) {
+            map.put("Year End Report Summary text is visible", true);
+        } else {
+            map.put("Year End Report Summary text is not visible", false);
         }
-        return false;
-        }
-
-
-/* Navigate to create party */
-public boolean navigateToCreateParty()throws InterruptedException{
-        try{
-        getDriver().manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:hambergerMenu");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkSales");
-//			elementUtils.clickElement(getDriver(),"Tupperware.json","BusinessDashboardPage:lnkPartyOrder");
-        return true;
-        }catch(NoSuchElementException e){
-        e.printStackTrace();
-        }
-        return false;
-        }
-        }
+        return map;
+    }
+}

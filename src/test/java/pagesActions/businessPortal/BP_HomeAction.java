@@ -1,16 +1,14 @@
 package pagesActions.businessPortal;
 
 import net.serenitybdd.core.pages.PageObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import stepdefinitions.businessPortal.BP_HomeStepDef;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.UiBase;
 
 import java.util.HashMap;
 
 public class BP_HomeAction extends PageObject {
-
-    Logger logger = LoggerFactory.getLogger(BP_HomeAction.class);
+    Logger logger= LogManager.getLogger(BP_HomeAction.class);
     UiBase uiBase = new UiBase();
 
     public boolean PageOpened() {
@@ -50,9 +48,18 @@ public class BP_HomeAction extends PageObject {
             case "Browse Products":
            	 uiBase.clickElement("BusinessDashboardPage:lnkSales");
                 break;
-            case "Manage Parties":
+            case "Year End Report":
+                uiBase.clickElement("BusinessDashboardPage:lnkYearEndSummary");
                 break;
-
+            case "Custom Reports":
+                uiBase.clickElement("BusinessDashboardPage:lnkCustomReports");
+                break;
+            case "Contact Listing":
+                uiBase.clickElement("BusinessDashboardPage:lnkContactListingCustom");
+                break;
+            case "Weekly Custom Report":
+                uiBase.clickElement("BusinessDashboardPage:lnkWeeklyCustomReport");
+                break;
         }
     }
 
